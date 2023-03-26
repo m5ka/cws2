@@ -128,11 +128,16 @@ TEMPLATES = [
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 DATABASES = {
-    "default": env.db(
-        "DATABASE_URL",
-        engine="mysql",
-        default="mysql://localhost:3306/cws2",
-    )
+    "default": {
+        **env.db(
+            "DATABASE_URL",
+            engine="mysql",
+            default="mysql://localhost:3306/cws2",
+        ),
+        "OPTIONS": {
+            "charset": "utf8mb4",
+        },
+    }
 }
 
 
