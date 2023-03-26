@@ -6,14 +6,19 @@ body > .container
     > nav.breadcrumb
         background: white
         border-bottom: 1px solid $lighter-grey
-        padding: 1.2rem 0
+        padding: 1.2rem $gutter-margin
+        overflow-x: auto
+        white-space: nowrap
 
         ul
             display: flex
             flex-flow: row nowrap
             max-width: $max-width
             margin: 0 auto
-            font-size: $font-small
+            font-size: $font-tiny
+
+            @include desktop
+                font-size: $font-small
 
             li
                 color: $darker-grey
@@ -27,11 +32,17 @@ body > .container
     > header
         max-width: $max-width
         margin: 0 auto
-        padding: 2rem 0 1.6rem 0
-        display: flex
-        flex-flow: row nowrap
+        padding: 1.6rem $gutter-margin 1.6rem $gutter-margin
+        display: grid
+        grid-template-columns: auto 1fr
         column-gap: 1.2rem
+        row-gap: 1.2rem
+        justify-content: flex-start
         align-items: center
+
+        @include desktop
+            grid-template-columns: auto 1fr auto
+            padding: 2rem $gutter-margin 1.6rem $gutter-margin
 
         > i
             color: $light-grey
@@ -48,15 +59,22 @@ body > .container
                 margin: 0 auto
         
         > .page-actions
-            margin-left: auto
+            grid-column: 1 / span 2
             display: flex
             flex-flow: row nowrap
             align-items: center
             column-gap: 1.2rem
 
+            &:empty
+                display: none
+
+            @include desktop
+                grid-column: auto
+
     > .messages
         max-width: $max-width
         margin: 0 auto 1.2rem auto
+        padding: 0 $gutter-margin
 
         display: flex
         flex-flow: column nowrap
@@ -104,13 +122,20 @@ body > .container
     
     > main
         max-width: $max-width
-        margin: 0 auto 3.2rem auto
+
+        @include desktop
+            margin: 0 auto 3.2rem auto
 
         &.block
             padding: 1.6rem 2rem
             background: white
-            border: 1px solid $lighter-grey
-            border-radius: $radius
+            border-style: solid
+            border-color: $lighter-grey
+            border-width: 1px 0 1px 0
             display: flex
             flex-flow: column nowrap
             row-gap: .8rem
+
+            @include desktop
+                border-width: 1px
+                border-radius: $radius

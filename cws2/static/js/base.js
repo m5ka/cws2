@@ -60,10 +60,19 @@ class DropdownMenu {
 window.addEventListener("load", function() {
     window.dropdowns = [];
     window.autoSlugs = [];
+    // dropdown toggles
     document.querySelectorAll(".dropdown").forEach(function(dropdown) {
         window.dropdowns.push(new DropdownMenu(dropdown));
     });
+    // auto slug
     document.querySelectorAll("form[data-auto-slug][data-auto-slug-from]").forEach(function(autoSlugForm) {
         window.autoSlugs.push(new AutoSlug(autoSlugForm));
+    });
+    // mobile menu toggle
+    const headerElement = document.querySelector("body>header");
+    document.querySelector(".hamburger").addEventListener("click", function(event) {
+        event.preventDefault();
+        headerElement.classList.toggle("show");
+        return false;
     });
 });

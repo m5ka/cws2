@@ -1,17 +1,22 @@
 @import "../globals"
     
 form
-    display: grid
-    grid-template-columns: 1fr 1fr
+    display: flex
+    flex-flow: column nowrap
     row-gap: 1.6rem
-    column-gap: 1.2rem
-    align-items: baseline
+
+    @include desktop
+        display: grid
+        grid-template-columns: 1fr 1fr
+        column-gap: 1.2rem
+        align-items: baseline
 
     .errors
         grid-column: 1 / span 2
         display: flex
         flex-flow: column nowrap
         row-gap: .4rem
+        padding: 0
 
         li
             background: lighten($red, 7%)
@@ -46,6 +51,7 @@ form
             font-family: $font-stack
             border-radius: $radius
             background: white
+            width: 100%
 
             &:focus
                 outline: $outline-width solid var(--page-colour)
@@ -73,14 +79,18 @@ form
             .prefix
                 display: flex
                 align-items: center
-                font-size: $font-small
+                font-size: $font-tiny
                 color: $dark-grey
                 background: $lightest-grey
                 border: 1px solid $light-grey
                 border-right: none
                 font-family: $font-stack
                 border-radius: $radius 0 0 $radius
-                padding: .2rem .8rem
+                padding: .2rem .4rem
+
+                @include desktop
+                    font-size: $font-small
+                    padding: .2rem .8rem
             
             input, select
                 border-radius: 0 $radius $radius 0
@@ -89,6 +99,13 @@ form
         .helptext
             font-size: $font-tiny
             color: $dark-grey
+
+            ul
+                list-style: none
+                padding: 0
+                display: flex
+                flex-flow: column nowrap
+                row-gap: .4rem
     
     .actions
         grid-column: 1 / span 2
