@@ -1,0 +1,21 @@
+{% extends "cws2/base.jinja" %}
+
+{% block breadcrumb_current %}<li aria-current="page">@{{ this_user.username }}</li>{% endblock breadcrumb_current %}
+
+{% block page_icon %}<i class="fa-solid fa-user"></i>{% endblock page_icon %}
+
+{% block page_title %}{{ this_user.username }}{% endblock page_title %}
+
+{% block page_content %}
+<p><em>{{ this_user.username }}'s profile is empty right now.</em></p>
+{% set languages = this_user.languages.all() %}
+{% if languages %}
+    <hr>
+    <h3>{{ this_user.username }}'s languages</h3>
+    <ul>
+    {% for language in languages %}
+        <li><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}

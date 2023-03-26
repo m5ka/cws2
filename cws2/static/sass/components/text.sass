@@ -1,0 +1,64 @@
+@import "../globals"
+    
+body
+    > .container > main
+        ul, ol
+            padding-left: 3.2rem
+
+        ul
+            list-style: disc
+        
+        ol
+            list-style: decimal
+
+    h2
+        font-size: 2.2rem
+        font-weight: bold
+
+    h3
+        font-size: 1.8rem
+        font-weight: bold
+
+    em
+        font-style: italic
+
+    strong
+        font-weight: bold
+    
+    .small
+        font-size: $font-small
+    
+    .tiny
+        font-size: $font-tiny
+
+    .columns
+        display: flex
+        flex-flow: row wrap
+        column-gap: 1.6rem
+
+        &.columns-centered
+            justify-content: center
+    
+    .centered
+        margin: 0 auto
+    
+    .max-width
+        max-width: $max-width
+    
+    .margin-bottom
+        margin-bottom: 1.6rem
+
+    hr
+        border: solid $lighter-grey
+        border-width: 0 0 1px 0
+        width: 90%
+        margin: 1.4rem auto 1.2rem auto
+    
+    .text-green
+        color: $green
+    
+    .text-yellow
+        color: darken($yellow, 5%)
+    
+    .text-blue
+        color: $blue

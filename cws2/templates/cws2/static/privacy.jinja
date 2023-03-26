@@ -1,0 +1,39 @@
+{% extends "cws2/base.jinja" %}
+
+{% block breadcrumb_links %}{% endblock breadcrumb_links %}
+
+{% block breadcrumb_current %}<li aria-current="page">Privacy Policy</li>{% endblock breadcrumb_current %}
+
+{% block page_icon %}<i class="fa-solid fa-user-secret"></i>{% endblock page_icon %}
+
+{% block page_title %}Privacy Policy{% endblock page_title %}
+
+{% block page_content %}
+<p>Your privacy matters a lot to us which is why we've done our best to simplify our privacy policy and make it as clear as possible.</p>
+<p>If you have any questions or concerns regarding the policy or procedures laid out in the policy, please feel free to <a href="{{ url('contact') }}">get in touch</a>.</p>
+<p>By using the website, <strong>you hereby consent</strong> to this Privacy Policy and agree to its terms.</p>
+<hr>
+<h3>What data do we hold?</h3>
+<p>Upon registration, ConWorkShop only requires the following personal information: email address, password, username and display name. You may choose to voluntarily share more information publicly as expressed via board posts, comments, languages, articles and/or profile fields (such as gender, location and description) at your own discretion.</p>
+<p>ConWorkShop login uses your email address and password to log you in, and cookies are stored on your computer in order to complete the login process. Additionally, your IP address(es) are collected in order to ensure that ConWorkShop is a safe and friendly environment. ConWorkShop will never use the cookies saved to your computer or your IP address(es) for marking or solicitation.</p>
+<hr>
+<h3>Data privacy</h3>
+<p>All information on ConWorkShop is stored only for the purpose of its use on the website. We <strong>do not</strong> send any data to third parties and we ensure that the reason for our collecting data is clear when we ask for it.</p>
+<p>The only exception is that we may use anonymizable data points such as the number of users and the dates they signed up in order to generate statistics about how many people are using our website. Statistics such as these, however, will only be collected and used by ConWorkShop and we will not give this information to third parties.</p>
+<hr>
+<h3>Your rights</h3>
+<p>Every user of our website is entitled to the following:</p>
+<ul>
+    <li><strong>Access</strong> - You have the right to request copies of your personal data.</li>
+    <li><strong>Rectification</strong> - You have the right to request that we correct any information you believe to be inaccurate. You also have the right to request that we complete any information you believe to be incomplete.</li>
+    <li><strong>Erasure</strong> - You have the right to request that we erase your personal data, under certain conditions.</li>
+    <li><strong>Restrict processing</strong> - You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+    <li><strong>Object processing</strong> - You have the right to object to our processing of your personal data, under certain conditions.</li>
+    <li><strong>Data portability</strong> - You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+</ul>
+<p>To exercise any of these rights, please <a href="{{ url('contact') }}">get in touch</a>.</p>
+<hr>
+<h3>Children's information</h3>
+<p>Protection of children online is a large priority for us and we encourage any parents to be aware of and guide their childrens' online activity.</p>
+<p>ConWorkShop does not knowingly collect any personal identifiable information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best to promptly remove such information from our records.</p>
+{% endblock page_content %}

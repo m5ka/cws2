@@ -1,0 +1,164 @@
+@import "../globals"
+
+body > header
+    background: var(--page-colour)
+    position: sticky
+    top: 0
+    color: white
+    padding: 2rem 0
+
+    nav, .brand
+        max-width: $max-width
+        margin: 0 auto
+
+    .brand
+        a
+            color: var(--page-text)
+            font-size: 2.4rem
+            font-weight: bold
+            text-decoration: none
+
+            &:focus
+                outline-color: var(--page-link)
+
+    nav
+        > ul
+            display: flex
+            flex-flow: row nowrap
+            align-items: center
+            column-gap: 2.6rem
+
+            > li
+                > a
+                    position: relative
+                    text-decoration: none
+                    color: var(--page-text)
+
+                    &:focus
+                        outline: none
+
+                &.dropdown
+                    --dropdown-background: #{$light-grey}
+                    --dropdown-color: white
+                    --dropdown-color-subtle: #ddd
+                    --dropdown-border: #{$light-grey}
+
+                    &.dropdown-green
+                        --dropdown-background: #{lighten($green, 6%)}
+                        --dropdown-color-subtle: #{lighten($green, 38%)}
+                        --dropdown-border: #{$green}
+                    
+                    &.dropdown-blue
+                        --dropdown-background: #{lighten($blue, 6%)}
+                        --dropdown-color-subtle: #{lighten($blue, 35%)}
+                        --dropdown-border: #{$blue}
+                    
+                    &.dropdown-yellow
+                        --dropdown-background: #{lighten($yellow, 6%)}
+                        --dropdown-color: #{darken($yellow, 30%)}
+                        --dropdown-color-subtle: #{darken($yellow, 10%)}
+                        --dropdown-border: #{$yellow}
+                    
+                    &.dropdown-orange
+                        --dropdown-background: #{lighten($orange, 6%)}
+                        --dropdown-color-subtle: #{lighten($orange, 35%)}
+                        --dropdown-border: #{$orange}
+                    
+                    &.dropdown-purple
+                        --dropdown-background: #{lighten($purple, 6%)}
+                        --dropdown-color-subtle: #{lighten($purple, 35%)}
+                        --dropdown-border: #{$purple}
+
+                    > a::after
+                        content: ""
+                        display: inline-block
+                        margin-left: .4rem
+                        border: solid white
+                        border-width: 0 2px 2px 0
+                        opacity: .65
+                        width: 7px
+                        height: 7px
+                        transform: rotate(45deg) translateY(-.25em)
+
+                    > .dropdown-expandable
+                        display: none
+                        background: var(--dropdown-background)
+                        border-bottom: 4px solid var(--dropdown-border)
+                        box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.1)
+                        padding: 1.2rem 2rem
+                        position: absolute
+                        left: 0
+                        right: 0
+                        margin-top: 2rem
+
+                        > ul
+                            max-width: $max-width
+                            margin: 0 auto
+                            display: flex
+                            flex-flow: column nowrap
+                            align-items: flex-start
+
+                            > li
+                                a
+                                    text-decoration: none
+                                    color: var(--dropdown-color)
+                                    position: relative
+
+                                    &:focus
+                                        outline-color: var(--dropdown-color-subtle)
+                                    
+                                    i
+                                        position: absolute
+                                        right: 100%
+                                        top: 15%
+                                        margin-right: .8rem
+                                        opacity: .7
+                                
+                                &.label
+                                    font-size: $font-tiny
+                                    font-weight: bold
+                                    text-transform: uppercase
+                                    color: var(--dropdown-color-subtle)
+
+                                    &:first-child
+                                        margin-top: .4rem
+
+                                    &:not(:first-child)
+                                        margin-top: 1.2rem
+
+                    &.open
+                        > a
+                            &::after
+                                opacity: 1
+
+                            &::before
+                                $arrow-size: 8px
+
+                                content: ""
+                                display: block
+                                position: absolute
+                                width: 0
+                                height: 0
+                                margin-bottom: -2.1rem
+                                left: 38%
+                                bottom: 0
+                                z-index: 999
+                                border-left: $arrow-size solid transparent
+                                border-right: $arrow-size solid transparent
+                                border-bottom: $arrow-size solid var(--dropdown-background)
+
+                        > .dropdown-expandable
+                            display: block
+
+                &.nav-end
+                    margin-left: auto
+
+                    &.dropdown
+                        > .dropdown-expandable
+                            > ul
+                                align-items: flex-end
+
+                                > li a
+                                    i
+                                        left: 100%
+                                        margin-left: 1rem

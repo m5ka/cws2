@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ConWorkShop</title>
+        <link rel="stylesheet" href="{{ static('css/base.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ static('fontawesomefree/css/fontawesome.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ static('fontawesomefree/css/solid.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ static('fontawesomefree/css/brands.css') }}" type="text/css">
+    </head>
+    <body class="body-{{ body_colour }}">
+        <header>
+            <div class="brand">
+                <a href="/">conworkshop</a>
+            </div>
+            <nav>
+                <ul>
+                    {% if request.user.is_authenticated %}
+                        <li class="dropdown dropdown-green">
+                            <a class="dropdown-toggle" href="#">Languages</a>
+                            <div class="dropdown-expandable">
+                                <ul>
+                                    <li class="label">Language</li>
+                                    <li>
+                                        <a href="{{ url('language.index') }}">
+                                            <i class="fa-solid fa-book"></i>
+                                            My languages
+                                        </a>
+                                    </li>
+                                    <li class="label">Content</li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            Articles
+                                        </a>
+                                    </li>
+                                    <li class="label">Actions</li>
+                                    <li>
+                                        <a href="{{ url('language.new') }}">
+                                            <i class="fa-solid fa-plus"></i>
+                                            New language
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-yellow">
+                            <a class="dropdown-toggle" href="#">Tools</a>
+                            <div class="dropdown-expandable">
+                                <ul>
+                                    <li class="label">Tools</li>
+                                    <li><a href="#">Something</a></li>
+                                    <li><a href="#">Something</a></li>
+                                    <li><a href="#">Something</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="dropdown dropdown-blue">
+                            <a class="dropdown-toggle" href="#">Community</a>
+                            <div class="dropdown-expandable">
+                                <ul>
+                                    <li class="label">Boards</li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-comments"></i>
+                                            Boards
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-comment"></i>
+                                            Recent posts
+                                        </a>
+                                    </li>
+                                    <li class="label">Community</li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-house-user"></i>
+                                            Clans
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-users"></i>
+                                            Users
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        {% if request.user.is_staff %}
+                            <li class="dropdown dropdown-purple">
+                                <a class="dropdown-toggle" href="#">Admin</a>
+                                <div class="dropdown-expandable">
+                                    <ul>
+                                        <li class="label">Management</li>
+                                        <li class="label">Database</li>
+                                        <li class="label">Users</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        {% endif %}
+                        <li class="nav-end dropdown dropdown-orange">
+                            <a class="dropdown-toggle" href="#">
+                                <i class="fa-solid fa-user"></i>
+                                {{ request.user.username }}
+                            </a>
+                            <div class="dropdown-expandable">
+                                <ul>
+                                    <li class="label">Profile</li>
+                                    <li>
+                                        <a href="{{ request.user.get_absolute_url() }}">
+                                            <i class="fa-solid fa-user"></i>
+                                            My profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa-solid fa-gear"></i>
+                                            Settings
+                                        </a>
+                                    </li>
+                                    <li class="label">Actions</li>
+                                    <li>
+                                        <a href="{{ url('logout') }}">
+                                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                            Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    {% else %}
+                        <li><a href="{{ url('about') }}">About</a></li>
+                        <li class="nav-end"><a href="{{ url('login') }}">Log in</a></li>
+                        <li><a href="{{ url('register') }}">Create account</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        {% block page_container %}
+        <div class="container">
+            {% block breadcrumb_nav %}
+            <nav class="breadcrumb">
+                <ul>
+                    {% block breadcrumb_links %}
+                    <li><a href="/">Dashboard</a></li>
+                    {% endblock breadcrumb_links %}
+                    {% block breadcrumb_current %}
+                    <li aria-current="page">Page</li>
+                    {% endblock breadcrumb_current %}
+                </ul>
+            </nav>
+            {% endblock breadcrumb_nav %}
+            <header>
+                {% block page_icon %}{% endblock page_icon %}
+                <h2>{% block page_title %}{% endblock page_title %}</h2>
+                <div class="page-actions">{% block page_actions %}{% endblock page_actions %}</div>
+            </header>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <main class="block">
+                {% block page_content %}
+                {% endblock page_content %}
+            </main>
+        </div>
+        {% endblock page_container %}
+        <footer>
+            <div class="grid">
+                <ul>
+                    <li><a href="{{ url('privacy') }}">Privacy Policy</a></li>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Community Rules</a></li>
+                    <li><a href="#">Statistics &amp; Graphs</a></li>
+                    <li><a href="{{ url('donate') }}">Donate to us! (pls)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="https://facebook.com/conworkshop"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com/_conworkshop"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
+                    <li><a href="https://instagram.com/conworkshop/"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://discord.gg/7W6GEJB"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                </ul>
+                <p class="two">
+                    &copy; 2023 ConWorkShop ·
+                    <a href="#">api</a> ·
+                    <a href="https://github.com/m5ka/cws2">github</a>
+                </p>
+            </div>
+        </footer>
+        <script type="text/javascript" src="{{ static('js/base.js') }}"></script>
+    </body>
+</html>

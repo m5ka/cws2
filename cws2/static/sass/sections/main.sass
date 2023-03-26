@@ -1,0 +1,116 @@
+@import "../globals"
+
+body > .container
+    flex-grow: 1
+
+    > nav.breadcrumb
+        background: white
+        border-bottom: 1px solid $lighter-grey
+        padding: 1.2rem 0
+
+        ul
+            display: flex
+            flex-flow: row nowrap
+            max-width: $max-width
+            margin: 0 auto
+            font-size: $font-small
+
+            li
+                color: $darker-grey
+
+                &:not(:last-child)::after
+                    content: "›"
+                    display: inline-block
+                    margin: 0 1.2rem
+                    color: $grey
+    
+    > header
+        max-width: $max-width
+        margin: 0 auto
+        padding: 2rem 0 1.6rem 0
+        display: flex
+        flex-flow: row nowrap
+        column-gap: 1.2rem
+        align-items: center
+
+        > i
+            color: $light-grey
+            font-size: 2rem
+
+        > h2
+            font-size: 2.2rem
+            font-weight: bold
+            color: $darker-grey
+
+            &.special
+                font-size: 2.6rem
+                font-weight: normal
+                margin: 0 auto
+        
+        > .page-actions
+            margin-left: auto
+            display: flex
+            flex-flow: row nowrap
+            align-items: center
+            column-gap: 1.2rem
+
+    > .messages
+        max-width: $max-width
+        margin: 0 auto 1.2rem auto
+
+        display: flex
+        flex-flow: column nowrap
+        row-gap: .4rem
+
+        li
+            padding: .8rem 1.2rem 1rem 1.2rem
+            background: $light-grey
+            border-left: 4px solid $grey
+            color: $darkest-grey
+            border-radius: $radius
+            font-size: $font-small
+
+            &::before
+                content: "✉️"
+                margin-right: .2rem
+
+            &.success
+                background: lighten($green, 35%)
+                border-color: lighten($green, 15%)
+
+                &::before
+                    content: "🎉"
+            
+            &.info
+                background: lighten($blue, 30%)
+                border-color: lighten($blue, 15%)
+
+                &::before
+                    content: "ℹ️"
+            
+            &.warning
+                background: lighten($orange, 30%)
+                border-color: lighten($orange, 15%)
+
+                &::before
+                    content: "⚠️"
+            
+            &.error
+                background: lighten($red, 30%)
+                border-color: lighten($red, 15%)
+
+                &::before
+                    content: "😭"
+    
+    > main
+        max-width: $max-width
+        margin: 0 auto 3.2rem auto
+
+        &.block
+            padding: 1.6rem 2rem
+            background: white
+            border: 1px solid $lighter-grey
+            border-radius: $radius
+            display: flex
+            flex-flow: column nowrap
+            row-gap: .8rem

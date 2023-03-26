@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+
+@import "reset"
+@import "globals"
+@import "sections/header"
+@import "sections/main"
+@import "sections/footer"
+@import "components/links"
+@import "components/buttons"
+@import "components/forms"
+@import "components/text"
+
+*, *::before, *::after
+    box-sizing: border-box
+
+html
+    font-size: 62.5%
+    line-height: 1.5
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+
+body
+    padding: 0
+    margin: 0
+    display: flex
+    flex-flow: column nowrap
+    min-height: 100vh
+    line-height: $line-height
+    background: $lightest-grey
+    font-family: $font-stack
+    font-size: $font-medium
+
+    --page-colour: #{$grey}
+    --page-link: #{darken($grey, 5%)}
+    --page-text: #{$darker-grey}
+    --page-text-subtle: #{$dark-grey}
+
+    &.body-green
+        --page-colour: #{$green}
+        --page-link: #{darken($green, 5%)}
+        --page-text: white
+        --page-text-subtle: #{lighten($green, 40%)}
+    
+    &.body-blue
+        --page-colour: #{$blue}
+        --page-link: #{darken($blue, 5%)}
+        --page-text: white
+        --page-text-subtle: #{lighten($blue, 40%)}
+    
+    &.body-orange
+        --page-colour: #{$orange}
+        --page-link: #{darken($orange, 5%)}
+        --page-text: #{darken($orange, 35%)}
+        --page-text-subtle: #{darken($orange, 20%)}
+    
+    &.body-yellow
+        --page-colour: #{$yellow}
+        --page-link: #{darken($yellow, 5%)}
+        --page-text: white
+        --page-text-subtle: #{lighten($yellow, 40%)}
+    
+    &.body-purple
+        --page-colour: #{$purple}
+        --page-link: #{darken($purple, 5%)}
+        --page-text: white
+        --page-text-subtle: #{lighten($purple, 40%)}

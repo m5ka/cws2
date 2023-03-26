@@ -1,0 +1,35 @@
+@import "../globals"
+
+.button
+    $button-border: 4px
+
+    --button-colour: #{$green}
+    --button-colour-dark: #{darken($green, 7%)}
+    --button-outline: #{lighten($green, 25%)}
+
+    font-family: $font-stack
+    font-size: 1em
+    display: inline-flex
+    flex-flow: row nowrap
+    align-items: center
+    padding: .4rem 1.2rem
+    background: $green
+    outline: none
+    border: none
+    border-bottom: $button-border solid var(--button-colour-dark)
+    color: white
+    text-decoration: none
+    border-radius: $radius
+    line-height: $line-height
+    cursor: pointer
+
+    i
+        font-size: 1.4rem
+        margin-right: .8rem
+    
+    &:active
+        border-top: $button-border/2 solid var(--button-colour)
+        border-bottom: $button-border/2 solid var(--button-colour)
+    
+    &:focus
+        outline: $outline-width solid var(--button-outline)

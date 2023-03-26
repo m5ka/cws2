@@ -1,0 +1,94 @@
+@import "../globals"
+    
+form
+    display: grid
+    grid-template-columns: 1fr 1fr
+    row-gap: 1.6rem
+    column-gap: 1.2rem
+    align-items: baseline
+
+    .errors
+        grid-column: 1 / span 2
+        display: flex
+        flex-flow: column nowrap
+        row-gap: .4rem
+
+        li
+            background: lighten($red, 7%)
+            border-left: 4px solid darken($red, 7%)
+            color: white
+            padding: .4rem .8rem
+            border-radius: $radius
+    
+    .field
+        display: flex
+        flex-flow: column nowrap
+        row-gap: .4rem
+
+        &.span-two
+            grid-column: 1 / span 2
+        
+        &.column-one
+            grid-column: 1
+
+        label
+            color: $darker-grey
+            font-size: $font-small
+        
+        &.hidden-label
+            label
+                display: none
+
+        input, textarea, select
+            border: 1px solid $light-grey
+            padding: .4rem 1.2rem
+            font-size: $font-medium
+            font-family: $font-stack
+            border-radius: $radius
+            background: white
+
+            &:focus
+                outline: $outline-width solid var(--page-colour)
+        
+        textarea
+            height: 8rem
+        
+        &.error
+            label
+                color: $red
+
+            input, textarea, select
+                border-color: $red
+        
+        &.required
+            label::after
+                content: "*"
+                color: $red
+
+        .input-with-prefix
+            display: flex
+            flex-flow: row nowrap
+            align-items: stretch
+
+            .prefix
+                display: flex
+                align-items: center
+                font-size: $font-small
+                color: $dark-grey
+                background: $lightest-grey
+                border: 1px solid $light-grey
+                border-right: none
+                font-family: $font-stack
+                border-radius: $radius 0 0 $radius
+                padding: .2rem .8rem
+            
+            input, select
+                border-radius: 0 $radius $radius 0
+                flex-grow: 1
+
+        .helptext
+            font-size: $font-tiny
+            color: $dark-grey
+    
+    .actions
+        grid-column: 1 / span 2
