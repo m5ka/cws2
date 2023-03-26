@@ -4,11 +4,11 @@ from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
 from slugify.slugify import slugify
 
-from cws2.models.base.abstracts import UpdatableModel, UUIDModel
+from cws2.models.base.abstracts import TransientModel, TransientModelManager, UUIDModel
 from cws2.constants.choices import LanguageStatus, LanguageType
 
 
-class Language(UpdatableModel, UUIDModel):
+class Language(TransientModel, UUIDModel):
     name = models.CharField(
         verbose_name=_("Name"),
         max_length=64,
@@ -65,6 +65,8 @@ class Language(UpdatableModel, UUIDModel):
         on_delete=models.CASCADE,
         related_name="languages",
     )
+
+    objects = TransientModelManager()
 
     class Meta:
         unique_together = ["created_by", "slug"]
