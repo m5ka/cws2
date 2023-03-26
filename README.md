@@ -14,7 +14,7 @@ This project is the [Django](https://www.djangoproject.com/) successor to the or
 ## 🏄 Setup
 ### Requirements
 * Python (3.10 or above)
-* MariaDB (or MySQL)
+* PostgreSQL
 
 ### Setting up
 Once you've cloned the repo, you'll need to make sure your Python environment has everything it needs to run cws2. You can do that with Pip.

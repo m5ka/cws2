@@ -12,13 +12,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     services:
-      mariadb:
-        image: mariadb
+      postgres:
+        image: postgres
         env:
-          MARIADB_USER: mariadb
-          MARIADB_PASSWORD: mariadb
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
         ports:
-          - 3306:3306
+          - 5432:5432
     steps:
       - uses: actions/checkout@v3
       - name: set up python
@@ -33,4 +37,4 @@ jobs:
         run: pytest
         env:
           DEBUG: true
-          DATABASE_URL: mysql://mariadb:mariadb@localhost:3306/mariadb
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/postgres
