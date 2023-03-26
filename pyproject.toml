@@ -39,4 +39,4 @@ test = [
 Home = "https://github.com/m5ka/cws2"
 
 [tool.pytest.ini_options]
-DJANGO_SETTINGS_MODULE = "cws2.settings"
+DJANGO_SETTINGS_MODULE = "cws2.config.settings"
