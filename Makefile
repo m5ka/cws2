@@ -44,6 +44,10 @@ migrate:
 	@echo "📁 Running migrations."
 	@$(MANAGE_PY) migrate
 
+migrations:
+	@echo "🧩 Checking for model changes."
+	@$(MANAGE_PY) makemigrations
+
 static:
 	@echo "🗃️ Collecting static files."
 	@$(MANAGE_PY) collectstatic

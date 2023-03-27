@@ -31,9 +31,11 @@ Now you're all installed, there's a few things you'll want to do before your fir
 ```bash
 make env
 ```
-This will set you up a `.env` file, which you should edit to update your configuration. This is necessary to be able to connect to your database properly.
+This will set you up a `.env` file, which you should edit to update your configuration.
 
-Once done, you can migrate the database using:
+Make sure you fill in `DATABASE_URL` as it's used to connect to your database. The format is `postgres://user:password@host:port/database`. Also ensure that the Postgres user has the Create DB permission, or you might get an error when trying to run tests.
+
+Once you've finished configuring your environment, you can migrate the database using:
 ```bash
 make migrate
 ```
@@ -60,6 +62,23 @@ make watch
 We use [pytest](https://docs.pytest.org/en/7.2.x/) for testing. You can run tests with the following command:
 ```bash
 make test
+```
+
+### 🧩 Migrations
+
+If you make any changes to models, you'll need to write migrations so that users of the app can keep their database up to date with these changes.
+
+Migrations are written as regular Python scripts in the `cws2/migrations` directory, and you can read about how to write them [here](https://docs.djangoproject.com/en/4.1/topics/migrations/).
+
+There's a script for auto-generating migrations based on changes you make to models which you can run using the command below:
+```bash
+make migrations
+```
+
+Note that for more complex changes such as modifying data in the database, you'll have to write the migration yourself. You can generate a blank migration file using the following command.
+
+```bash
+python manage.py makemigrations cws2 --empty -n my_migration
 ```
 
 ### 🍓 Code style
