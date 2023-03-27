@@ -12,13 +12,14 @@ for model in [getattr(models, m) for m in models.__all__]:
 @admin.register(models.User)
 class UserAdmin(BaseUserAdmin):
     fieldsets = (
-        (None, {"fields": ("email", "preferred_name", "username", "password")}),
+        (None, {"fields": ("username", "display_name", "email", "password")}),
         (
             "Status",
             {
                 "fields": (
                     "is_active",
-                    "email_confirmed",
+                    "is_bot",
+                    "email_confirmed_at",
                 )
             },
         ),

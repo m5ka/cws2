@@ -30,29 +30,39 @@ class User(UUIDModel, AbstractUser):
             "have access to it."
         ),
     )
-    email_confirmed = models.BooleanField(
-        default=False,
-    )
     email_confirmed_at = models.DateTimeField(
+        blank=True,
         null=True,
     )
-    preferred_name = models.CharField(
+    display_name = models.CharField(
         verbose_name=_("Display name"),
         max_length=64,
         blank=True,
         help_text=_(
-            "This name will appear instead of your username on the site, if set."
+            "This name will appear instead of your username in some places on the "
+            "site, if set."
         ),
     )
+    is_bot = models.BooleanField(
+        verbose_name=_("Bot status"),
+        default=False,
+        help_text=_(
+            "If true, this user will be considered a staff-run bot account and will "
+            "not be able to be logged in to."
+        ),
+    )
+
+    first_name = None
+    last_name = None
 
     objects = UserManager()
 
     def __str__(self):
-        return self.display_name
+        return self.username
 
     @property
-    def display_name(self):
-        return self.preferred_name or self.username
+    def email_confirmed(self):
+        return self.email_confirmed_at is not None
 
     def get_absolute_url(self):
         return reverse("user.show", kwargs={"user": self.username})
