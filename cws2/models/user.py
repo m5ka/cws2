@@ -64,5 +64,41 @@ class User(UUIDModel, AbstractUser):
     def email_confirmed(self):
         return self.email_confirmed_at is not None
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if not hasattr(self, "profile"):
+            UserProfile.objects.get_or_create(user=self)
+
     def get_absolute_url(self):
         return reverse("user.show", kwargs={"user": self.username})
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(
+        "User",
+        on_delete=models.CASCADE,
+        related_name="profile",
+        primary_key=True,
+    )
+    pronouns = models.CharField(
+        verbose_name=_("Pronouns"),
+        max_length=64,
+        blank=True,
+        help_text=_("What pronouns should people use when referring to you?"),
+    )
+    location = models.CharField(
+        verbose_name=_("Location"),
+        max_length=64,
+        blank=True,
+        help_text=_("Where in the world are you?"),
+    )
+    bio = models.TextField(
+        verbose_name=_("About me"),
+        blank=True,
+        help_text=_(
+            "Write something about yourself! This will appear on your profile page."
+        ),
+    )
+
+    def __repr__(self):
+        return f"<Profile: @{self.user.username}>"

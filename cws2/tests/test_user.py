@@ -2,7 +2,7 @@ import re
 
 from django.utils import timezone
 
-from cws2.models.user import User
+from cws2.models.user import User, UserProfile
 
 
 def test_user(user: User, re_uuid: re.Pattern):
@@ -20,3 +20,11 @@ def test_user_email_confirmed(user: User):
     user.save()
     assert user.email_confirmed_at is not None
     assert user.email_confirmed
+
+
+def test_user_profile(user: User):
+    assert hasattr(user, "profile")
+    assert isinstance(user.profile, UserProfile)
+    assert len(user.profile.bio) == 0
+    assert len(user.profile.location) == 0
+    assert len(user.profile.pronouns) == 0
