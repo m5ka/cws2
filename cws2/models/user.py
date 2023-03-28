@@ -51,6 +51,24 @@ class User(UUIDModel, AbstractUser):
             "not be able to be logged in to."
         ),
     )
+    last_seen_ip = models.CharField(
+        verbose_name=_("Last seen IP"),
+        blank=True,
+        max_length=48,
+        help_text=_("The last IP address this user used to log in."),
+    )
+    last_seen_route = models.CharField(
+        verbose_name=_("Last seen route"),
+        blank=True,
+        max_length=64,
+        help_text=_("The route name of the last page this user accessed."),
+    )
+    last_seen_at = models.DateTimeField(
+        verbose_name=_("Last seen at"),
+        blank=True,
+        null=True,
+        help_text=_("The last time this user accessed the site."),
+    )
 
     first_name = None
     last_name = None

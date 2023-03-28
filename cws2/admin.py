@@ -34,5 +34,6 @@ class UserAdmin(BaseUserAdmin):
                 ),
             },
         ),
+        ("Last seen", {"fields": ("last_seen_ip", "last_seen_route", "last_seen_at")}),
         ("Dates", {"fields": ("last_login", "date_joined")}),
     )
