@@ -8,7 +8,7 @@ import django.db.models.deletion
 def generate_user_profiles(apps, schema_editor):
     User = apps.get_model("cws2", "User")
     UserProfile = apps.get_model("cws2", "UserProfile")
-    for user in User.objects.select_related("profile").all():
+    for user in User.objects.all():
         if not hasattr(user, "profile"):
             UserProfile.objects.create(user=user)
 
