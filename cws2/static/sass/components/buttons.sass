@@ -13,7 +13,7 @@
     flex-flow: row nowrap
     align-items: center
     padding: .4rem 1.2rem
-    background: $green
+    background: var(--button-colour)
     outline: none
     border: none
     border-bottom: $button-border solid var(--button-colour-dark)
@@ -33,3 +33,8 @@
     
     &:focus
         outline: $outline-width solid var(--button-outline)
+
+    &.button-orange
+        --button-colour: #{$orange}
+        --button-colour-dark: #{darken($orange, 7%)}
+        --button-outline: #{lighten($orange, 25%)}

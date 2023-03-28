@@ -1,0 +1,37 @@
+@import "../globals"
+
+body > .container > main
+    ul, ol
+        padding-left: 3.2rem
+
+    ol
+        list-style: decimal
+
+    ul
+        list-style: disc
+
+        &.flex-list
+            padding-left: 0
+            font-size: $font-small
+            list-style: none
+
+            border: 1px solid $lighter-grey
+            border-radius: $radius
+
+            > li
+                display: flex
+                flex-flow: row nowrap
+                column-gap: 1.2rem
+                padding: .6rem 1.2rem
+
+                &.flex-list-heading
+                    color: $darker-grey
+                    font-weight: bold
+                    background: $lightest-grey
+                    border-bottom: 1px solid $lighter-grey
+
+                &:not(.flex-list-heading):hover
+                    background: $lightest-grey
+                
+                &:not(.flex-list-heading):not(:last-child)
+                    border-bottom: 1px solid $lightest-grey

@@ -21,13 +21,14 @@ from cws2.views.auth import CreateAccountView, LoginView, LogoutView
 from cws2.views.index import DashboardView
 from cws2.views.language import IndexLanguageView, ShowLanguageView, NewLanguageView
 from cws2.views.static import AboutView, ContactView, DonateView, PrivacyView
-from cws2.views.user import ShowUserView
+from cws2.views.user import EditUserView, ShowUserView
 
 urlpatterns = [
     # admin
     path("admin/", admin.site.urls),
     # user
     path("@<str:user>", ShowUserView.as_view(), name="user.show"),
+    path("profile", EditUserView.as_view(), name="user.edit"),
     # language
     path(
         "@<str:user>/<slug:language>", ShowLanguageView.as_view(), name="language.show"

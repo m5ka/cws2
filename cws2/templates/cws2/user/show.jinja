@@ -6,16 +6,73 @@
 
 {% block page_title %}{{ this_user.username }}{% endblock page_title %}
 
+{% block page_actions %}
+    {% if request.user == this_user %}
+        <a href="{{ url('user.edit') }}" class="button button-orange">
+            <i class="fa-solid fa-pen"></i>
+            Edit profile
+        </a>
+    {% endif %}
+{% endblock page_actions %}
+
 {% block page_content %}
-<p><em>{{ this_user.username }}'s profile is empty right now.</em></p>
-{% set languages = this_user.languages.all() %}
-{% if languages %}
-    <hr>
-    <h3>{{ this_user.username }}'s languages</h3>
-    <ul>
-    {% for language in languages %}
-        <li><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% endif %}
-{% endblock %}
+<dl>
+    <section>
+        <dt>Pronouns</dt>
+        {% if user.profile.pronouns %}
+            <dd><i class="fa-solid fa-face-grin-beam"></i>{{ user.profile.pronouns }}</dd>
+        {% else %}
+            <dd class="colour-grey"><i class="fa-solid fa-face-grin-beam"></i>Not set</dd>
+        {% endif %}
+    </section>
+    <section>
+        <dt>Location</dt>
+        {% if user.profile.location %}
+            <dd><i class="fa-solid fa-location-dot"></i>{{ user.profile.location }}</dd>
+        {% else %}
+            <dd class="colour-grey"><i class="fa-solid fa-location-dot"></i>Not set</dd>
+        {% endif %}
+    </section>
+    <section class="span-two">
+        <dt>About</dt>
+        {% if user.profile.bio %}
+            <dd>
+                <blockquote>{{ user.profile.bio }}</blockquote>
+            </dd>
+        {% else %}
+            <dd class="colour-grey">Not set</dd>
+        {% endif %}
+    </section>
+</dl>
+<hr>
+<div class="grid-two">
+    <section>
+        <h3>Conlangs</h3>
+        {% set languages = this_user.languages.all() %}
+        {% if languages %}
+            <ul class="flex-list">
+                <li class="flex-list-heading">
+                    <span style="flex-basis:50%">Name</span>
+                    <span style="flex-basis:50%">Endonym</span>
+                </li>
+                {% for language in languages %}
+                <li>
+                    <span style="flex-basis:50%"><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></span>
+                    {% if language.endonym %}
+                        <span style="flex-basis:50%">{{ language.endonym }}</span>
+                    {% else %}
+                        <span style="flex-basis:50%" class="colour-grey">None set</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="colour-grey"><em>{{ this_user.username }} has no conlangs.</em></p>
+        {% endif %}
+    </section>
+    <section>
+        <h3>Natlangs</h3>
+        <p class="colour-grey"><em>{{ this_user.username }} has not set any known languages.</em></p>
+    </section>
+</div>
+{% endblock page_content %}
