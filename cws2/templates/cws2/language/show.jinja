@@ -10,3 +10,33 @@
 {% block page_icon %}<i class="fa-solid fa-language"></i>{% endblock page_icon %}
 
 {% block page_title %}{{ language.name }}{% endblock page_title %}
+
+{% block page_actions %}
+{% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
+<a href="{{ url('language.edit', user=language.created_by.username, language=language.slug) }}" class="button button-green">
+    <i class="fa-solid fa-pencil"></i>
+    Edit language
+</a>
+{% endif %}
+{% endblock page_actions %}
+
+{% block page_content %}
+<dl>
+    <section>
+        <dt>Type</dt>
+        <dd>{{ language.get_language_type_display() }}</dd>
+    </section>
+    <section>
+        <dt>Status</dt>
+        <dd>{{ language.get_language_status_display() }}</dd>
+    </section>
+    <section class="span-two">
+        <dt>Description</dt>
+        {% if language.description %}
+            <dd><blockquote>{{ language.description }}</blockquote></dd>
+        {% else %}
+            <dd class="colour-grey">Not set.</dd>
+        {% endif %}
+    </section>
+</dl>
+{% endblock page_content %}

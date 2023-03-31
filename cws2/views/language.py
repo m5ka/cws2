@@ -1,5 +1,6 @@
+from django.db import IntegrityError
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.forms import ModelForm
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
@@ -11,18 +12,14 @@ from cws2.models.language import Language
 from cws2.views.base import FormView, View
 
 
-class IndexLanguageView(LoginRequiredMixin, View):
-    template_name = "cws2/language/index.jinja"
-
+class LanguageMixin:
     @cached_property
-    def languages(self):
-        return Language.objects.filter(created_by=self.request.user)
-
-    def get_context_data(self, *args, **kwargs):
-        return {
-            **super().get_context_data(*args, **kwargs),
-            "languages": self.languages,
-        }
+    def language(self):
+        return get_object_or_404(
+            Language.objects.select_related("owned_by"),
+            owned_by__username=self.kwargs.get("user"),
+            slug=self.kwargs.get("language"),
+        )
 
 
 class LanguageForm(ModelForm):
@@ -36,6 +33,58 @@ class LanguageForm(ModelForm):
             "language_status",
             "description",
         ]
+
+
+class EditLanguageView(LanguageMixin, UserPassesTestMixin, FormView):
+    form_class = LanguageForm
+
+    verb_icon = "fa-pencil"
+    breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
+
+    field_classes = {
+        "slug": "span-two",
+        "description": "span-two",
+    }
+    form_data = {
+        "auto-slug-from": "name",
+        "auto-slug": "slug",
+    }
+
+    @property
+    def verb(self):
+        return _("Edit %(language)s") % {"language": self.language.name}
+
+    @property
+    def field_prefixes(self):
+        return {"slug": "conworkshop.com/@%s/" % (self.language.owned_by.username)}
+
+    def form_valid(self, form):
+        try:
+            form.save()
+        except IntegrityError:
+            return self.form_invalid(form)
+        messages.success(self.request, _("Language updated successfully!"))
+        return HttpResponseRedirect(form.instance.get_absolute_url())
+
+    def get_form(self):
+        return self.form_class(instance=self.language, **self.get_form_kwargs())
+
+    def test_func(self):
+        return self.language.check_user_permission(self.request.user, "write")
+
+
+class IndexLanguageView(LoginRequiredMixin, View):
+    template_name = "cws2/language/index.jinja"
+
+    @cached_property
+    def languages(self):
+        return Language.objects.filter(owned_by=self.request.user)
+
+    def get_context_data(self, *args, **kwargs):
+        return {
+            **super().get_context_data(*args, **kwargs),
+            "languages": self.languages,
+        }
 
 
 class NewLanguageView(LoginRequiredMixin, FormView):
@@ -61,20 +110,19 @@ class NewLanguageView(LoginRequiredMixin, FormView):
     def form_valid(self, form):
         form.instance.created_by = self.request.user
         form.instance.owned_by = self.request.user
-        form.save()
+        try:
+            form.save()
+        except IntegrityError:
+            return self.form_invalid(form)
         messages.success(self.request, _("Language created successfully!"))
         return HttpResponseRedirect(form.instance.get_absolute_url())
 
 
-class ShowLanguageView(View):
+class ShowLanguageView(LanguageMixin, View):
     template_name = "cws2/language/show.jinja"
 
     def get_context_data(self, *args, **kwargs):
         return {
             **super().get_context_data(*args, **kwargs),
-            "language": get_object_or_404(
-                Language,
-                created_by__username=self.kwargs.get("user"),
-                slug=self.kwargs.get("language"),
-            ),
+            "language": self.language,
         }

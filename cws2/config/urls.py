@@ -19,7 +19,12 @@ from django.urls import include, path
 
 from cws2.views.auth import CreateAccountView, LoginView, LogoutView
 from cws2.views.index import DashboardView
-from cws2.views.language import IndexLanguageView, ShowLanguageView, NewLanguageView
+from cws2.views.language import (
+    EditLanguageView,
+    IndexLanguageView,
+    ShowLanguageView,
+    NewLanguageView,
+)
 from cws2.views.static import AboutView, ContactView, DonateView, PrivacyView
 from cws2.views.user import EditUserView, ShowUserView
 
@@ -31,7 +36,14 @@ urlpatterns = [
     path("profile", EditUserView.as_view(), name="user.edit"),
     # language
     path(
-        "@<str:user>/<slug:language>", ShowLanguageView.as_view(), name="language.show"
+        "@<str:user>/<slug:language>",
+        ShowLanguageView.as_view(),
+        name="language.show",
+    ),
+    path(
+        "@<str:user>/<slug:language>/edit",
+        EditLanguageView.as_view(),
+        name="language.edit",
     ),
     path("languages", IndexLanguageView.as_view(), name="language.index"),
     path("languages/new", NewLanguageView.as_view(), name="language.new"),
