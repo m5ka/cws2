@@ -5,6 +5,8 @@ from django.utils.translation import gettext_lazy as _
 import shortuuid
 from slugify.slugify import slugify
 
+from cws2.models.permission import GroupPermission, UserPermission
+
 
 class AutoSlugMixin:
     """A mixin class that adds functionality for an auto-generated
@@ -110,6 +112,25 @@ class OwnableModel(models.Model):
 
     class Meta:
         abstract = True
+
+    def check_user_permission(self, user, permission):
+        if self.owned_by == user:
+            return True
+        if UserPermission.objects.filter(
+            ownable_model=self._meta.model_name,
+            ownable_pk=self.pk,
+            user=user,
+            permissions__contains=[permission],
+        ).exists():
+            return True
+        if GroupPermission.objects.filter(
+            ownable_model=self._meta.model_name,
+            ownable_pk=self.pk,
+            group__users__user=user,
+            permissions__contains=[permission],
+        ).exists():
+            return True
+        return False
 
 
 class UUIDModel(models.Model):
