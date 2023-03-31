@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -11,6 +12,15 @@ class Permission(models.Model):
     ownable_pk = models.BigIntegerField(
         verbose_name=_("Ownable ID"),
         help_text=_("The unique ID of the ownable resource."),
+    )
+    permissions = ArrayField(
+        models.CharField(
+            max_length=32,
+        ),
+        verbose_name=_("Permissions"),
+        default=list,
+        blank=True,
+        help_text=_("The permissions granted for this resource."),
     )
     granted_by = models.ForeignKey(
         "User",

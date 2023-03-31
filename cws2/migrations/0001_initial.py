@@ -432,6 +432,17 @@ class Migration(migrations.Migration):
                         verbose_name="Ownable ID",
                     ),
                 ),
+                (
+                    "permissions",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=32),
+                        blank=True,
+                        default=list,
+                        help_text="The permissions granted for this resource.",
+                        size=None,
+                        verbose_name="Permissions",
+                    ),
+                ),
                 ("granted_at", models.DateTimeField(auto_now_add=True)),
                 (
                     "granted_by",
@@ -479,6 +490,17 @@ class Migration(migrations.Migration):
                     models.BigIntegerField(
                         help_text="The unique ID of the ownable resource.",
                         verbose_name="Ownable ID",
+                    ),
+                ),
+                (
+                    "permissions",
+                    django.contrib.postgres.fields.ArrayField(
+                        base_field=models.CharField(max_length=32),
+                        blank=True,
+                        default=list,
+                        help_text="The permissions granted for this resource.",
+                        size=None,
+                        verbose_name="Permissions",
                     ),
                 ),
                 ("granted_at", models.DateTimeField(auto_now_add=True)),
