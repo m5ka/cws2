@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "fontawesomefree",
-    "django_extensions",
     "django_jinja",
     "django_jinja.contrib._humanize",
     "django_sass",
@@ -81,6 +80,17 @@ if DEBUG and env.bool("DEBUG_TOOLBAR", default=True):
         DEBUG_TOOLBAR = False
 else:
     DEBUG_TOOLBAR = False
+
+
+# Django extensions (development only)
+# https://django-extensions.readthedocs.io/en/latest/
+if DEBUG:
+    try:
+        import django_extensions  # noqa: F401
+
+        INSTALLED_APPS += ["django_extensions"]
+    except ImportError:
+        pass
 
 
 # Root URL configuration

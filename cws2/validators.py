@@ -13,6 +13,13 @@ validate_username_regex = RegexValidator(
 )
 
 
+validate_colour_code_regex = RegexValidator(
+    re.compile(r"^#[A-Fa-f0-9]{6}\Z"),
+    _("Colour is not a valid hexadecimal colour code."),
+    "invalid",
+)
+
+
 def validate_username_length(value):
     if (
         len(value) < settings.USERNAME_MIN_LENGTH

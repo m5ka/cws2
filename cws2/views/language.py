@@ -60,6 +60,7 @@ class NewLanguageView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
+        form.instance.owned_by = self.request.user
         form.save()
         messages.success(self.request, _("Language created successfully!"))
         return HttpResponseRedirect(form.instance.get_absolute_url())

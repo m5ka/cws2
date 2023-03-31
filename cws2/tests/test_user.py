@@ -6,8 +6,9 @@ from cws2.models.user import User, UserProfile
 
 
 def test_user(user: User, re_uuid: re.Pattern):
-    assert user.pk == user.uuid
-    assert re_uuid.match(user.pk) is not None
+    assert isinstance(user.pk, int)
+    assert user.pk > 0
+    assert re_uuid.match(user.uuid) is not None
     assert not user.is_bot
     assert str(user) == "joe.bloggs"
     assert user.get_absolute_url() == "/@joe.bloggs"

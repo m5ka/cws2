@@ -1,6 +1,21 @@
 from django.utils.translation import gettext_lazy as _
 
 
+class GroupAccessType:
+    ANYONE = "A"
+    INVITE = "I"
+    SYSTEM = "S"
+    CHOICES = (
+        (ANYONE, _("Anyone")),
+        (INVITE, _("Invite only")),
+        (SYSTEM, _("System only")),
+    )
+    CHOICES_PICKABLE = (
+        (ANYONE, _("Anyone")),
+        (INVITE, _("Invite only")),
+    )
+
+
 class LanguageStatus:
     NEW = "1"
     PROGRESSING = "2"

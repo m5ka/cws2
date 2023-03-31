@@ -48,7 +48,7 @@
 <div class="grid-two">
     <section>
         <h3>Conlangs</h3>
-        {% set languages = this_user.languages.all() %}
+        {% set languages = this_user.owned_languages.all() %}
         {% if languages %}
             <ul class="flex-list">
                 <li class="flex-list-heading">

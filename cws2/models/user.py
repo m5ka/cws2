@@ -1,13 +1,156 @@
 from django.contrib.auth.models import AbstractUser, UserManager as BaseUserManager
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from cws2.models.base.abstracts import UUIDModel
-from cws2.validators import validate_username_length, validate_username_regex
+from cws2.constants import GroupAccessType
+from cws2.models.base import (
+    AutoSlugMixin,
+    TransientModel,
+    TransientModelManager,
+    UUIDModel,
+)
+from cws2.validators import (
+    validate_colour_code_regex,
+    validate_username_length,
+    validate_username_regex,
+)
+
+
+class Group(AutoSlugMixin, UUIDModel, TransientModel):
+    """Represents a meaningful group of Users."""
+
+    name = models.CharField(
+        verbose_name=_("Name"),
+        max_length=64,
+        db_index=True,
+        help_text=_("What should this group be called."),
+    )
+    slug = models.SlugField(
+        verbose_name=_("Identifier"),
+        max_length=64,
+        db_index=True,
+        blank=True,
+        unique=True,
+        help_text=_(
+            "This is a unique group identifier that will appear in the group's URL."
+        ),
+    )
+    icon = models.CharField(
+        verbose_name=_("Icon character"),
+        max_length=1,
+        default="✱",
+        help_text=_("A single character to represent the group in its icon."),
+    )
+    icon_colour_bg = models.CharField(
+        verbose_name=_("Icon background colour"),
+        max_length=7,
+        default="#28A745",
+        validators=[validate_colour_code_regex],
+        help_text=_("The background colour of this group's icon."),
+    )
+    icon_colour_fg = models.CharField(
+        verbose_name=_("Icon foreground colour"),
+        max_length=7,
+        default="#FFFFFF",
+        validators=[validate_colour_code_regex],
+        help_text=_("The foreground colour of this group's icon."),
+    )
+    access_type = models.CharField(
+        verbose_name=_("Access type"),
+        max_length=1,
+        choices=GroupAccessType.CHOICES,
+        help_text=_("Who should be allowed to join this group, and how?"),
+    )
+    is_hidden = models.BooleanField(
+        verbose_name=_("Hidden status"),
+        default=False,
+        help_text=_("Should this group be hidden from community group lists."),
+    )
+    is_everyone = models.BooleanField(
+        verbose_name=_("Automatic-join status"),
+        default=False,
+        db_index=True,
+        help_text=_("Should all users automatically be part of this group?"),
+    )
+
+    objects = TransientModelManager()
+
+    def __str__(self):
+        return self.name
+
+    def add_user(self, user, permissions=[], invited_by=None):
+        """Adds a user to this group with the given permissions."""
+        membership, new = GroupMembership.objects.get_or_create(
+            group=self,
+            user=user,
+            defaults={
+                "permissions": permissions,
+                "invited_by": invited_by or User.objects.get(username="sheep"),
+            },
+        )
+        if not new:
+            membership.add_permissions(permissions)
+            membership.save()
+        return membership
+
+
+class GroupMembership(models.Model):
+    """Represents the many-to-many relationship in which a user belongs to a group.
+
+    This relationship contains the user's permissions in the group as well as
+    information about their joining of the group.
+    """
+
+    group = models.ForeignKey(
+        "Group",
+        on_delete=models.CASCADE,
+        related_name="users",
+    )
+    user = models.ForeignKey(
+        "User",
+        on_delete=models.CASCADE,
+        related_name="memberships",
+    )
+    permissions = ArrayField(
+        models.CharField(
+            max_length=32,
+        ),
+        verbose_name=_("Permissions in group"),
+        default=list,
+        blank=True,
+        help_text=_("The permissions this user has in the group."),
+    )
+    joined_at = models.DateTimeField(
+        auto_now_add=True,
+    )
+    invited_by = models.ForeignKey(
+        "User",
+        null=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        db_column="invited_by_user_id",
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["group", "user"],
+                name="cws2_groupmembership_group_user",
+            )
+        ]
+
+    def __str__(self):
+        return f"@{self.user} ({self.group})"
+
+    def add_permissions(self, permissions=[]):
+        self.permissions = list(set(self.permissions + permissions))
 
 
 class UserManager(BaseUserManager):
+    """Manages Users by pre-fetching their profile."""
+
     def get_queryset(self):
         return super().get_queryset().select_related("profile")
 
@@ -87,16 +230,31 @@ class User(UUIDModel, AbstractUser):
     def email_confirmed(self):
         return self.email_confirmed_at is not None
 
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
-        if not hasattr(self, "profile"):
-            UserProfile.objects.get_or_create(user=self)
+    def add_to_default_groups(self):
+        """Adds this user to any default Groups, meaning any groups with `is_everyone`
+        set to True.
+        """
+        for group in Group.objects.filter(is_everyone=True).all():
+            group.add_user(self)
+
+    def create_profile(self):
+        """Creates a UserProfile object for this user if not already created."""
+        UserProfile.objects.get_or_create(user=self)
 
     def get_absolute_url(self):
         return reverse("user.show", kwargs={"user": self.username})
 
+    def save(self, *args, **kwargs):
+        pk = self.pk
+        super().save(*args, **kwargs)
+        if not pk:
+            self.add_to_default_groups()
+            self.create_profile()
+
 
 class UserProfile(models.Model):
+    """Contains customisable profile information for a user."""
+
     user = models.OneToOneField(
         "User",
         on_delete=models.CASCADE,
@@ -123,5 +281,5 @@ class UserProfile(models.Model):
         ),
     )
 
-    def __repr__(self):
-        return f"<Profile: @{self.user.username}>"
+    def __str__(self):
+        return f"@{self.user.username}"

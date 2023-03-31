@@ -14,7 +14,7 @@ TEST = pytest
 
 MANAGE_PY = python manage.py
 
-.PHONY: clean env lint sass watch migrate static test serve
+.PHONY: clean env lint sass watch migrate migrations admin static test serve
 
 clean:
 	@echo "🧼 Getting rid of compiled directories."
@@ -47,6 +47,10 @@ migrate:
 migrations:
 	@echo "🧩 Checking for model changes."
 	@$(MANAGE_PY) makemigrations
+
+admin:
+	@echo "👤 Let's make an admin account!"
+	@$(MANAGE_PY) createsuperuser
 
 static:
 	@echo "🗃️ Collecting static files."
