@@ -15,9 +15,18 @@
 
 {% block page_content %}
 {% if languages %}
-<ul>
+<ul class="flex-list">
+    <li class="flex-list-heading">
+        <span style="flex-basis:33%">Name</span>
+        <span style="flex-basis:33%">Identifier</span>
+        <span style="flex-basis:34%">Endonym</span>
+    </li>
     {% for language in languages %}
-        <li><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></li>
+        <li>
+            <span style="flex-basis:33%"><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></span>
+            <span style="flex-basis:33%">{{ language.slug }}</span>
+            <span style="flex-basis:34%">{% if language.endonym %}{{ language.endonym }}{% else %}—{% endif %}</span>
+        </li>
     {% endfor %}
 </ul>
 {% else %}
