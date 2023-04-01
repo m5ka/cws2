@@ -75,7 +75,7 @@ class PhonoSystemStatus:
     )
 
 
-class PhonCategory:
+class PhoneCategory:
     CONSONANT = "C"
     VOWEL = "V"
     QUALITY = "Q"

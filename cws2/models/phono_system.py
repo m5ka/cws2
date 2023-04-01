@@ -13,6 +13,12 @@ from cws2.constants import PhonoSystemStatus, PhoneCategory
 
 
 class PhonoSystem(TransientModel, OwnableModel, UUIDModel):
+    is_human = models.CharField(
+        db_index=True,
+        verbose_name=_("Default human phono system"),
+        default=False,
+        help_text=_("This is the name of the phono system."),
+    )
     name = models.CharField(
         verbose_name=_("Name"),
         max_length=64,

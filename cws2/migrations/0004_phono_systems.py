@@ -58,6 +58,15 @@ class Migration(migrations.Migration):
                 ),
                 ("uuid", models.CharField(max_length=22, unique=True)),
                 (
+                    "is_human",
+                    models.BooleanField(
+                        db_index=True,
+                        default=False,
+                        help_text="Indicates that this is the Human Phono System.",
+                        verbose_name="Is human?",
+                    ),
+                ),
+                (
                     "name",
                     models.CharField(
                         db_index=True,
