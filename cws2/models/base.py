@@ -126,6 +126,10 @@ class OwnableModel(models.Model):
     def check_user_permission(self, user, permission):
         if self.owned_by == user:
             return True
+        if self.is_public and permission == "read":
+            return True
+        if not self.is_shared:
+            return False
         if UserPermission.objects.filter(
             ownable_model=self._meta.model_name,
             ownable_pk=self.pk,
