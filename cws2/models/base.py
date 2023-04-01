@@ -105,9 +105,19 @@ class OwnableModel(models.Model):
         db_column="owned_by_user_id",
         db_index=True,
     )
+    is_public = models.BooleanField(
+        verbose_name=_("Public status"),
+        default=True,
+        help_text=_(
+            "Does everyone have an implicit read permission for this resource?"
+        ),
+    )
     is_shared = models.BooleanField(
         verbose_name=_("Sharing status"),
         default=False,
+        help_text=_(
+            "Are there specific user and group permissions set for this resource?"
+        ),
     )
 
     class Meta:

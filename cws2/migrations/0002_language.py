@@ -35,8 +35,26 @@ class Migration(migrations.Migration):
                 ("updated_at", models.DateTimeField(auto_now=True, null=True)),
                 ("archived_at", models.DateTimeField(blank=True, null=True)),
                 (
+                    "is_public",
+                    models.BooleanField(
+                        default=True,
+                        verbose_name="Public status",
+                        help_text=(
+                            "Does everyone have an implicit read permission for this"
+                            " resource?"
+                        ),
+                    ),
+                ),
+                (
                     "is_shared",
-                    models.BooleanField(default=False, verbose_name="Sharing status"),
+                    models.BooleanField(
+                        default=False,
+                        verbose_name="Sharing status",
+                        help_text=(
+                            "Are there specific user and group permissions set for"
+                            " this resource?"
+                        ),
+                    ),
                 ),
                 ("uuid", models.CharField(db_index=True, max_length=22, unique=True)),
                 (
