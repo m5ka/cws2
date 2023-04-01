@@ -12,8 +12,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-    initial = True
-
     dependencies = [
         ("cws2", "0001_initial"),
     ]
