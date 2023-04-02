@@ -94,8 +94,8 @@ class Phone(TransientModel, UUIDModel):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["phono_system_id", "glyph"],
-                name="cws2_phone_unique_phono_system_glyph"),
+                fields=["phono_system_id", "glyph", "category"],
+                name="cws2_phone_unique_phono_system_glyph_category"),
         ]
 
     def __str__(self):

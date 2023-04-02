@@ -201,6 +201,7 @@ class Migration(migrations.Migration):
                 (
                     "ipa",
                     models.CharField(
+                        null=True,
                         help_text="IPA phonetic representation of this Phone.",
                         max_length=12,
                         verbose_name="IPA",
@@ -209,6 +210,7 @@ class Migration(migrations.Migration):
                 (
                     "xsampa",
                     models.CharField(
+                        null=True,
                         help_text="X-Sampa phonetic representation of this Phone.",
                         max_length=12,
                         verbose_name="X-Sampa",
@@ -261,13 +263,13 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            bases=(cws2.models.base.UUIDModel,
-                   cws2.models.base.OwnableModel, models.Model),
+            bases=(cws2.models.base.UUIDModel, models.Model),
         ),
         migrations.AddConstraint(
             model_name="phone",
             constraint=models.UniqueConstraint(
-                fields=("phono_system_id", "glyph"), name="cws2_phone_unique_phono_system_glyph"
+                fields=("phono_system_id", "glyph", "category"),
+                name="cws2_phone_unique_phono_system_glyph_category"
             ),
         ),
     ]
