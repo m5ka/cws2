@@ -1,6 +1,5 @@
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
-from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from cws2.models.base import (
@@ -43,7 +42,7 @@ class PhonoSystem(TransientModel, OwnableModel, UUIDModel):
     objects = TransientModelManager()
 
     def __str__(self):
-        return self.name
+        return f"'{self.name}' [Phono System={self.uuid}]"
 
 
 class Phone(TransientModel, UUIDModel):
@@ -87,10 +86,16 @@ class Phone(TransientModel, UUIDModel):
         verbose_name=_("Tags"),
         default=list,
         blank=True,
-        help_text=_("Tags associated with this phone.."),
+        help_text=_("Tags associated with this phone."),
     )
 
     objects = TransientModelManager()
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["phono_system_id", "glyph"], name="cws2_phone_unique_phono_system_glyph"),
+        ]
+
     def __str__(self):
-        return self.name
+        return f"'{self.name}' [Phone={self.uuid}]"

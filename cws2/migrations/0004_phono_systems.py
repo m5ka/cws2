@@ -12,7 +12,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-    initial = True
 
     dependencies = [
         ("cws2", "0003_add_groups_bots"),
@@ -164,7 +163,6 @@ class Migration(migrations.Migration):
                 (
                     "phono_system",
                     models.ForeignKey(
-                        db_column="phono_system_id",
                         on_delete=django.db.models.deletion.CASCADE,
                         related_name="phono_system",
                         to="PhonoSystem",
