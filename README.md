@@ -47,6 +47,29 @@ Finally you should be able to run the server. Woohoo! 🎉
 make serve
 ```
 
+If you'd like to access the development site on other devices on your local network, you should launch with the command `make servelan` instead. Just make sure you add the server device's local IP to the `ALLOWED_HOSTS` environment setting when configuring otherwise local network devices won't be allowed to connect.
+
+## 📌 Deploying
+### Server
+For production, ensure `SECRET_KEY` and `ALLOWED_HOSTS` are set correctly! These are very important for security. `DEBUG` should also be set to false.
+
+If you're happy with everything and are ready to launch an instance of cws2 into production, you can do this via Gunicorn. With all the project dependencies already set up, you can launch the server with the following command. (Adjust certain parameters to you and your server's needs!)
+
+```bash
+gunicorn --access-logfile - --workers 3 cws2.config.wsgi:application
+```
+
+You can use the `--bind` parameter to bind the server to a specific socket, which can be useful for certain server management setups e.g controlling it with systemd.
+
+### Assets
+When running the production server, you will have to serve static assets yourself! This is most easily done with a server like Nginx, which can also be used to proxy requests to the Gunicorn server/socket.
+
+In development, the Django server automatically fetches the static files of any dependencies but the production server won't know where these are so you'll need to manually collect up all the static files of any dependencies into your project environment. Luckily there's a management command for this.
+
+```bash
+make static
+```
+
 ## 🤖 Development
 ### 🎨 Compiling Assets
 Style assets are written in SASS and compiled on the server, so when developing locally you need to make sure you compile these assets before you see any change on your development copy. You can do that with:

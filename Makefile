@@ -14,7 +14,7 @@ TEST = pytest
 
 MANAGE_PY = python manage.py
 
-.PHONY: clean env lint sass watch migrate migrations admin static test serve
+.PHONY: clean env lint sass watch migrate migrations admin static test serve servelan
 
 clean:
 	@echo "🧼 Getting rid of compiled directories."
@@ -65,3 +65,7 @@ test:
 serve:
 	@echo "💻️ Running development server"
 	@$(MANAGE_PY) runserver
+
+servelan:
+	@echo "💻️ Running development server (LAN accessible)"
+	@$(MANAGE_PY) runserver 0.0.0.0:8000
