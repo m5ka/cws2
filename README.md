@@ -113,7 +113,7 @@ You can check whether your code is compliant by running the linter, [flake8](htt
 make lint
 ```
 
-Our flake8 configuration is in [tox.ini](tox.ini) if you're curious.
+Our flake8 configuration is in [.flake8](.flake8) if you're curious.
 
 We also recommend you use the formatter `black` to auto-format your Python code whilst developing. This will save you time further down the line.
 
