@@ -58,6 +58,12 @@ class UserPermission(Permission):
             )
         ]
 
+    def __str__(self):
+        return (
+            f"<UserPermission: {self.user} on {self.ownable_model}:"
+            f"{self.ownable_pk}>"
+        )
+
 
 class GroupPermission(Permission):
     group = models.ForeignKey(
@@ -78,3 +84,9 @@ class GroupPermission(Permission):
                 name="cws2_grouppermission_unique_model_pk_user",
             )
         ]
+
+    def __str__(self):
+        return (
+            f"<GroupPermission: {self.group} on {self.ownable_model}:"
+            f"{self.ownable_pk}>"
+        )

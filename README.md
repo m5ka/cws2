@@ -7,6 +7,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/m5ka/cws2)
 ![Python version: >= 3.10](https://img.shields.io/badge/python-%3E%3D%203.10-blue)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 </div>
 
 ## 🐻 About
@@ -106,16 +107,21 @@ python manage.py makemigrations cws2 --empty -n my_migration
 ```
 
 ### 🍓 Code style
-We make sure all our code is [PEP 8](https://peps.python.org/pep-0008/) compliant.
+We care about code style, so there are a few linters/code formatters that we use to make sure the code is top-notch.
+* [flake8](https://github.com/PyCQA/flake8) for code-quality and making sure code is [PEP 8](https://peps.python.org/pep-0008/) compliant
+* [isort](https://pycqa.github.io/isort/) for sorting and formatting imports
+* [black](https://black.readthedocs.io/en/stable/) for opinionated code formatting
 
-You can check whether your code is compliant by running the linter, [flake8](https://github.com/PyCQA/flake8), with the following command:
+You can check whether your code is compliant with the above using the following command.
 ```bash
 make lint
 ```
 
-Our flake8 configuration is in [.flake8](.flake8) if you're curious.
+You can also automatically format your code via black and isort with the following command.
 
-We also recommend you use the formatter `black` to auto-format your Python code whilst developing. This will save you time further down the line.
+```bash
+make format
+```
 
 Code editors often have tools to automate this, such as in [VS Code](https://dev.to/adamlombard/how-to-use-the-black-python-code-formatter-in-vscode-3lo0).
 

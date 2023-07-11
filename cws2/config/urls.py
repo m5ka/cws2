@@ -22,8 +22,8 @@ from cws2.views.index import DashboardView
 from cws2.views.language import (
     EditLanguageView,
     IndexLanguageView,
-    ShowLanguageView,
     NewLanguageView,
+    ShowLanguageView,
 )
 from cws2.views.static import AboutView, ContactView, DonateView, PrivacyView
 from cws2.views.user import EditUserView, ShowUserView

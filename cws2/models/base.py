@@ -1,8 +1,8 @@
 from datetime import datetime
 
+import shortuuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-import shortuuid
 from slugify.slugify import slugify
 
 from cws2.models.permission import GroupPermission, UserPermission
@@ -80,6 +80,9 @@ class TransientModel(models.Model):
         blank=True,
     )
 
+    class Meta:
+        abstract = True
+
     def archive(self):
         self.archived_at = datetime.now()
 
@@ -89,9 +92,6 @@ class TransientModel(models.Model):
     @property
     def archived(self):
         return self.archived_at is not None
-
-    class Meta:
-        abstract = True
 
 
 class OwnableModel(models.Model):

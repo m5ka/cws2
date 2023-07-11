@@ -1,6 +1,6 @@
-from django.db import IntegrityError
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db import IntegrityError
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
@@ -57,9 +57,7 @@ class EditLanguageView(LanguageMixin, FormView):
         return HttpResponseRedirect(form.instance.get_absolute_url())
 
     def get_form(self):
-        return self.form_class(
-            instance=self.ownable_resource, **self.get_form_kwargs()
-        )
+        return self.form_class(instance=self.ownable_resource, **self.get_form_kwargs())
 
 
 class IndexLanguageView(LoginRequiredMixin, View):

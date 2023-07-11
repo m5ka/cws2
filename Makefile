@@ -5,8 +5,6 @@ CSS_DIR = $(STATIC_DIR)/css
 CSS = base.css
 SASS_FLAGS = -g -t compressed
 
-LINTER = flake8
-
 ENV = .env
 ENV_EXAMPLE = .env.example
 
@@ -14,7 +12,7 @@ TEST = pytest
 
 MANAGE_PY = python manage.py
 
-.PHONY: clean env lint sass watch migrate migrations admin static test serve servelan
+.PHONY: clean env lint check_flake8 check_black check_isort flake8 black isort format sass watch migrate migrations admin static test serve servelan
 
 clean:
 	@echo "🧼 Getting rid of compiled directories."
@@ -26,11 +24,42 @@ env:
 	else cp $(ENV_EXAMPLE) $(ENV); \
 	echo "🔧 Creating new environment file."; fi
 
-lint:
-	@echo "🔦 Running code-style linter."
-	@if $(LINTER) .; then \
-	echo "✅ No code-style issues found."; else \
-	echo "❌ Some code-style issues found."; fi
+lint: check_flake8 check_black check_isort
+
+check_flake8:
+	@if flake8 --format quiet-nothing .; \
+	then echo "✅ flake8 passed."; \
+	else echo "❌ flake8 failed. Run \`make flake8\` for more information."; \
+	fi
+
+check_black:
+	@if black -q --check .; \
+	then echo "✅ black passed."; \
+	else echo "❌ black failed. Run \`make black\` for more information."; \
+	fi
+
+check_isort:
+	@if isort -q -c . 2>/dev/null; \
+	then echo "✅ isort passed."; \
+	else echo "❌ isort failed. Run \`make isort\` for more information."; \
+	fi
+
+flake8:
+	@flake8 .
+
+black:
+	@black --check .
+	@echo "Run `make format` to automatically format files."
+
+isort:
+	@isort -c .
+	@echo "Run `make format` to automatically format files."
+
+format:
+	@echo "🦄 Formatting Python files."
+	@black .
+	@isort .
+	@echo "👍️ Python files have been formatted."
 
 sass:
 	@echo "🎨 Compiling SASS to CSS."

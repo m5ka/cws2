@@ -1,5 +1,6 @@
-import pytest
 import re
+
+import pytest
 
 from cws2.models.user import User
 

@@ -2,14 +2,14 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
+from cws2.constants import LanguageStatus, LanguageType
 from cws2.models.base import (
     AutoSlugMixin,
+    OwnableModel,
     TransientModel,
     TransientModelManager,
-    OwnableModel,
     UUIDModel,
 )
-from cws2.constants import LanguageStatus, LanguageType
 
 
 class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):

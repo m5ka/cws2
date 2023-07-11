@@ -1,10 +1,8 @@
 from captcha.fields import ReCaptchaField
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.views import (
-    LoginView as BaseLoginView,
-    LogoutView as BaseLogoutView,
-)
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView as BaseLoginView
+from django.contrib.auth.views import LogoutView as BaseLogoutView
 from django.forms.utils import ErrorList
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy

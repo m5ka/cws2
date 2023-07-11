@@ -106,9 +106,7 @@ class OwnableResourceMixin:
         to interact with this ownable resource.
         """
         if not self.request.user.is_authenticated:
-            messages.warning(
-                request, _("Try logging in before trying to access that!")
-            )
+            messages.warning(request, _("Try logging in before trying to access that!"))
             return HttpResponseRedirect(reverse("login"))
         if (
             self.ownable_permission_required != "read"

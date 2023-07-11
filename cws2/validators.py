@@ -1,10 +1,9 @@
 import re
 
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
-from django.conf import settings
 from django.utils.translation import gettext_lazy as _
-
 
 validate_username_regex = RegexValidator(
     re.compile(r"^[a-zA-Z0-9-_.]+\Z"),

@@ -1,4 +1,5 @@
-from django.contrib.auth.models import AbstractUser, UserManager as BaseUserManager
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import UserManager as BaseUserManager
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.urls import reverse
@@ -226,6 +227,16 @@ class User(UUIDModel, AbstractUser):
     def __str__(self):
         return self.username
 
+    def save(self, *args, **kwargs):
+        pk = self.pk
+        super().save(*args, **kwargs)
+        if not pk:
+            self.add_to_default_groups()
+            self.create_profile()
+
+    def get_absolute_url(self):
+        return reverse("user.show", kwargs={"user": self.username})
+
     @property
     def email_confirmed(self):
         return self.email_confirmed_at is not None
@@ -240,16 +251,6 @@ class User(UUIDModel, AbstractUser):
     def create_profile(self):
         """Creates a UserProfile object for this user if not already created."""
         UserProfile.objects.get_or_create(user=self)
-
-    def get_absolute_url(self):
-        return reverse("user.show", kwargs={"user": self.username})
-
-    def save(self, *args, **kwargs):
-        pk = self.pk
-        super().save(*args, **kwargs)
-        if not pk:
-            self.add_to_default_groups()
-            self.create_profile()
 
 
 class UserProfile(models.Model):
