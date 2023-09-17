@@ -16,7 +16,7 @@ class PhonoSystem(TransientModel, OwnableModel, UUIDModel):
         db_index=True,
         verbose_name=_("Default human phono system"),
         default=False,
-        help_text=_("This is the name of the phono system."),
+        help_text=_("Indicates whether this is the Human Phono System."),
     )
     name = models.CharField(
         verbose_name=_("Name"),
@@ -67,7 +67,7 @@ class Phone(TransientModel, UUIDModel):
         verbose_name=_("Category"),
         max_length=1,
         choices=PhoneCategory.CHOICES,
-        help_text=_("This is the status of the phono system."),
+        help_text=_("This is the category of the phone."),
     )
     ipa = models.CharField(
         verbose_name=_("IPA"),
@@ -77,6 +77,7 @@ class Phone(TransientModel, UUIDModel):
     xsampa = models.CharField(
         verbose_name=_("X-Sampa"),
         max_length=12,
+        blank=True,
         help_text=_("This is the X-Sampa phonetic representation of this phone."),
     )
     tags = ArrayField(

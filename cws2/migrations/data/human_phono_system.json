@@ -1,14 +1,6 @@
 {
   "phones": [
     {
-      "code": "C000",
-      "type": "phone",
-      "name": "Zero Consonant",
-      "glyph": "",
-      "category": "CONSONANT",
-      "tags": ["ZERO"]
-    },
-    {
       "code": "CAAL",
       "type": "phone",
       "name": "Voiceless alveolar approximant",
@@ -1003,7 +995,6 @@
       "name": "Voiced labiodental flap",
       "glyph": "ⱱ",
       "ipa": "ⱱ",
-      "xsampa": "-",
       "category": "CONSONANT",
       "tags": ["LABIO_DENTAL", "FLAP", "VOICED"]
     },
@@ -1693,14 +1684,6 @@
       "xsampa": "d\\",
       "category": "CONSONANT",
       "tags": ["ALVEOLO_PALATAL", "PLOSIVE", "VOICED"]
-    },
-    {
-      "code": "V000",
-      "type": "phone",
-      "name": "Zero Vowel",
-      "glyph": "",
-      "category": "VOWEL",
-      "tags": ["ZERO"]
     },
     {
       "code": "VCBR",
