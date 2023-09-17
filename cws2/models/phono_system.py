@@ -2,13 +2,13 @@ from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from cws2.constants import PhonoSystemStatus, PhoneCategory
 from cws2.models.base import (
     TransientModel,
     TransientModelManager,
     OwnableModel,
     UUIDModel,
 )
-from cws2.constants import PhonoSystemStatus, PhoneCategory
 
 
 class PhonoSystem(TransientModel, OwnableModel, UUIDModel):

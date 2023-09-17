@@ -1,8 +1,8 @@
 import json
+from pathlib import Path
 
 import shortuuid
 from django.db import migrations
-from pathlib import Path
 
 
 def add_human_phono_system(apps, schema_editor):
