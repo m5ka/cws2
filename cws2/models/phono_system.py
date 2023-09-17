@@ -3,8 +3,12 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from cws2.constants import PhoneCategory, PhonoSystemStatus
-from cws2.models.base import (OwnableModel, TransientModel,
-                              TransientModelManager, UUIDModel)
+from cws2.models.base import (
+    OwnableModel,
+    TransientModel,
+    TransientModelManager,
+    UUIDModel,
+)
 
 
 class PhonoSystem(TransientModel, OwnableModel, UUIDModel):
@@ -92,7 +96,8 @@ class Phone(TransientModel, UUIDModel):
         constraints = [
             models.UniqueConstraint(
                 fields=["phono_system_id", "glyph", "category"],
-                name="cws2_phone_unique_phono_system_glyph_category"),
+                name="cws2_phone_unique_phono_system_glyph_category",
+            ),
         ]
 
     def __str__(self):
