@@ -1,0 +1,2669 @@
+{
+  "phones": [
+    {
+      "code": "CAAL",
+      "type": "phone",
+      "name": "Voiceless alveolar approximant",
+      "glyph": "ɹ̥",
+      "ipa": "ɹ̥",
+      "xsampa": "r\\_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CAAV",
+      "type": "phone",
+      "name": "Voiced alveolar approximant",
+      "glyph": "ɹ",
+      "ipa": "ɹ",
+      "xsampa": "r\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CACX",
+      "type": "phone",
+      "name": "Alveolar click",
+      "glyph": "ǃ",
+      "ipa": "ǃ",
+      "xsampa": "!\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "CLICK"]
+    },
+    {
+      "code": "CAFL",
+      "type": "phone",
+      "name": "Voiceless alveolar fricative",
+      "glyph": "s",
+      "ipa": "s",
+      "xsampa": "s",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CAFV",
+      "type": "phone",
+      "name": "Voiced alveolar fricative",
+      "glyph": "z",
+      "ipa": "z",
+      "xsampa": "z",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CAIX",
+      "type": "phone",
+      "name": "Voiced alveolar implosive",
+      "glyph": "ɗ",
+      "ipa": "ɗ",
+      "xsampa": "d_<",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "IMPLOSIVE"]
+    },
+    {
+      "code": "CAJL",
+      "type": "phone",
+      "name": "Voiceless alveolar affricate",
+      "glyph": "t͡s",
+      "ipa": "t͡s",
+      "xsampa": "ts",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CAJV",
+      "type": "phone",
+      "name": "Voiced alveolar affricate",
+      "glyph": "d͡z",
+      "ipa": "d͡z",
+      "xsampa": "dz",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CALL",
+      "type": "phone",
+      "name": "Voiceless alveolar lateral approximant",
+      "glyph": "l̥",
+      "ipa": "l̥",
+      "xsampa": "l_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CALV",
+      "type": "phone",
+      "name": "Voiced alveolar lateral approximant",
+      "glyph": "l",
+      "ipa": "l",
+      "xsampa": "l",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CANL",
+      "type": "phone",
+      "name": "Voiceless alveolar nasal",
+      "glyph": "n̥",
+      "ipa": "n̥",
+      "xsampa": "n_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CANV",
+      "type": "phone",
+      "name": "Voiced alveolar nasal",
+      "glyph": "n",
+      "ipa": "n",
+      "xsampa": "n",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CAPL",
+      "type": "phone",
+      "name": "Voiceless alveolar stop",
+      "glyph": "t",
+      "ipa": "t",
+      "xsampa": "t",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CAPV",
+      "type": "phone",
+      "name": "Voiced alveolar stop",
+      "glyph": "d",
+      "ipa": "d",
+      "xsampa": "d",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CARL",
+      "type": "phone",
+      "name": "Voiceless alveolar flap",
+      "glyph": "ɾ̥",
+      "ipa": "ɾ̥",
+      "xsampa": "4_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CARV",
+      "type": "phone",
+      "name": "Voiced alveolar flap",
+      "glyph": "ɾ",
+      "ipa": "ɾ",
+      "xsampa": "4",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CATL",
+      "type": "phone",
+      "name": "Voiceless alveolar trill",
+      "glyph": "r̥",
+      "ipa": "r̥",
+      "xsampa": "r_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "TRILL", "VOICELESS"]
+    },
+    {
+      "code": "CATV",
+      "type": "phone",
+      "name": "Voiced alveolar trill",
+      "glyph": "r",
+      "ipa": "r",
+      "xsampa": "r",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "TRILL", "VOICED"]
+    },
+    {
+      "code": "CAXL",
+      "type": "phone",
+      "name": "Voiceless alveolar lateral flap",
+      "glyph": "ɺ̥",
+      "ipa": "ɺ̥",
+      "xsampa": "l\\_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CAXV",
+      "type": "phone",
+      "name": "Voiced alveolar lateral flap",
+      "glyph": "ɺ",
+      "ipa": "ɺ",
+      "xsampa": "l\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_FLAP", "VOICED"]
+    },
+    {
+      "code": "CAZL",
+      "type": "phone",
+      "name": "Voiceless alveolar lateral fricative",
+      "glyph": "ɬ",
+      "ipa": "ɬ",
+      "xsampa": "K",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CAZV",
+      "type": "phone",
+      "name": "Voiced alveolar lateral fricative",
+      "glyph": "ɮ",
+      "ipa": "ɮ",
+      "xsampa": "K\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLAR", "LATERAL_FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CBAL",
+      "type": "phone",
+      "name": "Voiceless bilabial approximant",
+      "glyph": "β̞̊",
+      "ipa": "β̞̊",
+      "xsampa": "B_o_0",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CBAV",
+      "type": "phone",
+      "name": "Voiced bilabial approximant",
+      "glyph": "β̞",
+      "ipa": "β̞",
+      "xsampa": "B_o",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CBCX",
+      "type": "phone",
+      "name": "Labial click",
+      "glyph": "ʘ",
+      "ipa": "ʘ",
+      "xsampa": "O\\",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "CLICK"]
+    },
+    {
+      "code": "CBFL",
+      "type": "phone",
+      "name": "Voiceless bilabial fricative",
+      "glyph": "ɸ",
+      "ipa": "ɸ",
+      "xsampa": "p\\",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CBFV",
+      "type": "phone",
+      "name": "Voiced bilabial fricative",
+      "glyph": "β",
+      "ipa": "β",
+      "xsampa": "B",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CBIX",
+      "type": "phone",
+      "name": "Voiced bilabial implosive",
+      "glyph": "ɓ",
+      "ipa": "ɓ",
+      "xsampa": "b_<",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "IMPLOSIVE"]
+    },
+    {
+      "code": "CBJL",
+      "type": "phone",
+      "name": "Voiceless bilabial affricate",
+      "glyph": "p͡ɸ",
+      "ipa": "p͡ɸ",
+      "xsampa": "pp\\",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CBJV",
+      "type": "phone",
+      "name": "Voiced bilabial affricate",
+      "glyph": "b͡β",
+      "ipa": "b͡β",
+      "xsampa": "bB",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CBNL",
+      "type": "phone",
+      "name": "Voiceless bilabial nasal",
+      "glyph": "m̥",
+      "ipa": "m̥",
+      "xsampa": "m_0",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CBNV",
+      "type": "phone",
+      "name": "Bilabial nasal",
+      "glyph": "m",
+      "ipa": "m",
+      "xsampa": "m",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CBPL",
+      "type": "phone",
+      "name": "Voiceless bilabial stop",
+      "glyph": "p",
+      "ipa": "p",
+      "xsampa": "p",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CBPV",
+      "type": "phone",
+      "name": "Voiced bilabial stop",
+      "glyph": "b",
+      "ipa": "b",
+      "xsampa": "b",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CBRL",
+      "type": "phone",
+      "name": "Voiceless bilabial flap",
+      "glyph": "ⱱ̟̊",
+      "ipa": "ⱱ̟̊",
+      "xsampa": "p_X",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CBRV",
+      "type": "phone",
+      "name": "Voiced bilabial flap",
+      "glyph": "ⱱ̟",
+      "ipa": "ⱱ̟",
+      "xsampa": "b_X",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CBTL",
+      "type": "phone",
+      "name": "Voiceless bilabial trill",
+      "glyph": "ʙ̥",
+      "ipa": "ʙ̥",
+      "xsampa": "B\\_0",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "TRILL", "VOICELESS"]
+    },
+    {
+      "code": "CBTV",
+      "type": "phone",
+      "name": "Voiced bilabial trill",
+      "glyph": "ʙ",
+      "ipa": "ʙ",
+      "xsampa": "B\\",
+      "category": "CONSONANT",
+      "tags": ["BILABIAL", "TRILL", "VOICED"]
+    },
+    {
+      "code": "CDAL",
+      "type": "phone",
+      "name": "Voiceless dental approximant",
+      "glyph": "ð̞̊",
+      "ipa": "ð̞̊",
+      "xsampa": "D_o_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CDAV",
+      "type": "phone",
+      "name": "Voiced dental approximant",
+      "glyph": "ð̞",
+      "ipa": "ð̞",
+      "xsampa": "D_o",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CDCX",
+      "type": "phone",
+      "name": "Dental click",
+      "glyph": "ǀ",
+      "ipa": "ǀ",
+      "xsampa": "|\\",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "CLICK"]
+    },
+    {
+      "code": "CDFL",
+      "type": "phone",
+      "name": "Voiceless dental fricative",
+      "glyph": "θ",
+      "ipa": "θ",
+      "xsampa": "T",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CDFV",
+      "type": "phone",
+      "name": "Voiced dental fricative",
+      "glyph": "ð",
+      "ipa": "ð",
+      "xsampa": "D",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CDIX",
+      "type": "phone",
+      "name": "Voiced dental implosive",
+      "glyph": "ɗ̪",
+      "ipa": "ɗ̪",
+      "xsampa": "d_<_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "IMPLOSIVE"]
+    },
+    {
+      "code": "CDJL",
+      "type": "phone",
+      "name": "Voiceless dental affricate",
+      "glyph": "t̪͡θ",
+      "ipa": "t̪͡θ",
+      "xsampa": "t_dT",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CDJV",
+      "type": "phone",
+      "name": "Voiced dental affricate",
+      "glyph": "d̪͡ð",
+      "ipa": "d̪͡ð",
+      "xsampa": "d_dD",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CDLL",
+      "type": "phone",
+      "name": "Voiceless dental lateral approximant",
+      "glyph": "l̪̊",
+      "ipa": "l̪̊",
+      "xsampa": "l_d_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CDLV",
+      "type": "phone",
+      "name": "Voiced dental lateral approximant",
+      "glyph": "l̪",
+      "ipa": "l̪",
+      "xsampa": "l_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CDNL",
+      "type": "phone",
+      "name": "Voiceless dental nasal",
+      "glyph": "n̪̊",
+      "ipa": "n̪̊",
+      "xsampa": "n_d_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CDNV",
+      "type": "phone",
+      "name": "Voiced dental nasal",
+      "glyph": "n̪",
+      "ipa": "n̪",
+      "xsampa": "n_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CDPL",
+      "type": "phone",
+      "name": "Voiceless dental stop",
+      "glyph": "t̪",
+      "ipa": "t̪",
+      "xsampa": "t_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CDPV",
+      "type": "phone",
+      "name": "Voiced dental stop",
+      "glyph": "d̪",
+      "ipa": "d̪",
+      "xsampa": "d_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CDRL",
+      "type": "phone",
+      "name": "Voiceless dental flap",
+      "glyph": "ɾ̪̊",
+      "ipa": "ɾ̪̊",
+      "xsampa": "4_d_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CDRV",
+      "type": "phone",
+      "name": "Voiced dental flap",
+      "glyph": "ɾ̪",
+      "ipa": "ɾ̪",
+      "xsampa": "4_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CDTL",
+      "type": "phone",
+      "name": "Voiceless dental trill",
+      "glyph": "r̪̊",
+      "ipa": "r̪̊",
+      "xsampa": "r_d_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "TRILL", "VOICELESS"]
+    },
+    {
+      "code": "CDTV",
+      "type": "phone",
+      "name": "Voiced dental trill",
+      "glyph": "r̪",
+      "ipa": "r̪",
+      "xsampa": "r_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "TRILL", "VOICED"]
+    },
+    {
+      "code": "CDXL",
+      "type": "phone",
+      "name": "Voiceless dental lateral flap",
+      "glyph": "ɺ̪̊",
+      "ipa": "ɺ̪̊",
+      "xsampa": "l\\_d_0",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CDXV",
+      "type": "phone",
+      "name": "Voiced dental lateral flap",
+      "glyph": "ɺ̪",
+      "ipa": "ɺ̪",
+      "xsampa": "l\\_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_FLAP", "VOICED"]
+    },
+    {
+      "code": "CDZL",
+      "type": "phone",
+      "name": "Voiceless dental lateral fricative",
+      "glyph": "ɬ̪",
+      "ipa": "ɬ̪",
+      "xsampa": "K_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CDZV",
+      "type": "phone",
+      "name": "Voiced dental lateral fricative",
+      "glyph": "ɮ̪",
+      "ipa": "ɮ̪",
+      "xsampa": "K\\_d",
+      "category": "CONSONANT",
+      "tags": ["DENTAL", "LATERAL_FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CGFL",
+      "type": "phone",
+      "name": "Voiceless glottal fricative",
+      "glyph": "h",
+      "ipa": "h",
+      "xsampa": "h",
+      "category": "CONSONANT",
+      "tags": ["GLOTTAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CGFV",
+      "type": "phone",
+      "name": "Voiced glottal fricative",
+      "glyph": "ɦ",
+      "ipa": "ɦ",
+      "xsampa": "h\\",
+      "category": "CONSONANT",
+      "tags": ["GLOTTAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CGPX",
+      "type": "phone",
+      "name": "Glottal stop",
+      "glyph": "ʔ",
+      "ipa": "ʔ",
+      "xsampa": "?",
+      "category": "CONSONANT",
+      "tags": ["GLOTTAL", "PLOSIVE"]
+    },
+    {
+      "code": "CHFL",
+      "type": "phone",
+      "name": "Voiceless pharyngeal fricative",
+      "glyph": "ħ",
+      "ipa": "ħ",
+      "xsampa": "X\\",
+      "category": "CONSONANT",
+      "tags": ["PHARYNGEAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CHFV",
+      "type": "phone",
+      "name": "Voiced pharyngeal fricative",
+      "glyph": "ʕ",
+      "ipa": "ʕ",
+      "xsampa": "?\\",
+      "category": "CONSONANT",
+      "tags": ["PHARYNGEAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CIAL",
+      "type": "phone",
+      "name": "Voiceless labial-palatal approximant",
+      "glyph": "ɥ̊",
+      "ipa": "ɥ̊",
+      "xsampa": "H_0",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CIAV",
+      "type": "phone",
+      "name": "Voiced labial-palatal approximant",
+      "glyph": "ɥ",
+      "ipa": "ɥ",
+      "xsampa": "H",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CIFX",
+      "type": "phone",
+      "name": "Voiceless palatal-velar fricative",
+      "glyph": "ɧ",
+      "ipa": "ɧ",
+      "xsampa": "x\\",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "FRICATIVE"]
+    },
+    {
+      "code": "CIJL",
+      "type": "phone",
+      "name": "Voiceless alveolar lateral affricate",
+      "glyph": "t͡ɬ",
+      "ipa": "t͡ɬ",
+      "xsampa": "tK",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CIJV",
+      "type": "phone",
+      "name": "Voiced alveolar lateral affricate",
+      "glyph": "d͡ɮ",
+      "ipa": "d͡ɮ",
+      "xsampa": "dK\\",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CILL",
+      "type": "phone",
+      "name": "Voiceless dark L",
+      "glyph": "ɫ̥",
+      "ipa": "ɫ̥",
+      "xsampa": "5_0",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CILV",
+      "type": "phone",
+      "name": "Voiced dark L",
+      "glyph": "ɫ",
+      "ipa": "ɫ",
+      "xsampa": "5",
+      "category": "CONSONANT",
+      "tags": ["OTHER", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CJAL",
+      "type": "phone",
+      "name": "Voiceless palatal approximant",
+      "glyph": "j̊",
+      "ipa": "j̊",
+      "xsampa": "j_0",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CJAV",
+      "type": "phone",
+      "name": "Voiced palatal approximant",
+      "glyph": "j",
+      "ipa": "j",
+      "xsampa": "j",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CJCX",
+      "type": "phone",
+      "name": "Palatal click",
+      "glyph": "ǂ",
+      "ipa": "ǂ",
+      "xsampa": "=\\",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "CLICK"]
+    },
+    {
+      "code": "CJFL",
+      "type": "phone",
+      "name": "Voiceless palatal fricative",
+      "glyph": "ç",
+      "ipa": "ç",
+      "xsampa": "C",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CJFV",
+      "type": "phone",
+      "name": "Voiced palatal fricative",
+      "glyph": "ʝ",
+      "ipa": "ʝ",
+      "xsampa": "j\\",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CJIX",
+      "type": "phone",
+      "name": "Voiced palatal implosive",
+      "glyph": "ʄ",
+      "ipa": "ʄ",
+      "xsampa": "J\\_&lt;",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "IMPLOSIVE"]
+    },
+    {
+      "code": "CJJL",
+      "type": "phone",
+      "name": "Voiceless palatal affricate",
+      "glyph": "c͡ç",
+      "ipa": "c͡ç",
+      "xsampa": "cC",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CJJV",
+      "type": "phone",
+      "name": "Voiced palatal affricate",
+      "glyph": "ɟ͡ʝ",
+      "ipa": "ɟ͡ʝ",
+      "xsampa": "J\\j\\",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CJLL",
+      "type": "phone",
+      "name": "Voiceless palatal lateral approximant",
+      "glyph": "ʎ̥",
+      "ipa": "ʎ̥",
+      "xsampa": "L_0",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CJLV",
+      "type": "phone",
+      "name": "Voiced palatal lateral approximant",
+      "glyph": "ʎ",
+      "ipa": "ʎ",
+      "xsampa": "L",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CJNL",
+      "type": "phone",
+      "name": "Voiceless palatal nasal",
+      "glyph": "ɲ̊",
+      "ipa": "ɲ̊",
+      "xsampa": "J_0",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CJNV",
+      "type": "phone",
+      "name": "Voiced palatal nasal",
+      "glyph": "ɲ",
+      "ipa": "ɲ",
+      "xsampa": "J",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CJPL",
+      "type": "phone",
+      "name": "Voiceless palatal stop",
+      "glyph": "c",
+      "ipa": "c",
+      "xsampa": "c",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CJPV",
+      "type": "phone",
+      "name": "Voiced palatal stop",
+      "glyph": "ɟ",
+      "ipa": "ɟ",
+      "xsampa": "J\\",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CJZL",
+      "type": "phone",
+      "name": "Voiceless palatal lateral fricative",
+      "glyph": "ʎ̝̊",
+      "ipa": "ʎ̝̊",
+      "xsampa": "L_r_0",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "LATERAL_FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CJZV",
+      "type": "phone",
+      "name": "Voiced palatal lateral fricative",
+      "glyph": "ʎ̝",
+      "ipa": "ʎ̝",
+      "xsampa": "L_r",
+      "category": "CONSONANT",
+      "tags": ["PALATAL", "LATERAL_FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CLAL",
+      "type": "phone",
+      "name": "Voiceless labiodental approximant",
+      "glyph": "ʋ̥",
+      "ipa": "ʋ̥",
+      "xsampa": "v\\_0",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CLAV",
+      "type": "phone",
+      "name": "Voiced labiodental approximant",
+      "glyph": "ʋ",
+      "ipa": "ʋ",
+      "xsampa": "v\\",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CLFL",
+      "type": "phone",
+      "name": "Voiceless labiodental fricative",
+      "glyph": "f",
+      "ipa": "f",
+      "xsampa": "f",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CLFV",
+      "type": "phone",
+      "name": "Voiced labiodental fricative",
+      "glyph": "v",
+      "ipa": "v",
+      "xsampa": "v",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CLJL",
+      "type": "phone",
+      "name": "Voiceless labiodental affricate",
+      "glyph": "p̪͡f",
+      "ipa": "p̪͡f",
+      "xsampa": "p_df",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CLJV",
+      "type": "phone",
+      "name": "Voiced labiodental affricate",
+      "glyph": "b̪͡v",
+      "ipa": "b̪͡v",
+      "xsampa": "b_dv",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CLNL",
+      "type": "phone",
+      "name": "Voiceless labiodental nasal",
+      "glyph": "ɱ̊",
+      "ipa": "ɱ̊",
+      "xsampa": "F_0",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CLNV",
+      "type": "phone",
+      "name": "Voiced labiodental nasal",
+      "glyph": "ɱ",
+      "ipa": "ɱ",
+      "xsampa": "F",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CLPL",
+      "type": "phone",
+      "name": "Voiceless labiodental stop",
+      "glyph": "p̪",
+      "ipa": "p̪",
+      "xsampa": "p_d",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CLPV",
+      "type": "phone",
+      "name": "Voiced labiodental stop",
+      "glyph": "b̪",
+      "ipa": "b̪",
+      "xsampa": "b_d",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CLRL",
+      "type": "phone",
+      "name": "Voiceless labiodental flap",
+      "glyph": "ⱱ̥",
+      "ipa": "ⱱ̥",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CLRV",
+      "type": "phone",
+      "name": "Voiced labiodental flap",
+      "glyph": "ⱱ",
+      "ipa": "ⱱ",
+      "category": "CONSONANT",
+      "tags": ["LABIO_DENTAL", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CPFL",
+      "type": "phone",
+      "name": "Voiceless palato-alveolar fricative",
+      "glyph": "ʃ",
+      "ipa": "ʃ",
+      "xsampa": "S",
+      "category": "CONSONANT",
+      "tags": ["POST_ALVEOLAR", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CPFV",
+      "type": "phone",
+      "name": "Voiced palato-alveolar fricative",
+      "glyph": "ʒ",
+      "ipa": "ʒ",
+      "xsampa": "Z",
+      "category": "CONSONANT",
+      "tags": ["POST_ALVEOLAR", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CPJL",
+      "type": "phone",
+      "name": "Voiceless palato-alveolar affricate",
+      "glyph": "t͡ʃ",
+      "ipa": "t͡ʃ",
+      "xsampa": "tS",
+      "category": "CONSONANT",
+      "tags": ["POST_ALVEOLAR", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CPJV",
+      "type": "phone",
+      "name": "Voiced palato-alveolar affricate",
+      "glyph": "d͡ʒ",
+      "ipa": "d͡ʒ",
+      "xsampa": "dZ",
+      "category": "CONSONANT",
+      "tags": ["POST_ALVEOLAR", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CRAL",
+      "type": "phone",
+      "name": "Voiceless retroflex approximant",
+      "glyph": "ɻ̊",
+      "ipa": "ɻ̊",
+      "xsampa": "r\\`_0",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CRAV",
+      "type": "phone",
+      "name": "Voiced retroflex approximant",
+      "glyph": "ɻ",
+      "ipa": "ɻ",
+      "xsampa": "r\\`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CRCX",
+      "type": "phone",
+      "name": "Retroflex click",
+      "glyph": "‼",
+      "ipa": "‼",
+      "xsampa": "!!",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "CLICK"]
+    },
+    {
+      "code": "CRFL",
+      "type": "phone",
+      "name": "Voiceless retroflex fricative",
+      "glyph": "ʂ",
+      "ipa": "ʂ",
+      "xsampa": "s`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CRFV",
+      "type": "phone",
+      "name": "Voiced retroflex fricative",
+      "glyph": "ʐ",
+      "ipa": "ʐ",
+      "xsampa": "z`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CRIX",
+      "type": "phone",
+      "name": "Voiced retroflex implosive",
+      "glyph": "ᶑ",
+      "ipa": "ᶑ",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "IMPLOSIVE"]
+    },
+    {
+      "code": "CRJL",
+      "type": "phone",
+      "name": "Voiceless retroflex affricate",
+      "glyph": "ʈ͡ʂ",
+      "ipa": "ʈ͡ʂ",
+      "xsampa": "t`s`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CRJV",
+      "type": "phone",
+      "name": "Voiced retroflex affricate",
+      "glyph": "ɖ͡ʐ",
+      "ipa": "ɖ͡ʐ",
+      "xsampa": "d`z`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CRLL",
+      "type": "phone",
+      "name": "Voiceless retroflex lateral approximant",
+      "glyph": "ɭ̊",
+      "ipa": "ɭ̊",
+      "xsampa": "l`_0",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CRLV",
+      "type": "phone",
+      "name": "Voiced retroflex lateral approximant",
+      "glyph": "ɭ",
+      "ipa": "ɭ",
+      "xsampa": "l`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CRNL",
+      "type": "phone",
+      "name": "Voiceless retroflex nasal",
+      "glyph": "ɳ̊",
+      "ipa": "ɳ̊",
+      "xsampa": "n`_0",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CRNV",
+      "type": "phone",
+      "name": "Voiced retroflex nasal",
+      "glyph": "ɳ",
+      "ipa": "ɳ",
+      "xsampa": "n`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CRPL",
+      "type": "phone",
+      "name": "Voiceless retroflex stop",
+      "glyph": "ʈ",
+      "ipa": "ʈ",
+      "xsampa": "t`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CRPV",
+      "type": "phone",
+      "name": "Voiced retroflex stop",
+      "glyph": "ɖ",
+      "ipa": "ɖ",
+      "xsampa": "d`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CRRL",
+      "type": "phone",
+      "name": "Voiceless retroflex flap",
+      "glyph": "ɽ̊",
+      "ipa": "ɽ̊",
+      "xsampa": "r`_0",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CRRV",
+      "type": "phone",
+      "name": "Voiced retroflex flap",
+      "glyph": "ɽ",
+      "ipa": "ɽ",
+      "xsampa": "r`",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CRZL",
+      "type": "phone",
+      "name": "Voiceless retroflex lateral fricative",
+      "glyph": "ꞎ",
+      "ipa": "ꞎ",
+      "xsampa": "l`_r_0",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "LATERAL_FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CRZV",
+      "type": "phone",
+      "name": "Voiced retroflex lateral fricative",
+      "glyph": "ɭ˔",
+      "ipa": "ɭ˔",
+      "xsampa": "l`_r",
+      "category": "CONSONANT",
+      "tags": ["RETROFLEX", "LATERAL_FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CUAL",
+      "type": "phone",
+      "name": "Voiceless uvular approximant",
+      "glyph": "ʁ̞̊",
+      "ipa": "ʁ̞̊",
+      "xsampa": "R_o_0",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CUAV",
+      "type": "phone",
+      "name": "Voiced uvular approximant",
+      "glyph": "ʁ̞",
+      "ipa": "ʁ̞",
+      "xsampa": "R_o",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CUFL",
+      "type": "phone",
+      "name": "Voiceless uvular fricative",
+      "glyph": "χ",
+      "ipa": "χ",
+      "xsampa": "X",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CUFV",
+      "type": "phone",
+      "name": "Voiced uvular fricative",
+      "glyph": "ʁ",
+      "ipa": "ʁ",
+      "xsampa": "R",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CUIX",
+      "type": "phone",
+      "name": "Voiced uvular implosive",
+      "glyph": "ʛ",
+      "ipa": "ʛ",
+      "xsampa": "G\\_&lt;",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "IMPLOSIVE"]
+    },
+    {
+      "code": "CUJL",
+      "type": "phone",
+      "name": "Voiceless uvular affricate",
+      "glyph": "q͡χ",
+      "ipa": "q͡χ",
+      "xsampa": "qX",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CUJV",
+      "type": "phone",
+      "name": "Voiced uvular affricate",
+      "glyph": "ɢ͡ʁ",
+      "ipa": "ɢ͡ʁ",
+      "xsampa": "G\\R",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CUNL",
+      "type": "phone",
+      "name": "Voiceless uvular nasal",
+      "glyph": "ɴ̥",
+      "ipa": "ɴ̥",
+      "xsampa": "N\\_0",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CUNV",
+      "type": "phone",
+      "name": "Voiced uvular nasal",
+      "glyph": "ɴ",
+      "ipa": "ɴ",
+      "xsampa": "N\\",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CUPL",
+      "type": "phone",
+      "name": "Voiceless uvular stop",
+      "glyph": "q",
+      "ipa": "q",
+      "xsampa": "q",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CUPV",
+      "type": "phone",
+      "name": "Voiced uvular stop",
+      "glyph": "ɢ",
+      "ipa": "ɢ",
+      "xsampa": "G\\",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CURL",
+      "type": "phone",
+      "name": "Voiceless uvular flap",
+      "glyph": "q̆",
+      "ipa": "q̆",
+      "xsampa": "q_X",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "FLAP", "VOICELESS"]
+    },
+    {
+      "code": "CURV",
+      "type": "phone",
+      "name": "Voiced uvular flap",
+      "glyph": "ɢ̆",
+      "ipa": "ɢ̆",
+      "xsampa": "G\\_X",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "FLAP", "VOICED"]
+    },
+    {
+      "code": "CUTL",
+      "type": "phone",
+      "name": "Voiceless uvular trill",
+      "glyph": "ʀ̥",
+      "ipa": "ʀ̥",
+      "xsampa": "R\\_0",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "TRILL", "VOICELESS"]
+    },
+    {
+      "code": "CUTV",
+      "type": "phone",
+      "name": "Voiced uvular trill",
+      "glyph": "ʀ",
+      "ipa": "ʀ",
+      "xsampa": "R\\",
+      "category": "CONSONANT",
+      "tags": ["UVULAR", "TRILL", "VOICED"]
+    },
+    {
+      "code": "CVAL",
+      "type": "phone",
+      "name": "Voiceless velar approximant",
+      "glyph": "ɰ̊",
+      "ipa": "ɰ̊",
+      "xsampa": "M\\_0",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CVAV",
+      "type": "phone",
+      "name": "Voiced velar approximant",
+      "glyph": "ɰ",
+      "ipa": "ɰ",
+      "xsampa": "M\\",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CVCX",
+      "type": "phone",
+      "name": "Velar click",
+      "glyph": "ʞ",
+      "ipa": "ʞ",
+      "xsampa": "k`",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "CLICK"]
+    },
+    {
+      "code": "CVFL",
+      "type": "phone",
+      "name": "Voiceless velar fricative",
+      "glyph": "x",
+      "ipa": "x",
+      "xsampa": "x",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CVFV",
+      "type": "phone",
+      "name": "Voiced velar fricative",
+      "glyph": "ɣ",
+      "ipa": "ɣ",
+      "xsampa": "G",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CVIX",
+      "type": "phone",
+      "name": "Voiced velar implosive",
+      "glyph": "ɠ",
+      "ipa": "ɠ",
+      "xsampa": "g_<",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "IMPLOSIVE"]
+    },
+    {
+      "code": "CVJL",
+      "type": "phone",
+      "name": "Voiceless velar affricate",
+      "glyph": "k͡x",
+      "ipa": "k͡x",
+      "xsampa": "kx",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CVJV",
+      "type": "phone",
+      "name": "Voiced velar affricate",
+      "glyph": "g͡ɣ",
+      "ipa": "g͡ɣ",
+      "xsampa": "gG",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CVLL",
+      "type": "phone",
+      "name": "Voiceless velar lateral approximant",
+      "glyph": "ʟ̥",
+      "ipa": "ʟ̥",
+      "xsampa": "L\\_0",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CVLV",
+      "type": "phone",
+      "name": "Voiced velar lateral approximant",
+      "glyph": "ʟ",
+      "ipa": "ʟ",
+      "xsampa": "L\\",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CVNL",
+      "type": "phone",
+      "name": "Voiceless velar nasal",
+      "glyph": "ŋ̊",
+      "ipa": "ŋ̊",
+      "xsampa": "N_0",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CVNV",
+      "type": "phone",
+      "name": "Voiced velar nasal",
+      "glyph": "ŋ",
+      "ipa": "ŋ",
+      "xsampa": "N",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CVPL",
+      "type": "phone",
+      "name": "Voiceless velar stop",
+      "glyph": "k",
+      "ipa": "k",
+      "xsampa": "k",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CVPV",
+      "type": "phone",
+      "name": "Voiced velar stop",
+      "glyph": "g",
+      "ipa": "g",
+      "xsampa": "g",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "CVZL",
+      "type": "phone",
+      "name": "Voiceless velar lateral fricative",
+      "glyph": "ʟ̝̊",
+      "ipa": "ʟ̝̊",
+      "xsampa": "L\\_r_0",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "LATERAL_FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CVZV",
+      "type": "phone",
+      "name": "Voiced velar lateral fricative",
+      "glyph": "ʟ̝",
+      "ipa": "ʟ̝",
+      "xsampa": "L\\_r",
+      "category": "CONSONANT",
+      "tags": ["VELAR", "LATERAL_FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CWAL",
+      "type": "phone",
+      "name": "Voiceless labio-velar approximant",
+      "glyph": "ʍ",
+      "ipa": "ʍ",
+      "xsampa": "W",
+      "category": "CONSONANT",
+      "tags": ["LABIO_VELAR", "APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CWAV",
+      "type": "phone",
+      "name": "Voiced labio-velar approximant",
+      "glyph": "w",
+      "ipa": "w",
+      "xsampa": "w",
+      "category": "CONSONANT",
+      "tags": ["LABIO_VELAR", "APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CXFL",
+      "type": "phone",
+      "name": "Voiceless epiglottal fricative",
+      "glyph": "ʜ",
+      "ipa": "ʜ",
+      "xsampa": "H\\",
+      "category": "CONSONANT",
+      "tags": ["EPIGLOTTAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CXFV",
+      "type": "phone",
+      "name": "Voiced epiglottal fricative",
+      "glyph": "ʢ",
+      "ipa": "ʢ",
+      "xsampa": "<\\",
+      "category": "CONSONANT",
+      "tags": ["EPIGLOTTAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CXPX",
+      "type": "phone",
+      "name": "Epiglottal stop",
+      "glyph": "ʡ",
+      "ipa": "ʡ",
+      "xsampa": ">\\",
+      "category": "CONSONANT",
+      "tags": ["EPIGLOTTAL", "PLOSIVE"]
+    },
+    {
+      "code": "CYCX",
+      "type": "phone",
+      "name": "Alveolo-lateral click",
+      "glyph": "ǁ",
+      "ipa": "ǁ",
+      "xsampa": "|\\|\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "CLICK"]
+    },
+    {
+      "code": "CYFL",
+      "type": "phone",
+      "name": "Voiceless alveolo-palatal fricative",
+      "glyph": "ɕ",
+      "ipa": "ɕ",
+      "xsampa": "s\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "FRICATIVE", "VOICELESS"]
+    },
+    {
+      "code": "CYFV",
+      "type": "phone",
+      "name": "Voiced alveolo-palatal fricative",
+      "glyph": "ʑ",
+      "ipa": "ʑ",
+      "xsampa": "z\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "FRICATIVE", "VOICED"]
+    },
+    {
+      "code": "CYJL",
+      "type": "phone",
+      "name": "Voiceless alveolo-palatal affricate",
+      "glyph": "t͡ɕ",
+      "ipa": "t͡ɕ",
+      "xsampa": "ts\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "AFFRICATE", "VOICELESS"]
+    },
+    {
+      "code": "CYJV",
+      "type": "phone",
+      "name": "Voiced alveolo-palatal affricate",
+      "glyph": "d͡ʑ",
+      "ipa": "d͡ʑ",
+      "xsampa": "dz\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "AFFRICATE", "VOICED"]
+    },
+    {
+      "code": "CYLL",
+      "type": "phone",
+      "name": "Voiceless alveolo-palatal lateral approximant",
+      "glyph": "ȴ̊",
+      "ipa": "ȴ̊",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "LATERAL_APPROXIMANT", "VOICELESS"]
+    },
+    {
+      "code": "CYLV",
+      "type": "phone",
+      "name": "Voiced alveolo-palatal lateral approximant",
+      "glyph": "ȴ",
+      "ipa": "ȴ",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "LATERAL_APPROXIMANT", "VOICED"]
+    },
+    {
+      "code": "CYNL",
+      "type": "phone",
+      "name": "Voiceless alveolo-palatal nasal",
+      "glyph": "ȵ̊",
+      "ipa": "ȵ̊",
+      "xsampa": "n\\_0",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "NASAL", "VOICELESS"]
+    },
+    {
+      "code": "CYNV",
+      "type": "phone",
+      "name": "Voiced alveolo-palatal nasal",
+      "glyph": "ȵ",
+      "ipa": "ȵ",
+      "xsampa": "n\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "NASAL", "VOICED"]
+    },
+    {
+      "code": "CYPL",
+      "type": "phone",
+      "name": "Voiceless alveolo-palatal stop",
+      "glyph": "ȶ",
+      "ipa": "ȶ",
+      "xsampa": "t\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "PLOSIVE", "VOICELESS"]
+    },
+    {
+      "code": "CYPV",
+      "type": "phone",
+      "name": "Voiced alveolo-palatal stop",
+      "glyph": "ȡ",
+      "ipa": "ȡ",
+      "xsampa": "d\\",
+      "category": "CONSONANT",
+      "tags": ["ALVEOLO_PALATAL", "PLOSIVE", "VOICED"]
+    },
+    {
+      "code": "VCBR",
+      "type": "phone",
+      "name": "Close back rounded vowel",
+      "glyph": "u",
+      "ipa": "u",
+      "xsampa": "u",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "BACK", "ROUNDED"]
+    },
+    {
+      "code": "VCBU",
+      "type": "phone",
+      "name": "Close back unrounded vowel",
+      "glyph": "ɯ",
+      "ipa": "ɯ",
+      "xsampa": "M",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "BACK", "UNROUNDED"]
+    },
+    {
+      "code": "VCCR",
+      "type": "phone",
+      "name": "Close central rounded vowel",
+      "glyph": "ʉ",
+      "ipa": "ʉ",
+      "xsampa": "}",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "CENTRAL", "ROUNDED"]
+    },
+    {
+      "code": "VCCU",
+      "type": "phone",
+      "name": "Close central unrounded vowel",
+      "glyph": "ɨ",
+      "ipa": "ɨ",
+      "xsampa": "1",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "CENTRAL", "UNROUNDED"]
+    },
+    {
+      "code": "VCFR",
+      "type": "phone",
+      "name": "Close front rounded vowel",
+      "glyph": "y",
+      "ipa": "y",
+      "xsampa": "y",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "FRONT", "ROUNDED"]
+    },
+    {
+      "code": "VCFU",
+      "type": "phone",
+      "name": "Close front unrounded vowel",
+      "glyph": "i",
+      "ipa": "i",
+      "xsampa": "i",
+      "category": "VOWEL",
+      "tags": ["CLOSE", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VIBR",
+      "type": "phone",
+      "name": "Open-mid back rounded vowel",
+      "glyph": "ɔ",
+      "ipa": "ɔ",
+      "xsampa": "O",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "BACK", "ROUNDED"]
+    },
+    {
+      "code": "VIBU",
+      "type": "phone",
+      "name": "Open-mid back unrounded vowel",
+      "glyph": "ʌ",
+      "ipa": "ʌ",
+      "xsampa": "V",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "BACK", "UNROUNDED"]
+    },
+    {
+      "code": "VICR",
+      "type": "phone",
+      "name": "Open-mid central rounded vowel",
+      "glyph": "ɞ",
+      "ipa": "ɞ",
+      "xsampa": "3\\",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "CENTRAL", "ROUNDED"]
+    },
+    {
+      "code": "VICU",
+      "type": "phone",
+      "name": "Open-mid central unrounded vowel",
+      "glyph": "ɜ",
+      "ipa": "ɜ",
+      "xsampa": "3",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "CENTRAL", "UNROUNDED"]
+    },
+    {
+      "code": "VIFR",
+      "type": "phone",
+      "name": "Open-mid front rounded vowel",
+      "glyph": "œ",
+      "ipa": "œ",
+      "xsampa": "9",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "FRONT", "ROUNDED"]
+    },
+    {
+      "code": "VIFU",
+      "type": "phone",
+      "name": "Open-mid front unrounded vowel",
+      "glyph": "ɛ",
+      "ipa": "ɛ",
+      "xsampa": "E",
+      "category": "VOWEL",
+      "tags": ["OPEN_MID", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VLBR",
+      "type": "phone",
+      "name": "Close-mid back rounded vowel",
+      "glyph": "o",
+      "ipa": "o",
+      "xsampa": "o",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "BACK", "ROUNDED"]
+    },
+    {
+      "code": "VLBU",
+      "type": "phone",
+      "name": "Close-mid back unrounded vowel",
+      "glyph": "ɤ",
+      "ipa": "ɤ",
+      "xsampa": "7",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "BACK", "UNROUNDED"]
+    },
+    {
+      "code": "VLCR",
+      "type": "phone",
+      "name": "Close-mid central rounded vowel",
+      "glyph": "ɵ",
+      "ipa": "ɵ",
+      "xsampa": "8",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "CENTRAL", "ROUNDED"]
+    },
+    {
+      "code": "VLCU",
+      "type": "phone",
+      "name": "Close-mid central unrounded vowel",
+      "glyph": "ɘ",
+      "ipa": "ɘ",
+      "xsampa": "@\\",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "CENTRAL", "UNROUNDED"]
+    },
+    {
+      "code": "VLFR",
+      "type": "phone",
+      "name": "Close-mid front rounded vowel",
+      "glyph": "ø",
+      "ipa": "ø",
+      "xsampa": "2",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "FRONT", "ROUNDED"]
+    },
+    {
+      "code": "VLFU",
+      "type": "phone",
+      "name": "Close-mid front unrounded vowel",
+      "glyph": "e",
+      "ipa": "e",
+      "xsampa": "e",
+      "category": "VOWEL",
+      "tags": ["CLOSE_MID", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VMBR",
+      "type": "phone",
+      "name": "Mid Back Rounded Vowel",
+      "glyph": "o̞",
+      "ipa": "o̞",
+      "xsampa": "o_o",
+      "category": "VOWEL",
+      "tags": ["MID", "BACK", "ROUNDED"]
+    },
+    {
+      "code": "VMCX",
+      "type": "phone",
+      "name": "Mid central vowel (schwa)",
+      "glyph": "ə",
+      "ipa": "ə",
+      "xsampa": "@",
+      "category": "VOWEL",
+      "tags": ["MID", "CENTRAL"]
+    },
+    {
+      "code": "VMFU",
+      "type": "phone",
+      "name": "Mid Front Unrounded Vowel",
+      "glyph": "e̞",
+      "ipa": "e̞",
+      "xsampa": "e_o",
+      "category": "VOWEL",
+      "tags": ["MID", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VNCR",
+      "type": "phone",
+      "name": "Near-close central rounded vowel",
+      "glyph": "ʊ̈",
+      "ipa": "ʊ̈",
+      "xsampa": "U\\",
+      "category": "VOWEL",
+      "tags": ["NEAR_CLOSE", "CENTRAL", "ROUNDED"]
+    },
+    {
+      "code": "VNCU",
+      "type": "phone",
+      "name": "Near-close central unrounded vowel",
+      "glyph": "ɪ̈",
+      "ipa": "ɪ̈",
+      "xsampa": "I\\",
+      "category": "VOWEL",
+      "tags": ["NEAR_CLOSE", "CENTRAL", "UNROUNDED"]
+    },
+    {
+      "code": "VNKR",
+      "type": "phone",
+      "name": "Near-close near-back rounded vowel",
+      "glyph": "ʊ",
+      "ipa": "ʊ",
+      "xsampa": "U",
+      "category": "VOWEL",
+      "tags": ["NEAR_CLOSE", "NEAR_BACK", "ROUNDED"]
+    },
+    {
+      "code": "VNNR",
+      "type": "phone",
+      "name": "Near-close near-front rounded vowel",
+      "glyph": "ʏ",
+      "ipa": "ʏ",
+      "xsampa": "Y",
+      "category": "VOWEL",
+      "tags": ["NEAR_CLOSE", "NEAR_FRONT", "ROUNDED"]
+    },
+    {
+      "code": "VNNU",
+      "type": "phone",
+      "name": "Near-close near-front unrounded vowel",
+      "glyph": "ɪ",
+      "ipa": "ɪ",
+      "xsampa": "I",
+      "category": "VOWEL",
+      "tags": ["NEAR_CLOSE", "NEAR_FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VOBR",
+      "type": "phone",
+      "name": "Open back rounded vowel",
+      "glyph": "ɒ",
+      "ipa": "ɒ",
+      "xsampa": "Q",
+      "category": "VOWEL",
+      "tags": ["OPEN", "BACK", "ROUNDED"]
+    },
+    {
+      "code": "VOBU",
+      "type": "phone",
+      "name": "Open back unrounded vowel",
+      "glyph": "ɑ",
+      "ipa": "ɑ",
+      "xsampa": "A",
+      "category": "VOWEL",
+      "tags": ["OPEN", "BACK", "UNROUNDED"]
+    },
+    {
+      "code": "VOCU",
+      "type": "phone",
+      "name": "Open central unrounded vowel",
+      "glyph": "ä",
+      "ipa": "ä",
+      "xsampa": "a_\"",
+      "category": "VOWEL",
+      "tags": ["OPEN", "CENTRAL", "UNROUNDED"]
+    },
+    {
+      "code": "VOFR",
+      "type": "phone",
+      "name": "Open front rounded vowel",
+      "glyph": "ɶ",
+      "ipa": "ɶ",
+      "xsampa": "&",
+      "category": "VOWEL",
+      "tags": ["OPEN", "FRONT", "ROUNDED"]
+    },
+    {
+      "code": "VOFU",
+      "type": "phone",
+      "name": "Open front unrounded vowel",
+      "glyph": "a",
+      "ipa": "a",
+      "xsampa": "a",
+      "category": "VOWEL",
+      "tags": ["OPEN", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "VPCX",
+      "type": "phone",
+      "name": "Near-open central vowel",
+      "glyph": "ɐ",
+      "ipa": "ɐ",
+      "xsampa": "6",
+      "category": "VOWEL",
+      "tags": ["NEAR_OPEN", "CENTRAL"]
+    },
+    {
+      "code": "VPFU",
+      "type": "phone",
+      "name": "Near-open front unrounded vowel",
+      "glyph": "æ",
+      "ipa": "æ",
+      "xsampa": "{",
+      "category": "VOWEL",
+      "tags": ["NEAR_OPEN", "FRONT", "UNROUNDED"]
+    },
+    {
+      "code": "NA",
+      "type": "phone",
+      "name": "Nasalised",
+      "glyph": "{}̃",
+      "ipa": "{}̃",
+      "xsampa": "{}~",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "SY",
+      "type": "phone",
+      "name": "Syllabic",
+      "glyph": "{}̩",
+      "ipa": "{}̩",
+      "xsampa": "{}=",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "NS",
+      "type": "phone",
+      "name": "Non-syllabic",
+      "glyph": "{}̯",
+      "ipa": "{}̯",
+      "xsampa": "{}_^",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "NR",
+      "type": "phone",
+      "name": "No audible release",
+      "glyph": "{}̚",
+      "ipa": "{}̚",
+      "xsampa": "{}_}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "VL",
+      "type": "phone",
+      "name": "Voiceless",
+      "glyph": "{}̥",
+      "ipa": "{}̥",
+      "xsampa": "{}_0",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "VD",
+      "type": "phone",
+      "name": "Voiced",
+      "glyph": "{}̬",
+      "ipa": "{}̬",
+      "xsampa": "{}_V",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TT",
+      "type": "phone",
+      "name": "Tone - Extra high",
+      "glyph": "{}̋",
+      "ipa": "{}̋",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TH",
+      "type": "phone",
+      "name": "Tone - High",
+      "glyph": "{}́",
+      "ipa": "{}́",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TM",
+      "type": "phone",
+      "name": "Tone - Mid",
+      "glyph": "{}̄",
+      "ipa": "{}̄",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TL",
+      "type": "phone",
+      "name": "Tone - Low",
+      "glyph": "{}̀",
+      "ipa": "{}̀",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TB",
+      "type": "phone",
+      "name": "Tone - Extra low",
+      "glyph": "{}̏",
+      "ipa": "{}̏",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TR",
+      "type": "phone",
+      "name": "Tone - Rising",
+      "glyph": "{}̌",
+      "ipa": "{}̌",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TF",
+      "type": "phone",
+      "name": "Tone - Falling",
+      "glyph": "{}̂",
+      "ipa": "{}̂",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TA",
+      "type": "phone",
+      "name": "Tone - High rising",
+      "glyph": "{}᷄",
+      "ipa": "{}᷄",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TC",
+      "type": "phone",
+      "name": "Tone - Low rising",
+      "glyph": "{}᷅",
+      "ipa": "{}᷅",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TD",
+      "type": "phone",
+      "name": "Tone - Low falling",
+      "glyph": "{}᷆",
+      "ipa": "{}᷆",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TE",
+      "type": "phone",
+      "name": "Tone - High falling",
+      "glyph": "{}᷇",
+      "ipa": "{}᷇",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TG",
+      "type": "phone",
+      "name": "Tone - Peaking",
+      "glyph": "{}᷈",
+      "ipa": "{}᷈",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "TI",
+      "type": "phone",
+      "name": "Tone - Dipping",
+      "glyph": "{}᷉",
+      "ipa": "{}᷉",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "BV",
+      "type": "phone",
+      "name": "Breathy voiced",
+      "glyph": "{}ʱ",
+      "ipa": "{}ʱ",
+      "xsampa": "{}_t",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "CV",
+      "type": "phone",
+      "name": "Creaky voiced",
+      "glyph": "{}̰",
+      "ipa": "{}̰",
+      "xsampa": "{}_k",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "SC",
+      "type": "phone",
+      "name": "Short consonant",
+      "glyph": "{}̆",
+      "ipa": "{}̆",
+      "xsampa": "{}_V",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "LR",
+      "type": "phone",
+      "name": "Lateral release",
+      "glyph": "{}ˡ",
+      "ipa": "{}ˡ",
+      "xsampa": "{}_l",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "EP",
+      "type": "phone",
+      "name": "Epiglottalised",
+      "glyph": "{}ᵸ",
+      "ipa": "{}ᵸ",
+      "xsampa": "{}_H\\",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "DE",
+      "type": "phone",
+      "name": "Dental",
+      "glyph": "{}̪",
+      "ipa": "{}̪",
+      "xsampa": "{}_d",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "BD",
+      "type": "phone",
+      "name": "Bidental",
+      "glyph": "{}̪͆",
+      "ipa": "{}̪͆",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "LL",
+      "type": "phone",
+      "name": "Linguolabial",
+      "glyph": "{}̼",
+      "ipa": "{}̼",
+      "xsampa": "{}_N",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "AP",
+      "type": "phone",
+      "name": "Apical",
+      "glyph": "{}̺",
+      "ipa": "{}̺",
+      "xsampa": "{}_a",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "LM",
+      "type": "phone",
+      "name": "Laminal",
+      "glyph": "{}̻",
+      "ipa": "{}̻",
+      "xsampa": "{}_m",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "AD",
+      "type": "phone",
+      "name": "Advanced",
+      "glyph": "{}̟",
+      "ipa": "{}̟",
+      "xsampa": "{}_+",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "RT",
+      "type": "phone",
+      "name": "Retracted",
+      "glyph": "{}̠",
+      "ipa": "{}̠",
+      "xsampa": "{}_-",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "CE",
+      "type": "phone",
+      "name": "Centralised",
+      "glyph": "{}̈",
+      "ipa": "{}̈",
+      "xsampa": "{}_\"",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "MC",
+      "type": "phone",
+      "name": "Mid-centralised",
+      "glyph": "{}̽",
+      "ipa": "{}̽",
+      "xsampa": "{}_x",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "RA",
+      "type": "phone",
+      "name": "Raised",
+      "glyph": "{}̝",
+      "ipa": "{}̝",
+      "xsampa": "{}_r",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "LW",
+      "type": "phone",
+      "name": "Lowered",
+      "glyph": "{}̞",
+      "ipa": "{}̞",
+      "xsampa": "{}_L",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "LO",
+      "type": "phone",
+      "name": "Long",
+      "glyph": "{}:",
+      "ipa": "{}:",
+      "xsampa": "{}:",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "HL",
+      "type": "phone",
+      "name": "Half-long",
+      "glyph": "{}ˑ",
+      "ipa": "{}ˑ",
+      "xsampa": "{}:\\",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "DL",
+      "type": "phone",
+      "name": "Double-long",
+      "glyph": "{}::",
+      "ipa": "{}::",
+      "xsampa": "{}::",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PN",
+      "type": "phone",
+      "name": "Prenasalised",
+      "glyph": "ⁿ{}",
+      "ipa": "ⁿ{}",
+      "xsampa": "_n{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PW",
+      "type": "phone",
+      "name": "Prelabialised",
+      "glyph": "ʷ{}",
+      "ipa": "ʷ{}",
+      "xsampa": "_w{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PS",
+      "type": "phone",
+      "name": "Pre-stop",
+      "glyph": "{}",
+      "ipa": "{}",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "XH",
+      "type": "phone",
+      "name": "Aspirated",
+      "glyph": "{}ʰ",
+      "ipa": "{}ʰ",
+      "xsampa": "{}_h",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "HX",
+      "type": "phone",
+      "name": "Preaspirated",
+      "glyph": "ʰ{}",
+      "ipa": "ʰ{}",
+      "xsampa": "_h{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "LB",
+      "type": "phone",
+      "name": "Labialised",
+      "glyph": "{}ʷ",
+      "ipa": "{}ʷ",
+      "xsampa": "{}_w",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PT",
+      "type": "phone",
+      "name": "Palatalised",
+      "glyph": "{}ʲ",
+      "ipa": "{}ʲ",
+      "xsampa": "{}'",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "SB",
+      "type": "phone",
+      "name": "Sibilated",
+      "glyph": "{}ˢ",
+      "ipa": "{}ˢ",
+      "xsampa": "{}_s",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "IO",
+      "type": "phone",
+      "name": "Iotation",
+      "glyph": "ʲ{}",
+      "ipa": "ʲ{}",
+      "xsampa": "_j{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "RH",
+      "type": "phone",
+      "name": "Rhotacised",
+      "glyph": "{}˞",
+      "ipa": "{}˞",
+      "xsampa": "{}`",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "VE",
+      "type": "phone",
+      "name": "Velarised",
+      "glyph": "{}ˠ",
+      "ipa": "{}ˠ",
+      "xsampa": "{}_G",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "UV",
+      "type": "phone",
+      "name": "Uvularised",
+      "glyph": "{}ʶ",
+      "ipa": "{}ʶ",
+      "xsampa": "{}_Q",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PQ",
+      "type": "phone",
+      "name": "Pharyngealised",
+      "glyph": "{}ˤ",
+      "ipa": "{}ˤ",
+      "xsampa": "{}_?\\",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "GO",
+      "type": "phone",
+      "name": "Glottalised",
+      "glyph": "{}ˀ",
+      "ipa": "{}ˀ",
+      "xsampa": "{}_?",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PG",
+      "type": "phone",
+      "name": "Preglottalised",
+      "glyph": "ˀ{}",
+      "ipa": "ˀ{}",
+      "xsampa": "_?{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "EJ",
+      "type": "phone",
+      "name": "Ejective",
+      "glyph": "{}ʼ",
+      "ipa": "{}ʼ",
+      "xsampa": "{}_>",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "LP",
+      "type": "phone",
+      "name": "Labio-palatalised",
+      "glyph": "{}ᶣ",
+      "ipa": "{}ᶣ",
+      "xsampa": "{}_H\\",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "PP",
+      "type": "phone",
+      "name": "Prelabio-palatalised",
+      "glyph": "ᶣ{}",
+      "ipa": "ᶣ{}",
+      "xsampa": "_H\\{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "CM",
+      "type": "phone",
+      "name": "Compressed",
+      "glyph": "{}ᵝ",
+      "ipa": "{}ᵝ",
+      "xsampa": "{}_B",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "CA",
+      "type": "phone",
+      "name": "Co-articulated",
+      "glyph": "{}͡",
+      "ipa": "{}͡",
+      "xsampa": "{}_)",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "AL",
+      "type": "phone",
+      "name": "Alveolar",
+      "glyph": "{}͇",
+      "ipa": "{}͇",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "VP",
+      "type": "phone",
+      "name": "Velopharyngeal",
+      "glyph": "{}͌",
+      "ipa": "{}͌",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "IN",
+      "type": "phone",
+      "name": "Ingressive",
+      "glyph": "↓{}",
+      "ipa": "↓{}",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["SUPERSCRIPT"]
+    },
+    {
+      "code": "AT",
+      "type": "phone",
+      "name": "Advanced tongue root",
+      "glyph": "{}̘",
+      "ipa": "{}̘",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "RR",
+      "type": "phone",
+      "name": "Retracted tongue root",
+      "glyph": "{}̙",
+      "ipa": "{}̙",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "NF",
+      "type": "phone",
+      "name": "Nareal fricative",
+      "glyph": "{}͋",
+      "ipa": "{}͋",
+      "xsampa": "{}",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "MR",
+      "type": "phone",
+      "name": "More rounded",
+      "glyph": "{}̹",
+      "ipa": "{}̹",
+      "xsampa": "{}_O",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    },
+    {
+      "code": "ER",
+      "type": "phone",
+      "name": "Less rounded",
+      "glyph": "{}̜",
+      "ipa": "{}̜",
+      "xsampa": "{}_c",
+      "category": "QUALITY",
+      "tags": ["DIACRITIC"]
+    }
+  ],
+  "id": "human",
+  "type": "phonoSystem",
+  "label": "Human Phono System (IPA)"
+}

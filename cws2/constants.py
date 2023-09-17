@@ -64,3 +64,25 @@ class LanguageType:
         (MIXED, _("Mixed")),
         (OTHER, _("Other")),
     )
+
+
+class PhonoSystemStatus:
+    DRAFT = "D"
+    PUBLISHED = "P"
+    CHOICES = (
+        (DRAFT, _("Draft")),
+        (PUBLISHED, _("Published")),
+    )
+
+
+class PhoneCategory:
+    CONSONANT = "C"
+    VOWEL = "V"
+    QUALITY = "Q"
+    UNCATEGORIZED = "U"
+    CHOICES = (
+        (CONSONANT, _("Consonant")),
+        (VOWEL, _("Vowel")),
+        (QUALITY, _("Quality")),
+        (UNCATEGORIZED, _("Uncategorized")),
+    )
