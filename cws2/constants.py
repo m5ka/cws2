@@ -66,6 +66,43 @@ class LanguageType:
     )
 
 
+class PartOfSpeech:
+    ABBREVIATION = "ABB"
+    ADJECTIVE = "ADJ"
+    ADPOSITION = "ADP"
+    ADVERB = "ADV"
+    AFFIX = "AFF"
+    AUXILIARY = "AUX"
+    CONJUNCTION = "C"
+    DETERMINER = "DET"
+    INTERJECTION = "I"
+    NOUN = "N"
+    NUMERAL = "NUM"
+    PARTICLE = "PTC"
+    PHRASE = "PHR"
+    PRONOUN = "P"
+    PROPER_NOUN = "PPR"
+    VERB = "V"
+    CHOICES = (
+        (ABBREVIATION, _("Abbreviation")),
+        (ADJECTIVE, _("Adjective")),
+        (ADPOSITION, _("Adposition")),
+        (ADVERB, _("Adverb")),
+        (AFFIX, _("Affix")),
+        (AUXILIARY, _("Auxiliary")),
+        (CONJUNCTION, _("Conjunction")),
+        (DETERMINER, _("Determiner")),
+        (INTERJECTION, _("Interjection")),
+        (NOUN, _("Noun")),
+        (NUMERAL, _("Numeral")),
+        (PARTICLE, _("Particle")),
+        (PHRASE, _("Phrase")),
+        (PRONOUN, _("Pronoun")),
+        (PROPER_NOUN, _("Proper noun")),
+        (VERB, _("Verb"))
+    )
+
+
 class PhonoSystemStatus:
     DRAFT = "D"
     PUBLISHED = "P"
@@ -85,4 +122,43 @@ class PhoneCategory:
         (VOWEL, _("Vowel")),
         (QUALITY, _("Quality")),
         (UNCATEGORIZED, _("Uncategorized")),
+    )
+
+
+class WordRegister:
+    AFFECTIONATE = "AFFC"
+    ARCHAIC = "ARCH"
+    CASUAL = "CASL"
+    DATED = "DATD"
+    EUPHEMISTIC = "EUPH"
+    FORMAL = "FORM"
+    HONORIFIC = "HONR"
+    HUMBLE = "HUMB"
+    HUMOROUS = "HMRS"
+    INTIMATE = "INTM"
+    JARGON = "JRGN"
+    POETIC = "POET"
+    RELIGIOUS = "RELG"
+    SLANG = "SLNG"
+    TABOO = "TBOO"
+    VULGAR = "VULG"
+    OTHER = "OTHR"
+    CHOICES = (
+        (AFFECTIONATE, _("Affectionate/Endearing")),
+        (ARCHAIC, _("Archaic")),
+        (CASUAL, _("Casual")),
+        (DATED, _("Dated")),
+        (EUPHEMISTIC, _("Euphemistic")),
+        (FORMAL, _("Formal/Polite")),
+        (HONORIFIC, _("Honorific")),
+        (HUMBLE, _("Humble")),
+        (HUMOROUS, _("Humorous/Sarcastic")),
+        (INTIMATE, _("Intimate")),
+        (JARGON, _("Jargon")),
+        (POETIC, _("Poetic")),
+        (RELIGIOUS, _("Religious")),
+        (SLANG, _("Slang")),
+        (TABOO, _("Taboo")),
+        (VULGAR, _("Vulgar")),
+        (OTHER, _("Other (see notes)")),
     )
