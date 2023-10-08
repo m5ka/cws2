@@ -1,0 +1,125 @@
+@import "../globals";
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: .8rem;
+  background: var(--page-background);
+  border-style: solid;
+  border-width: 1px 0 1px 0;
+  border-color: var(--page-border);
+  padding: 1.4rem;
+
+  @include desktop {
+    border-radius: $radius;
+    border-width: 1px;
+  }
+
+  &.content--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: .8rem;
+    column-gap: 1.6rem;
+
+    .content__item--wide {
+      grid-column: span 2;
+    }
+  }
+
+  .content__heading {
+    margin-block-end: .4rem;
+    font-weight: $font-bold;
+    color: var(--body-text-lighter);
+
+    &.content__heading--xl {
+      font-size: 2.8rem;
+    }
+  }
+
+  dl {
+    dt {
+      margin-block-end: .4rem;
+      font-weight: $font-bold;
+      color: var(--body-text-lighter);
+    }
+
+    dd {
+      margin-inline-start: 1.2rem;
+    }
+
+    i {
+      margin-inline-end: .4rem;
+      color: var(--body-text-extra-lightest);
+    }
+  }
+
+  .--subtle {
+    color: var(--body-text-lightest);
+  }
+
+  .--centered {
+    margin-inline: auto;
+    width: fit-content;
+  }
+
+  .--gap-below {
+    margin-block-end: 1.6rem;
+  }
+
+  .--green {
+    color: var(--green);
+  }
+
+  .--yellow {
+    color: var(--yellow);
+  }
+
+  .--blue {
+    color: var(--blue);
+  }
+
+  .--orange {
+    color: var(--orange);
+  }
+
+  .--purple {
+    color: var(--purple);
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  strong {
+    font-weight: $font-bold;
+  }
+
+  hr {
+    border-style: solid;
+    border-color: var(--page-border);
+    border-width: 1px 0 0 0;
+    margin-inline: auto;
+    margin-block: 1.6rem;
+    width: 98%;
+  }
+
+  .content__list {
+    list-style: disc;
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: .4rem;
+    padding-inline-start: 2.4rem;
+  }
+
+  .content__horizontal-list {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    > *:not(:last-child)::after {
+      content: "·";
+      display: inline-block;
+      margin-inline: .4rem;
+    }
+  }
+}

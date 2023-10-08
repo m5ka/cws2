@@ -1,6 +1,6 @@
 {% extends "cws2/base.jinja" %}
 
-{% block breadcrumb_current %}<li aria-current="page">Languages</li>{% endblock breadcrumb_current %}
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">Languages</li>{% endblock breadcrumb_current %}
 
 {% block page_icon %}<i class="fa-solid fa-book"></i>{% endblock page_icon %}
 
@@ -16,16 +16,16 @@
 {% block page_content %}
 {% if languages %}
 <ul class="flex-list">
-    <li class="flex-list-heading">
-        <span style="flex-basis:33%">Name</span>
-        <span style="flex-basis:33%">Identifier</span>
-        <span style="flex-basis:34%">Endonym</span>
+    <li class="flex-list__row flex-list__row--header">
+        <span class="flex-list__column" style="flex-basis:33%">Name</span>
+        <span class="flex-list__column" style="flex-basis:33%">Identifier</span>
+        <span class="flex-list__column" style="flex-basis:34%">Endonym</span>
     </li>
     {% for language in languages %}
-        <li>
-            <span style="flex-basis:33%"><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></span>
-            <span style="flex-basis:33%">{{ language.slug }}</span>
-            <span style="flex-basis:34%">{% if language.endonym %}{{ language.endonym }}{% else %}—{% endif %}</span>
+        <li class="flex-list__row">
+            <span class="flex-list__column" style="flex-basis:33%"><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></span>
+            <span class="flex-list__column" style="flex-basis:33%">{{ language.slug }}</span>
+            <span class="flex-list__column" style="flex-basis:34%">{% if language.endonym %}{{ language.endonym }}{% else %}—{% endif %}</span>
         </li>
     {% endfor %}
 </ul>

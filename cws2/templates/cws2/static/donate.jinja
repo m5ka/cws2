@@ -1,25 +1,25 @@
 {% extends "cws2/base.jinja" %}
 
-{% block breadcrumb_links %}{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}<li aria-current="page">Donate</li>{% endblock breadcrumb_current %}
+{% block breadcrumb_nav %}{% endblock breadcrumb_nav %}
 
 {% block page_icon %}<i class="fa-solid fa-gift"></i>{% endblock page_icon %}
 
 {% block page_title %}Donate to ConWorkShop{% endblock page_title %}
 
 {% block page_content %}
-<p>Thank you for clicking this link. If you absolutely love CWS and want to give back a little, this page gives you information about how to do that, and what we will use your donations for.</p>
-<p>We've set up a paypal account, and you can donate using the below button.</p>
-<p>[ DONATE BUTTON COMING SOON! ]</p>
-<hr>
-<h3>Why should I donate?</h3>
-<p>CWS is a not for profit site that is run and managed by a group of volunteer conlangers just like you. We do it because we love conlanging and want to make this a great place for everyone to visit.</p>
-<p>Despite being run by volunteers, there are direct costs involved with running CWS, this includes the use of the server we're currently hosted on, and our domain name registration. All up, the costs come to around US$150-200 per annum. In order to keep CWS alive, these costs have to be met, so any help with this would be greatly appreciated!</p>
-<hr>
-<h3>Where will the donations go?</h3>
-<p>All donations will remain in CWS as we are a not for profit website. This means that anything you donate will be put towards maintenance costs for the site, and any future projects we may decide to undertake that might require financing.</p>
-<hr>
-<h3>tl;dr</h3>
-<p>Anything you donate will greatly help towards the maintenance and costs associated with running CWS :).</p>
+<div class="content">
+    <p>Thank you for clicking this link. If you absolutely love CWS and want to give back a little, this page gives you information about how to do that, and what we will use your donations for.</p>
+    <p>We've set up a paypal account, and you can donate using the below button.</p>
+    <p>[ DONATE BUTTON COMING SOON! ]</p>
+    <hr>
+    <h3 class="content__heading">Why should I donate?</h3>
+    <p>CWS is a not for profit site that is run and managed by a group of volunteer conlangers just like you. We do it because we love conlanging and want to make this a great place for everyone to visit.</p>
+    <p>Despite being run by volunteers, there are direct costs involved with running CWS, this includes the use of the server we're currently hosted on, and our domain name registration. All up, the costs come to around US$150-200 per annum. In order to keep CWS alive, these costs have to be met, so any help with this would be greatly appreciated!</p>
+    <hr>
+    <h3 class="content__heading">Where will the donations go?</h3>
+    <p>All donations will remain in CWS as we are a not for profit website. This means that anything you donate will be put towards maintenance costs for the site, and any future projects we may decide to undertake that might require financing.</p>
+    <hr>
+    <h3 class="content__heading">tl;dr</h3>
+    <p>Anything you donate will greatly help towards the maintenance and costs associated with running CWS :).</p>
+</div>
 {% endblock page_content %}

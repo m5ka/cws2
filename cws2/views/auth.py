@@ -30,7 +30,7 @@ class CreateAccountView(FormView):
     verb_icon = "fa-user-plus"
     breadcrumb_root = False
 
-    field_classes = {"captcha": "hidden-label"}
+    field_classes = {"captcha": "form__field--no-label"}
 
     def form_valid(self, form):
         form.save()

@@ -1,0 +1,74 @@
+@import "../globals";
+
+body > .page {
+  max-width: $max-width;
+  margin-inline: auto;
+  padding-block: 2.4rem;
+  width: 100%;
+
+  .page__header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    column-gap: .8rem;
+    padding-inline: $gutter;
+
+    @include desktop {
+      padding-inline: 0;
+    }
+
+    .page__breadcrumb {
+      grid-column: 2 / span 2;
+      font-size: $font-small;
+      padding-inline-start: .4rem;
+
+      .page__breadcrumb-list {
+        display: flex;
+        align-items: center;
+
+        .page__breadcrumb-item {
+          color: var(--body-text-lighter);
+
+          .page__breadcrumb-link {
+            color: var(--body-text-lightest);
+          }
+
+          &:not(:last-child)::after {
+            content: "›";
+            display: inline-block;
+            margin-inline: .8rem;
+          }
+        }
+      }
+    }
+
+    .page__header-icon {
+      color: var(--accent);
+      font-size: 2.4rem;
+    }
+
+    .page__header-title {
+      font-size: 2.4rem;
+      font-weight: $font-bold;
+      color: var(--body-text-lightest);
+    }
+
+    .page__header-actions {
+      display: flex;
+      align-items: center;
+      column-gap: .8rem;
+      grid-row: 3;
+      grid-column: 2 / span 2;
+      margin-block-start: 1.2rem;
+
+      @include desktop {
+        margin-block-start: 0;
+        grid-column: unset;
+        grid-row: unset;
+      }
+    }
+  }
+
+  .page__container {
+    margin-block-start: 2rem;
+  }
+}

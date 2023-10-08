@@ -23,7 +23,7 @@ class EditUserView(LoginRequiredMixin, FormView):
     verb_icon = "fa-user-pen"
 
     field_classes = {
-        "bio": "span-two",
+        "bio": "form__field--wide",
     }
 
     @property

@@ -4,24 +4,24 @@
 {% if breadcrumb_root %}{{ super() }}{% endif %}
 {% if breadcrumb %}
     {% for bc_url, bc_label in breadcrumb %}
-        <li><a href="{{ bc_url }}">{{ bc_label }}</a></li>
+        <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ bc_url }}">{{ bc_label }}</a></li>
     {% endfor %}
 {% endif %}
 {% endblock breadcrumb_links %}
 
-{% block breadcrumb_current %}<li aria-current="page">{{ verb }}</li>{% endblock breadcrumb_current %}
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ verb }}</li>{% endblock breadcrumb_current %}
 
 {% block page_icon %}{% if verb_icon %}<i class="fa-solid {{ verb_icon }}"></i>{% endif %}{% endblock page_icon %}
 
 {% block page_title %}{{ verb }}{% endblock page_title %}
 
 {% block page_content %}
-<form action="" method="POST"{% for fd_key, fd_value in form_data.items() %} data-{{ fd_key }}="{{ fd_value }}"{% endfor %}>
+<form class="form" action="" method="POST"{% for fd_key, fd_value in form_data.items() %} data-{{ fd_key }}="{{ fd_value }}"{% endfor %}>
     {% if form.errors %}
-        <ul class="errors">
+        <ul class="form__errors">
             {% for err_errors in form.errors.values() %}
                 {% for error in err_errors %}
-                    <li>{{ error }}</li>
+                    <li class="form__error">{{ error }}</li>
                 {% endfor %}
             {% endfor %}
         </ul>
@@ -33,24 +33,24 @@
         {% endfor %}
     {% endif %}
     {% for field in form %}
-        <div class="field{% if field.errors %} error{% endif %}{% if field.field.required %} required{% endif %}{% if field_classes and field_classes[field.name] %} {{ field_classes[field.name] }}{% endif %}">
-            <label for="{{ field.id_for_label }}"{% if field.errors %} class="error"{% endif %}>{{ field.label }}</label>
+        <div class="form__field{% if field.errors %} form__field--error{% endif %}{% if field.field.required %} form__field--required{% endif %}{% if field_classes and field_classes[field.name] %} {{ field_classes[field.name] }}{% endif %}">
+            <label class="form__field-label" for="{{ field.id_for_label }}"{% if field.errors %} class="error"{% endif %}>{{ field.label }}</label>
             {% if field_prefixes and field_prefixes[field.name] %}
-                <div class="input-with-prefix">
-                    <div class="prefix">{{ field_prefixes[field.name] }}</div>
+                <div class="form__input-with-prefix">
+                    <div class="form__input-prefix">{{ field_prefixes[field.name] }}</div>
                     {{ field }}
                 </div>
             {% else %}
                 {{ field }}
             {% endif %}
             {% if field.help_text %}
-                <span class="helptext">{{ field.help_text|safe }}</span>
+                <span class="form__field-help">{{ field.help_text|safe }}</span>
             {% endif %}
         </div>
     {% endfor %}
-    <div class="actions">
+    <div class="form__actions">
         <button type="submit" class="button">
-            {% if verb_icon %}<i class="fa-solid {{ verb_icon }}"></i>{% endif %}
+            {% if verb_icon %}<i class="far {{ verb_icon }}"></i>{% endif %}
             {{ verb }}
         </button>
     </div>

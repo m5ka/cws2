@@ -10,10 +10,23 @@ class View(generic.TemplateView):
     template_name = "cws2/base.jinja"
     body_colour = "green"
 
+    available_themes = ["light", "dark"]
+    theme_cookie_key = "theme"
+
+    @property
+    def theme(self):
+        if (
+            self.theme_cookie_key in self.request.COOKIES
+            and self.request.COOKIES[self.theme_cookie_key] in self.available_themes
+        ):
+            return self.request.COOKIES[self.theme_cookie_key]
+        return None
+
     def get_context_data(self, *args, **kwargs):
         return {
             **super().get_context_data(*args, **kwargs),
             "body_colour": self.body_colour,
+            "theme": self.theme,
         }
 
 

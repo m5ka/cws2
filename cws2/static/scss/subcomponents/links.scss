@@ -1,0 +1,11 @@
+@import "../globals";
+
+a {
+  color: var(--accent-bold);
+}
+
+a, button {
+  &:focus {
+    outline: $outline-width solid var(--accent-bold);
+  }
+}

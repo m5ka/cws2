@@ -1,0 +1,32 @@
+@import "../globals";
+
+.flex-list {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: var(--page-border);
+
+  @include desktop {
+    border-radius: $radius;
+    border-width: 1px;
+  }
+
+  .flex-list__row {
+    display: flex;
+    align-items: center;
+    padding-inline: 1.2rem;
+    background: var(--page-background);
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--page-border-subtle);
+    }
+
+    &.flex-list__row--header {
+      background: var(--page-border-subtle);
+      border-bottom: 1px solid var(--page-border);
+    }
+
+    .flex-list__column {
+      padding-block: .4rem;
+    }
+  }
+}

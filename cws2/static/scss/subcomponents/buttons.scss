@@ -1,0 +1,27 @@
+@import "../globals";
+
+.button {
+  display: flex;
+  align-items: center;
+  column-gap: .6rem;
+  padding: .4rem 1.2rem;
+  background: var(--accent);
+  border: none;
+  border-bottom: 5px solid var(--accent-bold);
+  color: var(--accent-contrast);
+  text-decoration: none;
+  border-radius: $radius;
+  font-size: $font-medium;
+  font-family: $font-stack;
+  line-height: $line-height;
+  cursor: pointer;
+
+  &:active {
+    border-bottom: 3px solid var(--accent-bold);
+    border-top: 2px solid var(--accent);
+  }
+
+  &.button--small {
+    font-size: $font-small;
+  }
+}

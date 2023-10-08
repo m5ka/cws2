@@ -1,6 +1,6 @@
 STATIC_DIR = cws2/static
-SASS_DIR = $(STATIC_DIR)/sass
-SASS = base.sass
+SASS_DIR = $(STATIC_DIR)/scss
+SASS = base.scss
 CSS_DIR = $(STATIC_DIR)/css
 CSS = base.css
 SASS_FLAGS = -g -t compressed

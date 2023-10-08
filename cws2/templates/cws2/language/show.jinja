@@ -2,10 +2,10 @@
 
 {% block breadcrumb_links %}
 {{ super() }}
-<li><a href="{{ language.created_by.get_absolute_url() }}">@{{ language.created_by.username }}</a></li>
+<li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.created_by.get_absolute_url() }}">@{{ language.created_by.username }}</a></li>
 {% endblock breadcrumb_links %}
 
-{% block breadcrumb_current %}<li aria-current="page">{{ language.name }}</li>{% endblock breadcrumb_current %}
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ language.name }}</li>{% endblock breadcrumb_current %}
 
 {% block page_icon %}<i class="fa-solid fa-language"></i>{% endblock page_icon %}
 
@@ -21,22 +21,22 @@
 {% endblock page_actions %}
 
 {% block page_content %}
-<dl>
-    <section>
+<div class="content content--grid">
+    <dl class="content__item">
         <dt>Type</dt>
         <dd>{{ language.get_language_type_display() }}</dd>
-    </section>
-    <section>
+    </dl>
+    <dl class="content__item">
         <dt>Status</dt>
         <dd>{{ language.get_language_status_display() }}</dd>
-    </section>
-    <section class="span-two">
+    </dl>
+    <dl class="content__item content__item--wide">
         <dt>Description</dt>
         {% if language.description %}
             <dd><blockquote>{{ language.description }}</blockquote></dd>
         {% else %}
-            <dd class="colour-grey">Not set.</dd>
+            <dd class="--subtle"><em>Not set.</em></dd>
         {% endif %}
-    </section>
-</dl>
+    </dl>
+</div>
 {% endblock page_content %}

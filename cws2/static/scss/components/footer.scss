@@ -1,0 +1,52 @@
+@import "../globals";
+
+body > .footer {
+  font-size: $font-small;
+  color: var(--body-text-lighter);
+  margin-block-end: 2.4rem;
+  padding-inline: $gutter;
+
+  @include desktop {
+    padding-inline: 0;
+  }
+
+  .footer__wrapper {
+    max-width: $max-width;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 2.4rem;
+    row-gap: .8rem;
+    width: fit-content;
+
+    .footer__list {
+      .footer__list-link {
+        color: var(--body-text-lightest);
+
+        i {
+          text-decoration: none;
+          margin-inline-end: .4rem;
+          width: 1.6rem;
+        }
+      }
+    }
+
+    .footer__copyright {
+      grid-column: 1 / span 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 1.6rem;
+
+      .footer__copyright-list {
+        display: flex;
+        align-items: center;
+        column-gap: 1.2rem;
+
+        .footer__copyright-list-link {
+          color: var(--body-text-lightest);
+        }
+      }
+    }
+  }
+}

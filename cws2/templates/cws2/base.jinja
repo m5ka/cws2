@@ -6,206 +6,288 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ConWorkShop</title>
         <link rel="stylesheet" href="{{ static('css/base.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ static('fontawesomefree/css/fontawesome.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ static('fontawesomefree/css/solid.css') }}" type="text/css">
-        <link rel="stylesheet" href="{{ static('fontawesomefree/css/brands.css') }}" type="text/css">
+        <link rel="stylesheet" href="https://kit.fontawesome.com/db7cee372a.css" crossorigin="anonymous">
     </head>
-    <body class="body-{{ body_colour }}">
-        <header>
-            <div class="brand">
-                <a class="brand-link" href="/">conworkshop</a>
-                <a class="hamburger" href="#" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></a>
-            </div>
-            <nav>
-                <ul>
-                    {% if request.user.is_authenticated %}
-                        <li class="dropdown dropdown-green">
-                            <a class="dropdown-toggle" href="#">Languages</a>
-                            <div class="dropdown-expandable">
-                                <ul>
-                                    <li class="label">Language</li>
-                                    <li>
-                                        <a href="{{ url('language.index') }}">
-                                            <i class="fa-solid fa-book"></i>
-                                            My languages
-                                        </a>
-                                    </li>
-                                    <li class="label">Content</li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                            Articles
-                                        </a>
-                                    </li>
-                                    <li class="label">Actions</li>
-                                    <li>
-                                        <a href="{{ url('language.new') }}">
-                                            <i class="fa-solid fa-plus"></i>
-                                            New language
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-yellow">
-                            <a class="dropdown-toggle" href="#">Tools</a>
-                            <div class="dropdown-expandable">
-                                <ul>
-                                    <li class="label">Tools</li>
-                                    <li><a href="#">Something</a></li>
-                                    <li><a href="#">Something</a></li>
-                                    <li><a href="#">Something</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="dropdown dropdown-blue">
-                            <a class="dropdown-toggle" href="#">Community</a>
-                            <div class="dropdown-expandable">
-                                <ul>
-                                    <li class="label">Boards</li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-comments"></i>
-                                            Boards
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-comment"></i>
-                                            Recent posts
-                                        </a>
-                                    </li>
-                                    <li class="label">Community</li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-house-user"></i>
-                                            Clans
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-users"></i>
-                                            Users
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        {% if request.user.is_staff %}
-                            <li class="dropdown dropdown-purple">
-                                <a class="dropdown-toggle" href="#">Admin</a>
-                                <div class="dropdown-expandable">
-                                    <ul>
-                                        <li class="label">Management</li>
-                                        <li>
-                                            <a href="{{ url('admin:index') }}">
-                                                <i class="fa-solid fa-screwdriver-wrench"></i>
-                                                Django admin
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+    <body{% if theme %} data-theme="{{ theme }}"{% endif %} class="--{{ body_colour }}">
+        <header class="header">
+            <div class="header__wrapper">
+                <div class="header__brand">
+                    <a class="header__brand-link" href="/">conworkshop</a>
+                    <a class="header__hamburger" href="#" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__nav-list">
+                        {% if request.user.is_authenticated %}
+                            <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--green" data-toggles="DropdownLanguages">
+                                <a class="header__nav-link" href="#">
+                                    <i class="far fa-book"></i>
+                                    <span class="header__nav-link-text">Languages</span>
+                                </a>
+                            </li>
+                            <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--yellow" data-toggles="DropdownTools">
+                                <a class="header__nav-link" href="#">
+                                    <i class="far fa-toolbox"></i>
+                                    <span class="header__nav-link-text">Tools</span>
+                                </a>
+                            </li>
+                            <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--blue" data-toggles="DropdownCommunity">
+                                <a class="header__nav-link" href="#">
+                                    <i class="far fa-comment"></i>
+                                    <span class="header__nav-link-text">Community</span>
+                                </a>
+                            </li>
+                            {% if request.user.is_staff %}
+                                <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--purple" data-toggles="DropdownAdmin">
+                                    <a class="header__nav-link" href="#">
+                                        <i class="far fa-road-barrier"></i>
+                                        <span class="header__nav-link-text">Admin</span>
+                                    </a>
+                                </li>
+                            {% endif %}
+                            <li class="header__nav-item header__nav-item--pull-right">
+                                {% include "cws2/components/theme_switcher.jinja" %}
+                            </li>
+                            <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--orange" data-toggles="DropdownAccount">
+                                <a class="header__nav-link" href="#">
+                                    <i class="far fa-user"></i>
+                                    <span class="header__nav-link-text">{{ request.user.username }}</span>
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="{{ url('about') }}">
+                                    <span class="header__nav-link-text">About</span>
+                                </a>
+                            </li>
+                            <li class="header__nav-item header__nav-item--pull-right">
+                                {% include "cws2/components/theme_switcher.jinja" %}
+                            </li>
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="{{ url('login') }}">
+                                    <span class="header__nav-link-text">Log in</span>
+                                </a>
+                            </li>
+                            <li class="header__nav-item">
+                                <a class="header__nav-link" href="{{ url('register') }}">
+                                    <span class="header__nav-link-text">Create account</span>
+                                </a>
                             </li>
                         {% endif %}
-                        <li class="nav-end dropdown dropdown-orange">
-                            <a class="dropdown-toggle" href="#">
-                                <i class="fa-solid fa-user"></i>
-                                {{ request.user.username }}
-                            </a>
-                            <div class="dropdown-expandable">
-                                <ul>
-                                    <li class="label">Profile</li>
-                                    <li>
-                                        <a href="{{ request.user.get_absolute_url() }}">
-                                            <i class="fa-solid fa-user"></i>
-                                            My profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('user.edit') }}">
-                                            <i class="fa-solid fa-pen"></i>
-                                            Edit profile
-                                        </a>
-                                    </li>
-                                    <li class="label">Actions</li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa-solid fa-gear"></i>
-                                            Settings
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ url('logout') }}">
-                                            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                                            Log out
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    {% else %}
-                        <li><a href="{{ url('about') }}">About</a></li>
-                        <li class="nav-end"><a href="{{ url('login') }}">Log in</a></li>
-                        <li><a href="{{ url('register') }}">Create account</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header__dropdown header__dropdown--green" id="DropdownLanguages">
+                <div class="header__dropdown-wrapper">
+                    <div class="header__dropdown-section">
+                        <h3 class="header__dropdown-section-title">Language</h3>
+                        <ul class="header__dropdown-list">
+                            <li class="header__dropdown-item">
+                                <a class="header__dropdown-link" href="{{ url('language.index') }}">
+                                    <i class="far fa-book"></i>
+                                    My languages
+                                </a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a class="header__dropdown-link" href="{{ url('language.new') }}">
+                                    <i class="far fa-plus"></i>
+                                    New language
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__dropdown-section">
+                        <h3 class="header__dropdown-section-title">Content</h3>
+                        <ul class="header__dropdown-list">
+                            <li class="header__dropdown-item">
+                                <a href="#" class="header__dropdown-link">
+                                    <i class="far fa-pen-to-square"></i>
+                                    Articles
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header__dropdown header__dropdown--yellow" id="DropdownTools">
+                <div class="header__dropdown-wrapper">
+                    <div class="header__dropdown-section">
+                        <h3 class="header__dropdown-section-title">Tools</h3>
+                        <ul class="header__dropdown-list">
+                            <li class="header__dropdown-item">
+                                <a class="header__dropdown-link" href="#">
+                                    <i class="far fa-toolbox"></i>
+                                    Something
+                                </a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a class="header__dropdown-link" href="#">
+                                    <i class="far fa-toolbox"></i>
+                                    Something
+                                </a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a class="header__dropdown-link" href="#">
+                                    <i class="far fa-toolbox"></i>
+                                    Something
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header__dropdown header__dropdown--blue" id="DropdownCommunity">
+                <div class="header__dropdown-wrapper">
+                    <div class="header__dropdown-section">
+                        <h3 class="header__dropdown-section-title">Boards</h3>
+                        <ul class="header__dropdown-list">
+                            <li class="header__dropdown-item">
+                                <a href="#" class="header__dropdown-link">
+                                    <i class="far fa-comments"></i>
+                                    Boards
+                                </a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="" class="header__dropdown-link">
+                                    <i class="far fa-comment"></i>
+                                    Recent posts
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header__dropdown-section">
+                        <h3 class="header__dropdown-section-title">Community</h3>
+                        <ul class="header__dropdown-list">
+                            <li class="header__dropdown-item">
+                                <a href="#" class="header__dropdown-link">
+                                    <i class="far fa-house-user"></i>
+                                    Clans
+                                </a>
+                            </li>
+                            <li class="header__dropdown-item">
+                                <a href="#" class="header__dropdown-link">
+                                    <i class="far fa-users"></i>
+                                    Users
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if request.user.is_authenticated %}
+                <div class="header__dropdown header__dropdown--orange" id="DropdownAccount">
+                    <div class="header__dropdown-wrapper">
+                        <div class="header__dropdown-section">
+                            <h3 class="header__dropdown-section-title">Profile</h3>
+                            <ul class="header__dropdown-list">
+                                <li class="header__dropdown-item">
+                                    <a href="{{ request.user.get_absolute_url() }}" class="header__dropdown-link">
+                                        <i class="far fa-user"></i>
+                                        My profile
+                                    </a>
+                                </li>
+                                <li class="header__dropdown-item">
+                                    <a href="{{ url('user.edit') }}" class="header__dropdown-link">
+                                        <i class="far fa-pen"></i>
+                                        Edit profile
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="header__dropdown-section">
+                            <h3 class="header__dropdown-section-title">Actions</h3>
+                            <ul class="header__dropdown-list">
+                                <li class="header__dropdown-item">
+                                    <a href="#" class="header__dropdown-link">
+                                        <i class="far fa-gear"></i>
+                                        Settings
+                                    </a>
+                                </li>
+                                <li class="header__dropdown-item">
+                                    <a href="{{ url('logout') }}" class="header__dropdown-link">
+                                        <i class="far fa-arrow-right-to-bracket"></i>
+                                        Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if request.user.is_staff %}
+                <div class="header__dropdown header__dropdown--purple" id="DropdownAdmin">
+                    <div class="header__dropdown-wrapper">
+                        <div class="header__dropdown-section">
+                            <h3 class="header__dropdown-section-title">Management</h3>
+                            <ul class="header__dropdown-list">
+                                <li class="header__dropdown-item">
+                                    <a href="{{ url('admin:index') }}" class="header__dropdown-link">
+                                        <i class="far fa-screwdriver-wrench"></i>
+                                        Django admin
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </header>
         {% block page_container %}
-        <div class="container">
-            {% block breadcrumb_nav %}
-            <nav class="breadcrumb">
-                <ul>
-                    {% block breadcrumb_links %}
-                    <li><a href="/">Dashboard</a></li>
-                    {% endblock breadcrumb_links %}
-                    {% block breadcrumb_current %}
-                    <li aria-current="page">Page</li>
-                    {% endblock breadcrumb_current %}
-                </ul>
-            </nav>
-            {% endblock breadcrumb_nav %}
-            <header>
-                {% block page_icon %}{% endblock page_icon %}
-                <h2>{% block page_title %}{% endblock page_title %}</h2>
-                <div class="page-actions">{% block page_actions %}{% endblock page_actions %}</div>
+        <div class="page">
+            <header class="page__header">
+                <div class="page__header-icon">{% block page_icon %}<i class="far fa-location-question"></i>{% endblock page_icon %}</div>
+                <h2 class="page__header-title">{% block page_title %}{% endblock page_title %}</h2>
+                <div class="page__header-actions">{% block page_actions %}{% endblock page_actions %}</div>
+                {% block breadcrumb_nav %}
+                    <nav class="page__breadcrumb">
+                        <ul class="page__breadcrumb-list">
+                            {% block breadcrumb_links %}
+                            <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="/">Dashboard</a></li>
+                            {% endblock breadcrumb_links %}
+                            {% block breadcrumb_current %}
+                            <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">Page</li>
+                            {% endblock breadcrumb_current %}
+                        </ul>
+                    </nav>
+                {% endblock breadcrumb_nav %}
             </header>
             {% if messages %}
-                <ul class="messages">
+                <ul class="page__messages">
                     {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        <li class="page__messages-message{% if message.tags %} {{ message.tags }}{% endif %}">
                             {{ message }}
                         </li>
                     {% endfor %}
                 </ul>
             {% endif %}
-            <main class="block">
+            <main class="page__container">
                 {% block page_content %}
                 {% endblock page_content %}
             </main>
         </div>
         {% endblock page_container %}
-        <footer>
-            <div class="grid">
-                <ul>
-                    <li><a href="{{ url('privacy') }}">Privacy Policy</a></li>
-                    <li><a href="#">Frequently Asked Questions</a></li>
-                    <li><a href="#">Community Rules</a></li>
-                    <li><a href="#">Statistics &amp; Graphs</a></li>
-                    <li><a href="{{ url('donate') }}">Donate to us! (pls)</a></li>
+        <footer class="footer">
+            <div class="footer__wrapper">
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a class="footer__list-link" href="{{ url('privacy') }}">Privacy Policy</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="#">Frequently Asked Questions</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="#">Community Rules</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="#">Statistics &amp; Graphs</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="{{ url('donate') }}">Donate to us! (pls)</a></li>
                 </ul>
-                <ul>
-                    <li><a href="https://facebook.com/conworkshop"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                    <li><a href="https://twitter.com/_conworkshop"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
-                    <li><a href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"><i class="fa-brands fa-youtube"></i> YouTube</a></li>
-                    <li><a href="https://instagram.com/conworkshop/"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="https://discord.gg/7W6GEJB"><i class="fa-brands fa-discord"></i> Discord</a></li>
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a class="footer__list-link" href="https://facebook.com/conworkshop"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="https://twitter.com/_conworkshop"><i class="fa-brands fa-x-twitter"></i>X</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"><i class="fa-brands fa-youtube"></i>YouTube</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="https://instagram.com/conworkshop/"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                    <li class="footer__list-item"><a class="footer__list-link" href="https://discord.gg/7W6GEJB"><i class="fa-brands fa-discord"></i>Discord</a></li>
                 </ul>
-                <p class="two">
-                    &copy; 2023 ConWorkShop ·
-                    <a href="#">api</a> ·
-                    <a href="https://github.com/m5ka/cws2">github</a>
-                </p>
+                <div class="footer__copyright">
+                    <div class="footer__copyright-notice">&copy; 2023 ConWorkShop</div>
+                    <ul class="footer__copyright-list">
+                        <li class="footer__copyright-list-item"><a class="footer__copyright-list-link" href="#">API</a></li>
+                        <li class="footer__copyright-list-item"><a class="footer__copyright-list-link" href="#">GitHub</a></li>
+                    </ul>
+                </div>
             </div>
         </footer>
         <script type="text/javascript" src="{{ static('js/base.js') }}"></script>

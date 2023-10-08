@@ -1,0 +1,126 @@
+@import "../globals";
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.2rem;
+  column-gap: 1.6rem;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: var(--page-border);
+  background: var(--page-background);
+  padding: 1.4rem;
+
+  @include desktop {
+    border-width: 1px;
+    border-radius: $radius;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form__errors {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: .4rem;
+
+    @include desktop {
+      grid-column: span 2;
+    }
+
+    .form__error {
+      border: 1px solid var(--red);
+      border-radius: $radius;
+      background: var(--red-contrast-subtle);
+      padding: .4rem 1.2rem;
+    }
+  }
+
+  .form__field {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: .4rem;
+
+    &.form__field--wide {
+      @include desktop {
+        grid-column: span 2;
+      }
+    }
+
+    &.form__field--no-label {
+      .form__field-label {
+        display: none;
+      }
+    }
+
+    .form__input-with-prefix {
+      display: flex;
+      align-items: center;
+
+      .form__input-prefix {
+        background: var(--body-background);
+        border-style: solid;
+        border-color: var(--page-border);
+        border-width: 1px 0 1px 1px;
+        border-radius: $radius 0 0 $radius;
+        padding: .35rem .8rem;
+        color: var(--body-text-light);
+        font-size: $font-small;
+      }
+
+      input, textarea, select {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    input, textarea, select {
+      background: var(--input-background);
+      border: 1px solid var(--page-border);
+      color: var(--body-text);
+      border-radius: $radius;
+      padding: .2rem .8rem;
+      font-size: $font-medium;
+      line-height: $line-height;
+      font-family: $font-stack;
+      width: 100%;
+
+      &:focus {
+        outline: $outline-width solid var(--accent);
+      }
+    }
+
+    &.form__field--error {
+      input, textarea, select {
+        border-color: var(--red-subtle);
+      }
+    }
+
+    &.form__field--required {
+      .form__field-label::after {
+        content: "*";
+        color: var(--red);
+      }
+    }
+
+    textarea {
+      height: 120px;
+      min-height: 120px;
+      max-height: 280px;
+      resize: vertical;
+    }
+
+    .form__field-help {
+      font-size: $font-small;
+      color: var(--body-text-lightest);
+    }
+  }
+
+  .form__actions {
+    display: flex;
+    align-items: center;
+    column-gap: .8rem;
+
+    @include desktop {
+      grid-column: 1 / span 2;
+    }
+  }
+}

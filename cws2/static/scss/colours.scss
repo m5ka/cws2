@@ -1,0 +1,163 @@
+@import "globals";
+
+@mixin light {
+  --body-background: #{$lightest-grey};
+  --page-background: #{$off-white};
+  --page-border: #{lighten($light-grey, 5%)};
+  --page-border-subtle: #{$lighter-grey};
+
+  --body-text: black;
+  --body-text-light: #{$darkest-grey};
+  --body-text-lighter: #{$darker-grey};
+  --body-text-lightest: #{$dark-grey};
+  --body-text-extra-lightest: #{$grey};
+
+  --input-background: var(--page-background);
+
+  --chevron-url: url('../images/icons/chevron-down-solid.svg');
+
+  --accent: #{$grey};
+  --accent-bold: #{darken($grey, 5%)};
+  --accent-contrast: #{$darker-grey};
+  --accent-contrast-subtle: #{$dark-grey};
+
+  --green: #{$green};
+  --green-bold: #{darken($green, 5%)};
+  --green-contrast: white;
+  --green-contrast-subtle: #{lighten($green, 40%)};
+
+  --yellow: #{$yellow};
+  --yellow-bold: #{darken($yellow, 5%)};
+  --yellow-contrast: #{darken($yellow, 25%)};
+  --yellow-contrast-subtle: #{darken($yellow, 20%)};
+
+  --blue: #{$blue};
+  --blue-bold: #{darken($blue, 5%)};
+  --blue-contrast: white;
+  --blue-contrast-subtle: #{lighten($blue, 40%)};
+
+  --orange: #{$orange};
+  --orange-bold: #{darken($orange, 5%)};
+  --orange-contrast: white;
+  --orange-contrast-subtle: #{lighten($orange, 40%)};
+
+  --purple: #{$purple};
+  --purple-bold: #{darken($purple, 5%)};
+  --purple-contrast: white;
+  --purple-contrast-subtle: #{lighten($purple, 40%)};
+
+  --red: #{$red};
+  --red-subtle: #{lighten($red, 10%)};
+  --red-bold: #{darken($red, 5%)};
+  --red-contrast: white;
+  --red-contrast-subtle: #{lighten($red, 40%)};
+}
+
+@mixin dark {
+  --body-background: #{$slate};
+  --page-background: #{$light-slate};
+  --page-border: #{$lighter-slate};
+  --page-border-subtle: #{$lighter-slate};
+
+  --body-text: white;
+  --body-text-light: #{$lightest-grey};
+  --body-text-lighter: #{$lighter-grey};
+  --body-text-lightest: #{$light-grey};
+  --body-text-extra-lightest: #{$grey};
+
+  --input-background: var(--body-background);
+
+  --chevron-url: url('../images/icons/chevron-down-solid-white.svg');
+
+  --accent: #{$grey};
+  --accent-bold: #{darken($grey, 5%)};
+  --accent-contrast: #{$darker-grey};
+  --accent-contrast-subtle: #{$dark-grey};
+
+  --green: #{$green};
+  --green-bold: #{darken($green, 5%)};
+  --green-contrast: white;
+  --green-contrast-subtle: #{lighten($green, 40%)};
+
+  --yellow: #{$yellow};
+  --yellow-bold: #{darken($yellow, 5%)};
+  --yellow-contrast: #{darken($yellow, 25%)};
+  --yellow-contrast-subtle: #{darken($yellow, 20%)};
+
+  --blue: #{$blue};
+  --blue-bold: #{darken($blue, 5%)};
+  --blue-contrast: white;
+  --blue-contrast-subtle: #{lighten($blue, 40%)};
+
+  --orange: #{$orange};
+  --orange-bold: #{darken($orange, 5%)};
+  --orange-contrast: white;
+  --orange-contrast-subtle: #{lighten($orange, 40%)};
+
+  --purple: #{$purple};
+  --purple-bold: #{darken($purple, 5%)};
+  --purple-contrast: white;
+  --purple-contrast-subtle: #{lighten($purple, 40%)};
+
+  --red: #{$red};
+  --red-subtle: #{lighten($red, 10%)};
+  --red-bold: #{darken($red, 5%)};
+  --red-contrast: white;
+  --red-contrast-subtle: #{lighten($red, 40%)};
+}
+
+body[data-theme=light],
+body:not([data-theme]) {
+  @include light;
+}
+
+body[data-theme=dark] {
+  @include dark;
+}
+
+@media(prefers-color-scheme: dark) {
+  body:not([data-theme]) {
+    @include dark;
+  }
+}
+
+* {
+  transition: background-color .1s linear, border-color .1s linear;
+}
+
+body {
+  &.--green {
+    --accent: var(--green);
+    --accent-bold: var(--green-bold);
+    --accent-contrast: var(--green-contrast);
+    --accent-contrast-subtle: var(--green-contrast-subtle);
+  }
+
+  &.--yellow {
+    --accent: var(--yellow);
+    --accent-bold: var(--yellow-bold);
+    --accent-contrast: var(--yellow-contrast);
+    --accent-contrast-subtle: var(--yellow-contrast-subtle);
+  }
+
+  &.--blue {
+    --accent: var(--blue);
+    --accent-bold: var(--blue-bold);
+    --accent-contrast: var(--blue-contrast);
+    --accent-contrast-subtle: var(--blue-contrast-subtle);
+  }
+
+  &.--orange {
+    --accent: var(--orange);
+    --accent-bold: var(--orange-bold);
+    --accent-contrast: var(--orange-contrast);
+    --accent-contrast-subtle: var(--orange-contrast-subtle);
+  }
+
+  &.--purple {
+    --accent: var(--purple);
+    --accent-bold: var(--purple-bold);
+    --accent-contrast: var(--purple-contrast);
+    --accent-contrast-subtle: var(--purple-contrast-subtle);
+  }
+}

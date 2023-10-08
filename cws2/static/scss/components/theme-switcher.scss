@@ -1,0 +1,95 @@
+@import "../globals";
+
+@mixin theme-switcher--light {
+  .theme-switcher {
+    .theme-switcher__thumb {
+      left: .4rem;
+
+      .theme-switcher__thumb-left-icon {
+        display: block;
+      }
+
+      .theme-switcher__thumb-right-icon {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin theme-switcher--dark {
+  .theme-switcher {
+    .theme-switcher__thumb {
+      left: 2.8rem;
+
+      .theme-switcher__thumb-left-icon {
+        display: none;
+      }
+
+      .theme-switcher__thumb-right-icon {
+        display: block;
+      }
+    }
+  }
+}
+
+.theme-switcher {
+  background: var(--page-background);
+  cursor: pointer;
+
+  @include desktop {
+    border: 1px solid var(--page-border);
+    border-radius: 1.6rem;
+    width: 5.6rem;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: .7rem;
+    position: relative;
+  }
+
+  .theme-switcher__icon {
+    display: none;
+    color: var(--body-text-extra-lightest);
+    line-height: 1;
+    font-size: $font-small;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  .theme-switcher__thumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+
+    @include desktop {
+      position: absolute;
+      width: 2.2rem;
+      height: 2.2rem;
+      line-height: 1;
+      font-size: $font-small;
+      border-radius: 50%;
+      transition: left .2s ease-in-out;
+      background: var(--accent);
+      color: var(--accent-contrast);
+    }
+  }
+}
+
+body[data-theme=light],
+body:not([data-theme]) {
+  @include theme-switcher--light;
+}
+
+body[data-theme=dark] {
+  @include theme-switcher--dark;
+}
+
+@media(prefers-color-scheme: dark) {
+  body:not([data-theme]) {
+    @include theme-switcher--dark;
+  }
+}

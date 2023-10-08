@@ -1,11 +1,8 @@
 {% extends "cws2/base.jinja" %}
 
-{% block breadcrumb_links %}{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}<li aria-current="page">Dashboard</li>{% endblock breadcrumb_current %}
-
-{% block page_title %}{% endblock page_title %}
-
-{% block page_content %}
-<p>This will be the dashboard one day! For now it's empty. Sorry.</p>
-{% endblock page_content %}
+{% block page_container %}
+<main class="page">
+    <p style="text-align:center">This will be the dashboard one day! For now, it's empty. Sorry.</p>
+    <p style="text-align:center">Word on the street is you can still use the menu above to get around.</p>
+</main>
+{% endblock page_container %}

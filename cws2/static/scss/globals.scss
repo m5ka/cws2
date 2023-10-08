@@ -1,0 +1,52 @@
+$font-stack: "Work Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$off-white: #f9f9f9;
+
+$lightest-grey: #f0f4f5;
+$lighter-grey: #e6e6e6;
+$light-grey: #cdcdcd;
+$grey: #9a9a9a;
+$dark-grey: #666;
+$darker-grey: #444;
+$darkest-grey: #222;
+
+$slate: #282828;
+$light-slate: #363636;
+$lighter-slate: #484848;
+$lightest-slate: #616161;
+
+$green: #28a745;
+$blue: #48aec0;
+$orange: #e59d2c;
+$red: #f94e18;
+$purple: #943add;
+$yellow: #d9c600;
+
+$outline-width: 3px;
+
+$max-width: 956px;
+$line-height: 1.5;
+
+$gutter: 1.6rem;
+
+$font-large: 1.8rem;
+$font-medium: 1.6rem;
+$font-small: 1.4rem;
+$font-tiny: 1.2rem;
+
+$font-regular: 400;
+$font-bold: 700;
+
+$radius: 3px;
+
+@mixin desktop {
+  @media (min-width: 768px) {
+    @content
+  }
+}
+
+@mixin mobile {
+  @media (max-width: 767.9px) {
+    @content;
+  }
+}

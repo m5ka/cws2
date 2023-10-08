@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@import "reset";
+@import "globals";
+@import "colours";
+@import "components/header";
+@import "components/theme-switcher";
+@import "components/page";
+@import "components/content";
+@import "components/form";
+@import "components/flex-list";
+@import "components/footer";
+@import "subcomponents/links";
+@import "subcomponents/buttons";
+
+*, *::before, *::after {
+  box-sizing: border-box
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.5;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  line-height: $line-height;
+  background: var(--body-background);
+  font-family: $font-stack;
+  font-size: $font-medium;
+  color: var(--body-text);
+}
