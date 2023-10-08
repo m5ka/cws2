@@ -17,6 +17,11 @@
   box-sizing: border-box
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
 html {
   font-size: 62.5%;
   line-height: 1.5;
