@@ -49,10 +49,12 @@
         </div>
     {% endfor %}
     <div class="form__actions">
+        {% block form_actions %}
         <button type="submit" class="button">
             {% if verb_icon %}<i class="far {{ verb_icon }}"></i>{% endif %}
             {{ verb }}
         </button>
+        {% endblock form_actions %}
     </div>
 </form>
 {% endblock page_content %}

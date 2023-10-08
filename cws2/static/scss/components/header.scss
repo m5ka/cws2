@@ -98,10 +98,8 @@ body > .header {
             }
 
             .header__nav-link-text {
-              display: none;
-
-              @include desktop {
-                display: inline;
+              @include mobile {
+                display: none;
               }
             }
           }

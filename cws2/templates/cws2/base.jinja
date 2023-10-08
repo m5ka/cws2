@@ -54,22 +54,19 @@
                                 </a>
                             </li>
                         {% else %}
-                            <li class="header__nav-item">
+                            <li class="header__nav-item header__nav-item--blue">
                                 <a class="header__nav-link" href="{{ url('about') }}">
+                                    <i class="far fa-message-question"></i>
                                     <span class="header__nav-link-text">About</span>
                                 </a>
                             </li>
                             <li class="header__nav-item header__nav-item--pull-right">
                                 {% include "cws2/components/theme_switcher.jinja" %}
                             </li>
-                            <li class="header__nav-item">
+                            <li class="header__nav-item header__nav-item--orange">
                                 <a class="header__nav-link" href="{{ url('login') }}">
-                                    <span class="header__nav-link-text">Log in</span>
-                                </a>
-                            </li>
-                            <li class="header__nav-item">
-                                <a class="header__nav-link" href="{{ url('register') }}">
-                                    <span class="header__nav-link-text">Create account</span>
+                                    <i class="far fa-right-to-bracket"></i>
+                                    <span class="header__nav-link-text header__nav-link-text--no-collapse">Log in</span>
                                 </a>
                             </li>
                         {% endif %}

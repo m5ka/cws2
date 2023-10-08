@@ -53,6 +53,7 @@ class CreateAccountView(FormView):
 
 
 class LoginView(FormView, BaseLoginView):
+    template_name = "cws2/auth/login.jinja"
     body_colour = "orange"
 
     verb = _("Log in")
