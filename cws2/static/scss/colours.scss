@@ -25,16 +25,22 @@
   --green-bold: #{darken($green, 5%)};
   --green-contrast: white;
   --green-contrast-subtle: #{lighten($green, 40%)};
+  --green-block-background: #{lighten($green, 50%)};
+  --green-block-text: #{darken($green, 30%)};
 
   --yellow: #{$yellow};
   --yellow-bold: #{darken($yellow, 5%)};
   --yellow-contrast: #{darken($yellow, 25%)};
   --yellow-contrast-subtle: #{darken($yellow, 20%)};
+  --yellow-block-background: #{lighten($yellow, 50%)};
+  --yellow-block-text: #{darken($yellow, 30%)};
 
   --blue: #{$blue};
   --blue-bold: #{darken($blue, 5%)};
   --blue-contrast: white;
   --blue-contrast-subtle: #{lighten($blue, 40%)};
+  --blue-block-background: #{lighten($blue, 40%)};
+  --blue-block-text: #{darken($blue, 30%)};
 
   --orange: #{$orange};
   --orange-bold: #{darken($orange, 5%)};
@@ -48,9 +54,10 @@
 
   --red: #{$red};
   --red-subtle: #{lighten($red, 10%)};
-  --red-bold: #{darken($red, 5%)};
   --red-contrast: white;
   --red-contrast-subtle: #{lighten($red, 40%)};
+  --red-block-background: #{lighten($red, 40%)};
+  --red-block-text: #{darken($red, 30%)};
 }
 
 @mixin dark {
@@ -78,16 +85,22 @@
   --green-bold: #{darken($green, 5%)};
   --green-contrast: white;
   --green-contrast-subtle: #{lighten($green, 40%)};
+  --green-block-background: #{darken($green, 10%)};
+  --green-block-text: white;
 
   --yellow: #{$yellow};
   --yellow-bold: #{darken($yellow, 5%)};
   --yellow-contrast: #{darken($yellow, 25%)};
   --yellow-contrast-subtle: #{darken($yellow, 20%)};
+  --yellow-block-background: #{darken($yellow, 10%)};
+  --yellow-block-text: white;
 
   --blue: #{$blue};
   --blue-bold: #{darken($blue, 5%)};
   --blue-contrast: white;
   --blue-contrast-subtle: #{lighten($blue, 40%)};
+  --blue-block-background: #{darken($blue, 15%)};
+  --blue-block-text: white;
 
   --orange: #{$orange};
   --orange-bold: #{darken($orange, 5%)};
@@ -101,9 +114,10 @@
 
   --red: #{$red};
   --red-subtle: #{lighten($red, 10%)};
-  --red-bold: #{darken($red, 5%)};
   --red-contrast: white;
   --red-contrast-subtle: #{lighten($red, 40%)};
+  --red-block-background: #{darken($red, 20%)};
+  --red-block-text: white;
 }
 
 body[data-theme=light],

@@ -29,7 +29,8 @@
     .form__error {
       border: 1px solid var(--red);
       border-radius: $radius;
-      background: var(--red-contrast-subtle);
+      background: var(--red-block-background);
+      color: var(--red-block-text);
       padding: .4rem 1.2rem;
     }
   }

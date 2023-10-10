@@ -74,6 +74,42 @@ body > .page {
     }
   }
 
+  .page__messages {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: .8rem;
+    margin-block-start: 1.6rem;
+
+    .page__messages-message {
+      padding: .8rem 1.2rem;
+      border-radius: $radius;
+
+      &.page__messages-message--info {
+        background: var(--blue-block-background);
+        border: 1px solid var(--blue);
+        color: var(--blue-block-text);
+      }
+
+      &.page__messages-message--error {
+        background: var(--red-block-background);
+        border: 1px solid var(--red);
+        color: var(--red-block-text);
+      }
+
+      &.page__messages-message--success {
+        background: var(--green-block-background);
+        border: 1px solid var(--green);
+        color: var(--green-block-text);
+      }
+
+      &.page__messages-message--warning {
+        background: var(--yellow-block-background);
+        border: 1px solid var(--yellow);
+        color: var(--yellow-block-text);
+      }
+    }
+  }
+
   .page__container {
     margin-block-start: 2rem;
   }

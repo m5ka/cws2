@@ -250,7 +250,7 @@
             {% if messages %}
                 <ul class="page__messages">
                     {% for message in messages %}
-                        <li class="page__messages-message{% if message.tags %} {{ message.tags }}{% endif %}">
+                        <li class="page__messages-message{% if message.tags %} page__messages-message--{{ message.tags }}{% endif %}">
                             {{ message }}
                         </li>
                     {% endfor %}
