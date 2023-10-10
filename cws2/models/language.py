@@ -97,3 +97,68 @@ class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
             "language.show",
             kwargs={"user": self.created_by.username, "language": self.slug},
         )
+
+
+class Dialect(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
+    """Represents a specific dialect of a user's language."""
+
+    language = models.ForeignKey(
+        "Language",
+        on_delete=models.CASCADE,
+        verbose_name=_("Language"),
+        help_text=_("The language to which this dialect belongs."),
+    )
+    name = models.CharField(
+        max_length=64,
+        db_index=True,
+        verbose_name=_("Name"),
+        help_text=_("This is the name of this dialect, in English."),
+    )
+    slug = models.SlugField(
+        max_length=64,
+        db_index=True,
+        blank=True,
+        unique=True,
+        verbose_name=_("Identifier"),
+        help_text=_(
+            "This is like a username for this dialect, appearing in the dialect page's "
+            "URL. You may not have more than one dialect for this language with the "
+            "same identifier."
+        ),
+    )
+    endonym = models.CharField(
+        max_length=128,
+        blank=True,
+        db_index=True,
+        verbose_name=_("Endonym"),
+        help_text=_(
+            "This is the name of this dialect, in your language. Don't worry if you "
+            "don't know this yet - you can leave this field blank."
+        ),
+    )
+    code = models.CharField(
+        verbose_name=_("Dialect code"),
+        max_length=6,
+        blank=True,
+        help_text=_(
+            "An abbreviation or ISO-style code for this dialect, if you have one. "
+            "This is purely cosmetic."
+        ),
+    )
+    description = models.TextField(
+        blank=True,
+        verbose_name=_("Summary"),
+        help_text=_(
+            "This is a brief summary of this dialect of your language that will appear "
+            "on its page. You can write more specific articles about the dialect later "
+            "on."
+        ),
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["language", "slug"],
+                name="cws2_dialect_language_slug",
+            )
+        ]
