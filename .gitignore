@@ -161,3 +161,6 @@ cython_debug/
 
 # Compiled CSS
 cws2/static/css
+
+# User-uploaded media
+media/
