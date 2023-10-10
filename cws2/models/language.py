@@ -13,7 +13,12 @@ from cws2.models.base import (
 
 
 def language_flag_path(instance, filename):
-    return f"flags/{instance.created_by.username}__{instance.slug}"
+    fn = filename.split(".")
+    if len(fn) > 1:
+        ext = filename.split(".")[-1]
+    else:
+        ext = "png"
+    return f"flags/{instance.created_by.username}__{instance.slug}.{ext}"
 
 
 class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):

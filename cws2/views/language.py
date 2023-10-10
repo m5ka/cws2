@@ -29,7 +29,6 @@ class EditLanguageView(LanguageMixin, FormView):
     verb_icon = "fa-pencil"
     breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
     field_classes = {
-        "slug": "form__field--wide",
         "description": "form__field--wide",
     }
     form_data = {
@@ -81,7 +80,6 @@ class NewLanguageView(LoginRequiredMixin, FormView):
     verb_icon = "fa-plus"
     breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
     field_classes = {
-        "slug": "form__field--wide",
         "description": "form__field--wide",
     }
     form_data = {

@@ -1,0 +1,33 @@
+@import "../globals";
+
+.image-upload {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: flex-start;
+  column-gap: .8rem;
+  row-gap: .4rem;
+
+  .image-upload__preview-link {
+    display: flex;
+    grid-row: span 2;
+    border: 1px solid var(--page-border);
+    border-radius: $radius;
+    padding: .4rem;
+
+    .image-upload__preview-image {
+      max-width: 128px;
+      max-height: 128px;
+    }
+  }
+
+  .image-upload__clear {
+    display: flex;
+    align-items: center;
+    column-gap: .4rem;
+
+    .image-upload__clear-input {
+      width: fit-content;
+    }
+  }
+}

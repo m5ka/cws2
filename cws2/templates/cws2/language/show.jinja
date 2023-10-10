@@ -7,7 +7,7 @@
 
 {% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ language.name }}</li>{% endblock breadcrumb_current %}
 
-{% block page_icon %}<i class="fa-solid fa-language"></i>{% endblock page_icon %}
+{% block page_icon %}{% if language.language_flag %}<img src="{{ language.language_flag.url }}" class="flag">{% else %}<i class="fa-solid fa-language"></i>{% endif %}{% endblock page_icon %}
 
 {% block page_title %}{{ language.name }}{% endblock page_title %}
 

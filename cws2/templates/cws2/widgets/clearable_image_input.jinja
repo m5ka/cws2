@@ -1,0 +1,14 @@
+<div class="image-upload">
+    {% if widget.is_initial %}
+        <a class="image-upload__preview-link" target="_blank" rel="noreferrer nofollow" href="{{ widget.value.url }}">
+            <img class="image-upload__preview-image" src="{{ widget.value.url }}" alt="{{ widget.initial_text }}">
+        </a>
+        {% if not widget.required %}
+            <div class="image-upload__clear">
+                <input class="image-upload__clear-input" type="checkbox" name="{{ widget.checkbox_name }}" id="{{ widget.checkbox_id }}"{% if widget.attrs.disabled %} disabled{% endif %}>
+                <label class="image-upload__clear-label" for="{{ widget.checkbox_id }}">{{ widget.clear_checkbox_label }}</label>
+            </div>
+        {% endif %}
+    {% endif %}
+    <input class="image-upload__file" type="{{ widget.type }}" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>
+</div>

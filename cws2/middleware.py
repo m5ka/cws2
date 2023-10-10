@@ -10,7 +10,7 @@ class LogUserLastSeenMiddleware:
     def get_route(self, request):
         try:
             return request.resolver_match.url_name[:64]
-        except AttributeError:
+        except (AttributeError, TypeError):
             return None
 
     def __init__(self, get_response):
