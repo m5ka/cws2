@@ -221,6 +221,12 @@ STATIC_URL = env.str("STATIC_URL", default="static/")
 STATIC_ROOT = BASE_DIR / "cws2/static"
 
 
+# User-uploaded content
+# https://docs.djangoproject.com/en/4.2/ref/settings/#std-setting-MEDIA_ROOT
+MEDIA_URL = env.str("MEDIA_URL", default="media/")
+MEDIA_ROOT = BASE_DIR / "media"
+
+
 # Email settings
 # https://docs.djangoproject.com/en/4.1/topics/email/
 EMAIL_FROM = env.str("EMAIL_FROM", default='"Sender" <sender@example.com>')
