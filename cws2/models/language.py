@@ -12,6 +12,10 @@ from cws2.models.base import (
 )
 
 
+def language_flag_path(instance, filename):
+    return f"flags/{instance.created_by.username}__{instance.slug}"
+
+
 class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
     name = models.CharField(
         verbose_name=_("Name"),
@@ -63,6 +67,16 @@ class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
         choices=LanguageStatus.CHOICES,
         default=LanguageStatus.NEW,
         help_text=_("What stage of development is your language at?"),
+    )
+    language_flag = models.ImageField(
+        blank=True,
+        upload_to=language_flag_path,
+        verbose_name=_("Language flag"),
+        help_text=_(
+            "An optional flag image that represents your language or the place it's "
+            "spoken. Common flag ratios are recommended, such as 1:2, 2:3 or 3:5 "
+            "(height to width). The image must be at least 100px wide and 50px high."
+        ),
     )
     description = models.TextField(
         verbose_name=_("Summary"),
