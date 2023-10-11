@@ -5,13 +5,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
-from cws2.models.base import (
-    UUIDModel,
-)
-from cws2.validators import (
-    validate_username_length,
-    validate_username_regex,
-)
+from cws2.models.base import UUIDModel
+from cws2.validators import validate_username_length, validate_username_regex
 
 
 class UserManager(BaseUserManager):

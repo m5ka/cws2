@@ -1,7 +1,7 @@
 from io import BytesIO
 
-from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.core.exceptions import ValidationError
+from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.forms import ModelForm
 from django.utils.translation import gettext as _
 from PIL import Image

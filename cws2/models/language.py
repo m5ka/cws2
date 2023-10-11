@@ -181,3 +181,6 @@ class Dialect(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
                 name="cws2_dialect_language_slug",
             )
         ]
+
+    def __str__(self):
+        return self.name

@@ -5,7 +5,7 @@ from django.utils.translation import gettext as _
 
 from cws2.forms.group import GroupForm
 from cws2.models.group import Group
-from cws2.views.base import FormView, View, OwnableResourceMixin
+from cws2.views.base import FormView, OwnableResourceMixin, View
 
 
 class GroupMixin(OwnableResourceMixin):

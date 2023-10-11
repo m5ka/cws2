@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from cws2.views.auth import CreateAccountView, LoginView, LogoutView
-from cws2.views.group import NewGroupView, EditGroupView, IndexGroupView, ShowGroupView
+from cws2.views.group import EditGroupView, IndexGroupView, NewGroupView, ShowGroupView
 from cws2.views.index import DashboardView
 from cws2.views.language import (
     EditLanguageView,

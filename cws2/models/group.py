@@ -12,9 +12,7 @@ from cws2.models.base import (
     UUIDModel,
 )
 from cws2.models.user import User
-from cws2.validators import (
-    validate_colour_code_regex,
-)
+from cws2.validators import validate_colour_code_regex
 
 
 class Group(AutoSlugMixin, UUIDModel, OwnableModel, TransientModel):

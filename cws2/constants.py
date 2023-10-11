@@ -99,7 +99,7 @@ class PartOfSpeech:
         (PHRASE, _("Phrase")),
         (PRONOUN, _("Pronoun")),
         (PROPER_NOUN, _("Proper noun")),
-        (VERB, _("Verb"))
+        (VERB, _("Verb")),
     )
 
 
