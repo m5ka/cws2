@@ -1,0 +1,27 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_title %}{{ group.name }}{% endblock page_title %}
+
+{% block page_icon %}<i class="fas fa-house-user"></i>{% endblock page_icon %}
+
+{% block breadcrumb_links %}
+{{ super() }}
+<li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ url('group.index') }}">Groups</a></li>
+{% endblock breadcrumb_links %}
+
+{% block breadcrumb_current %}
+<li class="page__breadcrumb-item page__breadcrumb-item--current">{{ group.name }}</li>
+{% endblock breadcrumb_current %}
+
+{% block page_content %}
+<div class="content content--grid">
+    <dl class="content__item content__item--wide">
+        <dt>Description</dt>
+        {% if group.description %}
+            <dd>{{ group.description }}</dd>
+        {% else %}
+            <dd class="--subtle"><em>Not set.</em></dd>
+        {% endif %}
+    </dl>
+</div>
+{% endblock page_content %}

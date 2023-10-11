@@ -1,0 +1,30 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_title %}Groups{% endblock page_title %}
+
+{% block page_icon %}<i class="fas fa-house-user"></i>{% endblock page_icon %}
+
+{% block page_actions %}<a href="{{ url('group.new') }}" class="button"><i class="far fa-plus"></i>New group</a>{% endblock page_actions %}
+
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current">Groups</li>{% endblock breadcrumb_current %}
+
+{% block page_content %}
+{% if groups %}
+    <ul class="flex-list">
+        <li class="flex-list__row flex-list__row--header">
+            <span class="flex-list__column" style="flex-basis:66%">Name</span>
+            <span class="flex-list__column" style="flex-basis:34%">Members</span>
+        </li>
+        {% for group in groups %}
+            <li class="flex-list__row">
+                <span class="flex-list__column" style="flex-basis:66%"><a href="{{ group.get_absolute_url() }}">{{ group.name }}</a></span>
+                <span class="flex-list__column" style="flex-basis:34%">{{ group.users__count }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <div class="page">
+        <p class="text-align:center">Uh oh, looks like there's no groups at the moment.</p>
+    </div>
+{% endif %}
+{% endblock page_content %}

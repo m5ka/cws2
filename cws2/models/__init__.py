@@ -1,9 +1,13 @@
+from cws2.models.group import Group, GroupMembership
 from cws2.models.language import Dialect, Language
 from cws2.models.permission import GroupPermission, UserPermission
 from cws2.models.phono_system import Phone, PhonoSystem
-from cws2.models.user import Group, GroupMembership, User, UserProfile
+from cws2.models.user import User, UserProfile
 
 __all__ = [
+    # group
+    "Group",
+    "GroupMembership",
     # language
     "Dialect",
     "Language",
@@ -14,8 +18,6 @@ __all__ = [
     "Phone",
     "PhonoSystem",
     # user
-    "Group",
-    "GroupMembership",
     "User",
     "UserProfile",
 ]
