@@ -34,6 +34,11 @@ class Group(AutoSlugMixin, UUIDModel, OwnableModel, TransientModel):
             "This is a unique group identifier that will appear in the group's URL."
         ),
     )
+    description = models.TextField(
+        blank=True,
+        verbose_name=_("Description"),
+        help_text=_("An optional, brief overview on what this group is all about."),
+    )
     icon = models.CharField(
         verbose_name=_("Icon character"),
         max_length=1,
