@@ -49,11 +49,11 @@ flake8:
 
 black:
 	@black --check .
-	@echo "Run `make format` to automatically format files."
+	@echo "Run \`make format\` to automatically format files."
 
 isort:
 	@isort -c .
-	@echo "Run `make format` to automatically format files."
+	@echo "Run \`make format\` to automatically format files."
 
 format:
 	@echo "🦄 Formatting Python files."
