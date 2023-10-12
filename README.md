@@ -3,7 +3,7 @@
 
 **cws2**, or **conworkshop 2**, is a website to bring conlangers together.
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/m5ka/cws2/pytest.yaml?label=tests)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/m5ka/cws2/test.yaml?label=tests)
 ![GitHub contributors](https://img.shields.io/github/contributors/m5ka/cws2)
 ![Python version: >= 3.10](https://img.shields.io/badge/python-%3E%3D%203.10-blue)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
