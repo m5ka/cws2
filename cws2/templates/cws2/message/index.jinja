@@ -1,0 +1,26 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_icon %}<i class="fa-regular fa-envelope"></i>{% endblock page_icon %}
+{% block page_title %}Inbox{% endblock page_title %}
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">Inbox</li>{% endblock breadcrumb_current %}
+
+{% block page_content %}
+    <ul class="flex-list">
+        <li class="flex-list__row flex-list__row--header">
+            <span class="flex-list__column" style="flex-basis:66%">From</span>
+            <span class="flex-list__column" style="flex-basis:34%">Date</span>
+        </li>
+        {% if messages %}
+            {% for message in messages %}
+                <li class="flex-list__row">
+                    <span class="flex-list__column" style="flex-basis:66%">@{{ message.sender.username }}</span>
+                    <span class="flex-list__column" style="flex-basis:34%">{{ message.created_at|naturaltime }}</span>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="flex-list__row">
+                <span class="flex-list__column">{% trans %}No messages yet.{% endtrans %} :(</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock page_content %}

@@ -27,6 +27,7 @@ from cws2.views.language import (
     NewLanguageView,
     ShowLanguageView,
 )
+from cws2.views.message import IndexMessageView
 from cws2.views.static import AboutView, ContactView, DonateView, PrivacyView
 from cws2.views.user import EditUserView, ShowUserView
 
@@ -41,6 +42,8 @@ urlpatterns = [
     path("groups/new", NewGroupView.as_view(), name="group.new"),
     path("groups/<slug:group>", ShowGroupView.as_view(), name="group.show"),
     path("groups/<slug:group>/edit", EditGroupView.as_view(), name="group.edit"),
+    # messages
+    path("messages", IndexMessageView.as_view(), name="message.index"),
     # language
     path(
         "@<str:user>/<slug:language>",
