@@ -114,6 +114,9 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
             ],
+            "filters": {
+                "markdown": "cws2.utils.markdown.parse_markdown",
+            },
             "policies": {
                 "ext.i18n.trimmed": True,
             },

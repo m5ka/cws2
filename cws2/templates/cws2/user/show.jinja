@@ -37,7 +37,7 @@
         <dt>About</dt>
         {% if user.profile.bio %}
             <dd>
-                <blockquote>{{ user.profile.bio }}</blockquote>
+                <blockquote>{{ user.profile.bio|markdown }}</blockquote>
             </dd>
         {% else %}
             <dd class="--subtle"><em>Not set</em></dd>
