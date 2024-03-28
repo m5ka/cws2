@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     "django_jinja",
     "django_jinja.contrib._humanize",
     "django_sass",
-    "captcha",
+    "django_recaptcha",
     "cws2",
 ]
 
@@ -254,7 +254,7 @@ SITE_ROOT_URL = env.str("SITE_ROOT_URL", default="https://conworkshop.com")
 # Recaptcha settings
 # https://pypi.org/project/django-recaptcha/#installation
 if DEBUG:
-    SILENCED_SYSTEM_CHECKS = ["captcha.recaptcha_test_key_error"]
+    SILENCED_SYSTEM_CHECKS = ["django_recaptcha.recaptcha_test_key_error"]
 else:
     RECAPTCHA_PUBLIC_KEY = env.str("RECAPTCHA_PUBLIC_KEY")
     RECAPTCHA_PRIVATE_KEY = env.str("RECAPTCHA_PRIVATE_KEY")

@@ -1,7 +1,0 @@
-[flake8]
-ignore = E203,W503,DJ10,DJ11
-exclude = .git,.tox,docs,node_modules,venv,.venv,__pycache__
-max-complexity = 10
-max-line-length = 88
-per-file-ignores =
-    cws2/migrations/*:E501

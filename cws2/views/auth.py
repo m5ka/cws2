@@ -1,4 +1,3 @@
-from captcha.fields import ReCaptchaField
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView as BaseLoginView
@@ -7,6 +6,7 @@ from django.forms.utils import ErrorList
 from django.http.response import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django_recaptcha.fields import ReCaptchaField
 
 from cws2.models.user import User
 from cws2.views.base import FormView
