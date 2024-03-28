@@ -81,9 +81,7 @@ class Phone(TransientModel, UUIDModel):
         help_text=_("This is the X-Sampa phonetic representation of this phone."),
     )
     tags = ArrayField(
-        models.CharField(
-            max_length=32,
-        ),
+        models.CharField(max_length=32),
         verbose_name=_("Tags"),
         default=list,
         blank=True,
@@ -97,7 +95,7 @@ class Phone(TransientModel, UUIDModel):
             models.UniqueConstraint(
                 fields=["phono_system_id", "glyph", "category"],
                 name="cws2_phone_unique_phono_system_glyph_category",
-            ),
+            )
         ]
 
     def __str__(self):

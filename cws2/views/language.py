@@ -28,13 +28,8 @@ class EditLanguageView(LanguageMixin, FormView):
 
     verb_icon = "fa-pencil"
     breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
-    field_classes = {
-        "description": "form__field--wide",
-    }
-    form_data = {
-        "auto-slug-from": "name",
-        "auto-slug": "slug",
-    }
+    field_classes = {"description": "form__field--wide"}
+    form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 
     @property
     def verb(self):
@@ -79,13 +74,8 @@ class NewLanguageView(LoginRequiredMixin, FormView):
     verb = _("New language")
     verb_icon = "fa-plus"
     breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
-    field_classes = {
-        "description": "form__field--wide",
-    }
-    form_data = {
-        "auto-slug-from": "name",
-        "auto-slug": "slug",
-    }
+    field_classes = {"description": "form__field--wide"}
+    form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 
     @property
     def field_prefixes(self):

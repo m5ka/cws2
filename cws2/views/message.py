@@ -11,6 +11,7 @@ class IndexMessageView(View):
             **super().get_context_data(**kwargs),
             "messages": (
                 Message.objects.filter(recipient=self.request.user)
-                .order_by("recipient", "-created_at").distinct("recipient")
+                .order_by("recipient", "-created_at")
+                .distinct("recipient")
             ),
         }

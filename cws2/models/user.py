@@ -39,10 +39,7 @@ class User(UUIDModel, AbstractUser):
             "have access to it."
         ),
     )
-    email_confirmed_at = models.DateTimeField(
-        blank=True,
-        null=True,
-    )
+    email_confirmed_at = models.DateTimeField(blank=True, null=True)
     display_name = models.CharField(
         verbose_name=_("Display name"),
         max_length=64,
@@ -118,10 +115,7 @@ class UserProfile(models.Model):
     """Contains customisable profile information for a user."""
 
     user = models.OneToOneField(
-        "User",
-        on_delete=models.CASCADE,
-        related_name="profile",
-        primary_key=True,
+        "User", on_delete=models.CASCADE, related_name="profile", primary_key=True
     )
     pronouns = models.CharField(
         verbose_name=_("Pronouns"),

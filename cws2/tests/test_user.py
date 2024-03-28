@@ -1,6 +1,6 @@
 import re
-import pytest
 
+import pytest
 from django.utils import timezone
 
 from cws2.models.user import User, UserProfile

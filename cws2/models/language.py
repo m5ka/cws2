@@ -103,8 +103,7 @@ class Language(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["owned_by", "slug"],
-                name="cws2_language_unique_owner_slug",
+                fields=["owned_by", "slug"], name="cws2_language_unique_owner_slug"
             )
         ]
 
@@ -177,8 +176,7 @@ class Dialect(AutoSlugMixin, TransientModel, OwnableModel, UUIDModel):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["language", "slug"],
-                name="cws2_dialect_language_slug",
+                fields=["language", "slug"], name="cws2_dialect_language_slug"
             )
         ]
 

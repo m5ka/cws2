@@ -108,28 +108,18 @@ class GroupMembership(models.Model):
     information about their joining of the group.
     """
 
-    group = models.ForeignKey(
-        "Group",
-        on_delete=models.CASCADE,
-        related_name="users",
-    )
+    group = models.ForeignKey("Group", on_delete=models.CASCADE, related_name="users")
     user = models.ForeignKey(
-        "User",
-        on_delete=models.CASCADE,
-        related_name="memberships",
+        "User", on_delete=models.CASCADE, related_name="memberships"
     )
     permissions = ArrayField(
-        models.CharField(
-            max_length=32,
-        ),
+        models.CharField(max_length=32),
         verbose_name=_("Permissions in group"),
         default=list,
         blank=True,
         help_text=_("The permissions this user has in the group."),
     )
-    joined_at = models.DateTimeField(
-        auto_now_add=True,
-    )
+    joined_at = models.DateTimeField(auto_now_add=True)
     invited_by = models.ForeignKey(
         "User",
         null=True,
@@ -141,8 +131,7 @@ class GroupMembership(models.Model):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["group", "user"],
-                name="cws2_groupmembership_group_user",
+                fields=["group", "user"], name="cws2_groupmembership_group_user"
             )
         ]
 

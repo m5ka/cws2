@@ -12,26 +12,10 @@ for model in [getattr(models, m) for m in models.__all__]:
 class UserAdmin(BaseUserAdmin):
     fieldsets = (
         (None, {"fields": ("username", "display_name", "email", "password")}),
-        (
-            "Status",
-            {
-                "fields": (
-                    "is_active",
-                    "is_bot",
-                    "email_confirmed_at",
-                )
-            },
-        ),
+        ("Status", {"fields": ("is_active", "is_bot", "email_confirmed_at")}),
         (
             "Permissions",
-            {
-                "fields": (
-                    "is_staff",
-                    "is_superuser",
-                    "groups",
-                    "user_permissions",
-                ),
-            },
+            {"fields": ("is_staff", "is_superuser", "groups", "user_permissions")},
         ),
         ("Last seen", {"fields": ("last_seen_ip", "last_seen_route", "last_seen_at")}),
         ("Dates", {"fields": ("last_login", "date_joined")}),

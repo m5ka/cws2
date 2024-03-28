@@ -22,9 +22,7 @@ class EditUserView(LoginRequiredMixin, FormView):
     verb = _("Edit profile")
     verb_icon = "fa-user-pen"
 
-    field_classes = {
-        "bio": "form__field--wide",
-    }
+    field_classes = {"bio": "form__field--wide"}
 
     @property
     def breadcrumb(self):
@@ -39,8 +37,7 @@ class EditUserView(LoginRequiredMixin, FormView):
 
     def get_form(self):
         return self.form_class(
-            instance=self.request.user.profile,
-            **self.get_form_kwargs(),
+            instance=self.request.user.profile, **self.get_form_kwargs()
         )
 
 

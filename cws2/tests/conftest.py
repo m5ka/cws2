@@ -13,7 +13,5 @@ def re_uuid() -> re.Pattern:
 @pytest.fixture
 def user() -> User:
     return User.objects.create_user(
-        "joe.bloggs",
-        email="joe@conworkshop.com",
-        password="bl0ggs123",
+        "joe.bloggs", email="joe@conworkshop.com", password="bl0ggs123"
     )

@@ -31,8 +31,7 @@ class WordClass(TransientModel):
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["language", "label"],
-                name="cws2_wordclass_language_label",
+                fields=["language", "label"], name="cws2_wordclass_language_label"
             )
         ]
 

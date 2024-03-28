@@ -10,10 +10,7 @@ from cws2.views.base import FormView, OwnableResourceMixin, View
 
 class GroupMixin(OwnableResourceMixin):
     def get_ownable_resource(self):
-        return get_object_or_404(
-            Group,
-            slug=self.kwargs.get("group"),
-        )
+        return get_object_or_404(Group, slug=self.kwargs.get("group"))
 
 
 class EditGroupView(GroupMixin, FormView):
@@ -38,10 +35,7 @@ class IndexGroupView(View):
         return Group.objects.order_by("name").annotate(Count("users")).all()
 
     def get_context_data(self, *args, **kwargs):
-        return {
-            **super().get_context_data(*args, **kwargs),
-            "groups": self.groups,
-        }
+        return {**super().get_context_data(*args, **kwargs), "groups": self.groups}
 
 
 class NewGroupView(FormView):
@@ -53,10 +47,7 @@ class NewGroupView(FormView):
     verb_icon = "fa-house-user"
 
     field_prefixes = {"slug": "conworkshop.com/groups/"}
-    form_data = {
-        "auto-slug-from": "name",
-        "auto-slug": "slug",
-    }
+    form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 
 
 class ShowGroupView(GroupMixin, View):

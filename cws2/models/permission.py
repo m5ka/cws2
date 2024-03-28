@@ -14,9 +14,7 @@ class Permission(models.Model):
         help_text=_("The unique ID of the ownable resource."),
     )
     permissions = ArrayField(
-        models.CharField(
-            max_length=32,
-        ),
+        models.CharField(max_length=32),
         verbose_name=_("Permissions"),
         default=list,
         blank=True,
@@ -30,27 +28,17 @@ class Permission(models.Model):
         db_index=False,
         related_name="granted_%(class)ss+",
     )
-    granted_at = models.DateTimeField(
-        auto_now_add=True,
-    )
+    granted_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         abstract = True
 
 
 class UserPermission(Permission):
-    user = models.ForeignKey(
-        "User",
-        on_delete=models.CASCADE,
-        related_name="+",
-    )
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="+")
 
     class Meta:
-        indexes = [
-            models.Index(
-                fields=["ownable_model", "ownable_pk"],
-            )
-        ]
+        indexes = [models.Index(fields=["ownable_model", "ownable_pk"])]
         constraints = [
             models.UniqueConstraint(
                 fields=["ownable_model", "ownable_pk", "user"],
@@ -66,18 +54,10 @@ class UserPermission(Permission):
 
 
 class GroupPermission(Permission):
-    group = models.ForeignKey(
-        "Group",
-        on_delete=models.CASCADE,
-        related_name="+",
-    )
+    group = models.ForeignKey("Group", on_delete=models.CASCADE, related_name="+")
 
     class Meta:
-        indexes = [
-            models.Index(
-                fields=["ownable_model", "ownable_pk"],
-            )
-        ]
+        indexes = [models.Index(fields=["ownable_model", "ownable_pk"])]
         constraints = [
             models.UniqueConstraint(
                 fields=["ownable_model", "ownable_pk", "group"],

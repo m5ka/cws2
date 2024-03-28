@@ -130,8 +130,7 @@ class OwnableResourceMixin:
             )
             return HttpResponseRedirect(self.ownable_resource.get_absolute_url())
         messages.warning(
-            request,
-            _("You don't have the required permissions to view that resource."),
+            request, _("You don't have the required permissions to view that resource.")
         )
         return HttpResponseRedirect(reverse("dashboard"))
 

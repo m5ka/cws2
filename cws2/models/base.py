@@ -50,9 +50,7 @@ class TransientModel(models.Model):
         db_column="created_by_user_id",
         db_index=True,
     )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-    )
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_by = models.ForeignKey(
         "User",
         null=True,
@@ -62,10 +60,7 @@ class TransientModel(models.Model):
         db_column="updated_by_user_id",
         db_index=False,
     )
-    updated_at = models.DateTimeField(
-        null=True,
-        auto_now=True,
-    )
+    updated_at = models.DateTimeField(null=True, auto_now=True)
     archived_by = models.ForeignKey(
         "User",
         null=True,
@@ -75,10 +70,7 @@ class TransientModel(models.Model):
         db_column="archived_by_user_id",
         db_index=False,
     )
-    archived_at = models.DateTimeField(
-        null=True,
-        blank=True,
-    )
+    archived_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         abstract = True
@@ -150,11 +142,7 @@ class OwnableModel(models.Model):
 class UUIDModel(models.Model):
     """Defines a model containing a unique Short UUID."""
 
-    uuid = models.CharField(
-        max_length=22,
-        unique=True,
-        db_index=True,
-    )
+    uuid = models.CharField(max_length=22, unique=True, db_index=True)
 
     class Meta:
         abstract = True

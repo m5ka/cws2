@@ -10,10 +10,7 @@ class GroupAccessType:
         (INVITE, _("Invite only")),
         (SYSTEM, _("System only")),
     )
-    CHOICES_PICKABLE = (
-        (ANYONE, _("Anyone")),
-        (INVITE, _("Invite only")),
-    )
+    CHOICES_PICKABLE = ((ANYONE, _("Anyone")), (INVITE, _("Invite only")))
 
 
 class LanguageStatus:
@@ -106,10 +103,7 @@ class PartOfSpeech:
 class PhonoSystemStatus:
     DRAFT = "D"
     PUBLISHED = "P"
-    CHOICES = (
-        (DRAFT, _("Draft")),
-        (PUBLISHED, _("Published")),
-    )
+    CHOICES = ((DRAFT, _("Draft")), (PUBLISHED, _("Published")))
 
 
 class PhoneCategory:

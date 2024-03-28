@@ -114,12 +114,8 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
             ],
-            "filters": {
-                "markdown": "cws2.utils.markdown.parse_markdown",
-            },
-            "policies": {
-                "ext.i18n.trimmed": True,
-            },
+            "filters": {"markdown": "cws2.utils.markdown.parse_markdown"},
+            "policies": {"ext.i18n.trimmed": True},
         },
     },
     {
@@ -132,7 +128,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-            ],
+            ]
         },
     },
 ]
@@ -142,10 +138,8 @@ TEMPLATES = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 DATABASES = {
     "default": env.db(
-        "DATABASE_URL",
-        engine="postgres",
-        default="postgres://localhost:5432/cws2",
-    ),
+        "DATABASE_URL", engine="postgres", default="postgres://localhost:5432/cws2"
+    )
 }
 
 
@@ -165,17 +159,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": (
             "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-        ),
+        )
     },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 
@@ -195,10 +183,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Secret key for cryptographic signing
 # SECURITY WARNING: keep the secret key used in production secret!
 # https://docs.djangoproject.com/en/4.1/ref/settings/#secret-key
-SECRET_KEY = env.str(
-    "SECRET_KEY",
-    default="cws2-keyboard-cat",
-)
+SECRET_KEY = env.str("SECRET_KEY", default="cws2-keyboard-cat")
 
 
 # List of hostnames to accept requests from
@@ -213,9 +198,7 @@ CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", cast=str, default=[])
 
 # Internal IPs
 # https://docs.djangoproject.com/en/4.1/ref/settings/#internal-ips
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+INTERNAL_IPS = ["127.0.0.1"]
 
 
 # Static files (CSS, JavaScript, Images)
