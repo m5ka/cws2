@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from cws2.constants import PartOfSpeech
 from cws2.models.base import TransientModel, TransientModelManager, UUIDModel
 
 
@@ -156,6 +157,7 @@ class WordDefinition(TransientModel):
     part_of_speech = models.CharField(
         max_length=3,
         verbose_name=_("Part of speech"),
+        choices=PartOfSpeech.CHOICES,
         help_text=_(
             "The part of speech for this definition of the word. If there's no exact "
             "match, just pick whichever is the closest."
