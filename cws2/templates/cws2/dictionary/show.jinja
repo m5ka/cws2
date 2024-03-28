@@ -1,0 +1,30 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_icon %}<i class="fa-solid fa-text"></i>{% endblock page_icon %}
+{% block page_title %}{{ word.headword }}{% endblock page_title %}
+
+{% block breadcrumb_links %}
+    {{ super() }}
+    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ word.language.created_by.get_absolute_url() }}">@{{ word.language.created_by.username }}</a></li>
+    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ word.language.get_absolute_url() }}">{{ word.language.name }}</a></li>
+    <li class="page__breadcrumb-item">
+        <a class="page__breadcrumb-link" href="{{ url('word.index', user=word.language.created_by.username, language=word.language.slug) }}">
+            {% trans %}Dictionary{% endtrans %}
+        </a>
+    </li>
+{% endblock breadcrumb_links %}
+
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ word.headword }}</li>{% endblock breadcrumb_current %}
+
+{% block page_content %}
+    <div class="content content--grid">
+        <dl class="content__item">
+            <dt>IPA</dt>
+            <dd>{{ word.ipa }}</dd>
+        </dl>
+        <dl class="content__item">
+            <dt>X-SAMPA</dt>
+            <dd>{{ word.xsampa }}</dd>
+        </dl>
+    </div>
+{% endblock page_content %}

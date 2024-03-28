@@ -1,0 +1,40 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_icon %}<i class="fa-solid fa-text"></i>{% endblock page_icon %}
+{% block page_title %}{% trans language_name=language.name %}{{ language }} dictionary{% endtrans %}{% endblock page_title %}
+
+{% block breadcrumb_links %}
+    {{ super() }}
+    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.created_by.get_absolute_url() }}">@{{ language.created_by.username }}</a></li>
+    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.get_absolute_url() }}">{{ language.name }}</a></li>
+{% endblock breadcrumb_links %}
+
+{% block breadcrumb_current %}
+    <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{% trans %}Dictionary{% endtrans %}</li>
+{% endblock breadcrumb_current %}
+
+{% block page_actions %}
+{% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
+<a href="{{ url('word.new', user=language.created_by.username, language=language.slug) }}" class="button button-green">
+    <i class="fa-solid fa-pencil"></i>
+    {% trans %}New word{% endtrans %}
+</a>
+{% endif %}
+{% endblock page_actions %}
+
+{% block page_content %}
+    <ul class="flex-list">
+        <li class="flex-list__row flex-list__row--header">
+            <span class="flex-list__column" style="flex-basis:34%">Headword</span>
+            <span class="flex-list__column" style="flex-basis:66%">...</span>
+        </li>
+        {% for word in words %}
+            <li class="flex-list__row">
+                <span class="flex-list__column" style="flex-basis:34%">
+                    <a href="{{ word.get_absolute_url() }}">{{ word.headword }}</a>
+                </span>
+                <span class="flex-list__column" style="flex-basis:66%">...</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock page_content %}

@@ -1,5 +1,7 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+from shortuuid.django_fields import ShortUUIDField
 
 from cws2.constants import PartOfSpeech, WordRegister
 from cws2.models.base import TransientModel, TransientModelManager, UUIDModel
@@ -43,6 +45,14 @@ class WordClass(TransientModel):
 class Word(TransientModel, UUIDModel):
     """Represents a single word in a user's language."""
 
+    uuid = ShortUUIDField(
+        verbose_name=_("UUID"),
+        max_length=22,
+        length=22,
+        unique=True,
+        db_index=True,
+        help_text=_("The unique ID that identifies this word."),
+    )
     language = models.ForeignKey(
         "Language",
         on_delete=models.CASCADE,
@@ -141,6 +151,13 @@ class Word(TransientModel, UUIDModel):
 
     def __str__(self):
         return f"{self.headword} ({self.language.name})"
+
+    def get_absolute_url(self):
+        return reverse("word.show", kwargs={
+            "user": self.language.created_by.username,
+            "language": self.language.slug,
+            "word": self.uuid,
+        })
 
 
 class WordDefinition(TransientModel):
