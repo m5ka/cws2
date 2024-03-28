@@ -5,9 +5,9 @@
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/m5ka/cws2/test.yaml?label=tests)
 ![GitHub contributors](https://img.shields.io/github/contributors/m5ka/cws2)
-![Python version: >= 3.10](https://img.shields.io/badge/python-%3E%3D%203.10-blue)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+![Python version: >= 3.12](https://img.shields.io/badge/python-%3E%3D%203.12-blue?logo=python&logoColor=white)
+[![Django version 5.0](https://img.shields.io/badge/django-5.0-green?logo=django)](https://docs.djangoproject.com/en/5.0/)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 </div>
 
 ## 🐻 About
@@ -15,7 +15,8 @@ This project is the [Django](https://www.djangoproject.com/) successor to the or
 
 ## 🏄 Setup
 ### Requirements
-* Python (3.10 or above)
+* Python (3.12 or above)
+* Poetry
 * PostgreSQL
 
 ### Setting up
@@ -25,7 +26,7 @@ It's worth using a Python [virtual environment](https://docs.python.org/3/tutori
 
 To install all the packages to Pip that you'll need for cws2 as well as for local development and testing, just run:
 ```bash
-pip install -e ".[dev,test]"
+poetry install --with dev,test
 ```
 
 ### Configuring
@@ -107,17 +108,14 @@ python manage.py makemigrations cws2 --empty -n my_migration
 ```
 
 ### 🍓 Code style
-We care about code style, so there are a few linters/code formatters that we use to make sure the code is top-notch.
-* [flake8](https://github.com/PyCQA/flake8) for code-quality and making sure code is [PEP 8](https://peps.python.org/pep-0008/) compliant
-* [isort](https://pycqa.github.io/isort/) for sorting and formatting imports
-* [black](https://black.readthedocs.io/en/stable/) for opinionated code formatting
+We care about code style, so all code should be compliant with [ruff](https://docs.astral.sh/ruff/)'s formatter and linter.
 
 You can check whether your code is compliant with the above using the following command.
 ```bash
 make lint
 ```
 
-You can also automatically format your code via black and isort with the following command.
+You can also automatically format your code with the following command.
 
 ```bash
 make format
