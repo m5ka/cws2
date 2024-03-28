@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from cws2.constants import PartOfSpeech
+from cws2.constants import PartOfSpeech, WordRegister
 from cws2.models.base import TransientModel, TransientModelManager, UUIDModel
 
 
@@ -167,6 +167,7 @@ class WordDefinition(TransientModel):
         max_length=4,
         blank=True,
         verbose_name=_("Register"),
+        choices=WordRegister.CHOICES,
         help_text=_(
             "Here you can optionally specify the social register of this word, i.e. "
             "what specific context does this word belong to?"
