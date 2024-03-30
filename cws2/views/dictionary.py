@@ -36,7 +36,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     form_class = WordForm
 
     verb = "New word"
-    verb_icon = "fa-text"
+    verb_icon = "fa-plus"
 
     ownable_permission_required = "write"
 
@@ -59,6 +59,16 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
                     }
                 ),
                 self.ownable_resource.name,
+            ),
+            (
+                reverse(
+                    "word.index",
+                    kwargs={
+                        "user": self.ownable_resource.created_by.username,
+                        "language": self.ownable_resource.slug,
+                    }
+                ),
+                _("Dictionary"),
             ),
         ]
 
@@ -94,6 +104,7 @@ class ShowWordView(View):
         return {
             **super().get_context_data(**kwargs),
             "word": self.word,
+            "editable": self.word.language.check_user_permission(self.request.user, "write"),
         }
 
     @cached_property

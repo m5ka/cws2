@@ -16,15 +16,61 @@
 
 {% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ word.headword }}</li>{% endblock breadcrumb_current %}
 
+{% block page_actions %}
+    {% if editable %}
+        <a href="#" class="button button-green">
+            <i class="fa-solid fa-plus"></i>
+            {% trans %}Add definition{% endtrans %}
+        </a>
+        <a href="#" class="button button-green">
+            <i class="fa-solid fa-pencil"></i>
+            {% trans %}Edit word{% endtrans %}
+        </a>
+    {% endif %}
+{% endblock page_actions %}
+
 {% block page_content %}
     <div class="content content--grid">
-        <dl class="content__item">
-            <dt>IPA</dt>
-            <dd>{{ word.ipa }}</dd>
-        </dl>
-        <dl class="content__item">
-            <dt>X-SAMPA</dt>
-            <dd>{{ word.xsampa }}</dd>
-        </dl>
+        {% if word.alt_word %}
+            <dl class="content__item">
+                <dt>{% trans %}Alternative word{% endtrans %}</dt>
+                <dd>{{ word.alt_word }}</dd>
+            </dl>
+        {% endif %}
+        {% if word.etymology %}
+            <dl class="content__item">
+                <dt>{% trans %}Etymology{% endtrans %}</dt>
+                <dd>{{ word.etymology }}</dd>
+            </dl>
+        {% endif %}
+        {% if word.pronunciation %}
+            <dl class="content__item">
+                <dt>{% trans %}Pronunciation{% endtrans %}</dt>
+                <dd>{{ word.pronunciation }}</dd>
+            </dl>
+        {% endif %}
+        {% for definitions in word.parts_of_speech.values() %}
+            <dl class="content__item content__item--wide dictionary">
+                <dt class="dictionary__part_of_speech">{{ definitions[0].get_part_of_speech_display() }}</dt>
+                <dd>
+                    <ol class="dictionary__list">
+                        {% for definition in definitions %}
+                            <li class="dictionary__item">
+                                {% if definition.register %}
+                                    <span class="dictionary__item_register">({{ definition.get_register_display() }})</span>
+                                {% endif %}
+                                <span class="dictionary__item_definition">{{ definition.definition }}</span>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </dd>
+            </dl>
+        {% endfor %}
+        {% if word.notes %}
+            <dl class="content__item content__item--wide">
+                <dt>{% trans %}Notes{% endtrans %}</dt>
+                <dd>{{ word.notes }}</dd>
+            </dl>
+        {% endif %}
     </div>
 {% endblock page_content %}

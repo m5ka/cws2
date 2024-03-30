@@ -1,0 +1,16 @@
+@import "../globals";
+
+.dictionary {
+  .dictionary__part_of_speech {
+    font-size: $font-extra-large;
+  }
+
+  .dictionary__list {
+    list-style: decimal;
+    padding-inline-start: 2.4rem;
+
+    .dictionary__item_register {
+      color: var(--body-text-lightest);
+    }
+  }
+}

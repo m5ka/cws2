@@ -1,10 +1,12 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 from shortuuid.django_fields import ShortUUIDField
 
 from cws2.constants import PartOfSpeech, WordRegister
 from cws2.models.base import TransientModel, TransientModelManager, UUIDModel
+from cws2.utils.phonetics import ipa_from_ipa_or_xsampa
 
 
 class WordClass(TransientModel):
@@ -158,6 +160,20 @@ class Word(TransientModel, UUIDModel):
             "language": self.language.slug,
             "word": self.uuid,
         })
+
+    @cached_property
+    def parts_of_speech(self):
+        pos = {}
+        for definition in self.definitions.all():
+            if definition.part_of_speech not in pos:
+                pos[definition.part_of_speech] = [definition]
+            else:
+                pos[definition.part_of_speech].append(definition)
+        return pos
+
+    @cached_property
+    def pronunciation(self):
+        return ipa_from_ipa_or_xsampa(self.ipa, self.xsampa)
 
 
 class WordDefinition(TransientModel):
