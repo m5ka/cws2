@@ -1,5 +1,5 @@
 <div align="center">
-<br><div><img src="https://i.imgur.com/UhDItX8.png" alt="cws2"></div>
+<br><div><img src=".github/images/cws.png" alt="cws2"></div>
 
 **cws2**, or **conworkshop 2**, is a website to bring conlangers together.
 
