@@ -25,8 +25,7 @@ class TranslationTemplate(TransientModel):
         help_text=_("A short name for this translation."),
     )
     text = models.TextField(
-        verbose_name=_("Text"),
-        help_text=_("The text that should be translated."),
+        verbose_name=_("Text"), help_text=_("The text that should be translated.")
     )
     source = models.CharField(
         max_length=128,

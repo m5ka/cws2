@@ -79,14 +79,10 @@ urlpatterns = [
     path("languages/new", NewLanguageView.as_view(), name="language.new"),
     # translations
     path(
-        "translation",
-        IndexTranslationTemplateView.as_view(),
-        name="translation.index",
+        "translation", IndexTranslationTemplateView.as_view(), name="translation.index"
     ),
     path(
-        "translation/new",
-        NewTranslationTemplateView.as_view(),
-        name="translation.new",
+        "translation/new", NewTranslationTemplateView.as_view(), name="translation.new"
     ),
     path(
         "translation/<str:translation>",

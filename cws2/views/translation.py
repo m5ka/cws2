@@ -5,7 +5,7 @@ from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from cws2.forms.translation import TranslationForm, TranslationTemplateForm
-from cws2.models.translation import Translation, TranslationTemplate
+from cws2.models.translation import TranslationTemplate
 from cws2.views.base import FormView, View
 
 
@@ -14,7 +14,7 @@ class IndexTranslationTemplateView(LoginRequiredMixin, View):
 
     def get_context_data(self, *args, **kwargs):
         translation_templates = TranslationTemplate.objects.annotate(
-            translation_count=Count("translations"),
+            translation_count=Count("translations")
         ).all()
         return {
             **super().get_context_data(*args, **kwargs),
