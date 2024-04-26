@@ -6,19 +6,12 @@ from cws2.models.dictionary import Word
 
 class WordForm(forms.ModelForm):
     part_of_speech = forms.ChoiceField(
-        choices=PartOfSpeech.CHOICES,
-        initial=PartOfSpeech.NOUN,
+        choices=PartOfSpeech.CHOICES, initial=PartOfSpeech.NOUN
     )
-    definition = forms.CharField(
-        required=True,
-    )
+    definition = forms.CharField(required=True)
     classes = forms.MultipleChoiceField(required=False)
     register = forms.ChoiceField(
-        choices=(
-            ("", "---------"),
-            *WordRegister.CHOICES
-        ),
-        required=False,
+        choices=(("", "---------"), *WordRegister.CHOICES), required=False
     )
 
     class Meta:

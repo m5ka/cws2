@@ -155,11 +155,14 @@ class Word(TransientModel, UUIDModel):
         return f"{self.headword} ({self.language.name})"
 
     def get_absolute_url(self):
-        return reverse("word.show", kwargs={
-            "user": self.language.created_by.username,
-            "language": self.language.slug,
-            "word": self.uuid,
-        })
+        return reverse(
+            "word.show",
+            kwargs={
+                "user": self.language.created_by.username,
+                "language": self.language.slug,
+                "word": self.uuid,
+            },
+        )
 
     @cached_property
     def parts_of_speech(self):

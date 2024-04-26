@@ -7,7 +7,7 @@ from django.utils.functional import cached_property
 from django.utils.translation import gettext as _
 
 from cws2.forms.dictionary import WordForm
-from cws2.models.dictionary import Word, WordDefinition
+from cws2.models.dictionary import Word, WordClass, WordDefinition
 from cws2.models.language import Language
 from cws2.views.base import FormView, OwnableResourceMixin, View
 
@@ -48,7 +48,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
                     "user.show",
                     kwargs={"user": self.ownable_resource.created_by.username},
                 ),
-                f"@{self.ownable_resource.created_by.username}"
+                f"@{self.ownable_resource.created_by.username}",
             ),
             (
                 reverse(
@@ -56,7 +56,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
                     kwargs={
                         "user": self.ownable_resource.created_by.username,
                         "language": self.ownable_resource.slug,
-                    }
+                    },
                 ),
                 self.ownable_resource.name,
             ),
@@ -66,7 +66,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
                     kwargs={
                         "user": self.ownable_resource.created_by.username,
                         "language": self.ownable_resource.slug,
-                    }
+                    },
                 ),
                 _("Dictionary"),
             ),
@@ -76,18 +76,21 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
         form.instance.language = self.ownable_resource
         with transaction.atomic():
             form.save()
-            WordDefinition.objects.create(
+            definition = WordDefinition.objects.create(
                 word=form.instance,
                 part_of_speech=form.cleaned_data.get("part_of_speech"),
                 definition=form.cleaned_data.get("definition"),
                 register=form.cleaned_data.get("register"),
             )
+            definition.classes.set(form.cleaned_data.get("classes"))
         messages.success(self.request, _("Word created successfully!"))
         return redirect(form.instance.get_absolute_url())
 
     def get_form(self):
-        # TODO: populate word class choices here!
-        return self.form_class(**self.get_form_kwargs())
+        form = self.form_class(**self.get_form_kwargs())
+        classes = WordClass.objects.filter(language=self.ownable_resource).all()
+        form.fields["classes"].choices = ((c.id, c.label) for c in classes)
+        return form
 
     def get_ownable_resource(self):
         return get_object_or_404(
@@ -104,7 +107,9 @@ class ShowWordView(View):
         return {
             **super().get_context_data(**kwargs),
             "word": self.word,
-            "editable": self.word.language.check_user_permission(self.request.user, "write"),
+            "editable": self.word.language.check_user_permission(
+                self.request.user, "write"
+            ),
         }
 
     @cached_property
