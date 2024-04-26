@@ -1,0 +1,41 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_icon %}<i class="fa-regular fa-subtitles"></i>{% endblock page_icon %}
+{% block page_title %}{{ translation_template.name }}{% endblock page_title %}
+{% block breadcrumb_links %}
+    {{ super() }}
+    <li class="page__breadcrumb-item"><a href="{{ url('translation.index') }}" class="page__breadcrumb-link">{% trans %}Translations{% endtrans %}</a></li>
+{% endblock breadcrumb_links %}
+{% block breadcrumb_current %}
+    <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ translation_template.name }}</li>
+{% endblock breadcrumb_current %}
+
+{% block page_content %}
+    <ul class="flex-list">
+        <li class="flex-list__row flex-list__row--header">
+            <span class="flex-list__column" style="flex-basis:30%">Language</span>
+            <span class="flex-list__column" style="flex-basis:70%">Text</span>
+        </li>
+        <li class="flex-list__row">
+            <span class="flex-list__column" style="flex-basis:30%"><em>Original</em></span>
+            <span class="flex-list__column" style="flex-basis:70%">{{ translation_template.text }}</span>
+        </li>
+        {% set translations=translation_template.translations.all() %}
+        {% if translations %}
+            {% for translation in translations %}
+                <li class="flex-list__row">
+                    <span class="flex-list__column" style="flex-basis:30%">
+                        <a href="{{ translation.language.get_absolute_url() }}">{{ translation.language.name }}</a>
+                    </span>
+                    <span class="flex-list__column" style="flex-basis:70%">
+                        <a href="{{ translation.get_absolute_url() }}">{{ translation.text|truncate(128) }}</a>
+                    </span>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="flex-list__row">
+                <span class="flex-list__column">{% trans %}Nobody has translated this yet.{% endtrans %} :(</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock page_content %}

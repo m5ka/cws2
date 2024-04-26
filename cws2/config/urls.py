@@ -31,6 +31,11 @@ from cws2.views.language import (
 )
 from cws2.views.message import IndexMessageView
 from cws2.views.static import AboutView, ContactView, DonateView, PrivacyView
+from cws2.views.translation import (
+    IndexTranslationTemplateView,
+    NewTranslationTemplateView,
+    ShowTranslationTemplateView,
+)
 from cws2.views.user import EditUserView, ShowUserView
 
 urlpatterns = [
@@ -72,6 +77,22 @@ urlpatterns = [
     ),
     path("languages", IndexLanguageView.as_view(), name="language.index"),
     path("languages/new", NewLanguageView.as_view(), name="language.new"),
+    # translations
+    path(
+        "translation",
+        IndexTranslationTemplateView.as_view(),
+        name="translation.index",
+    ),
+    path(
+        "translation/new",
+        NewTranslationTemplateView.as_view(),
+        name="translation.new",
+    ),
+    path(
+        "translation/<str:translation>",
+        ShowTranslationTemplateView.as_view(),
+        name="translation.show",
+    ),
     # auth
     path("login", LoginView.as_view(), name="login"),
     path("logout", LogoutView.as_view(), name="logout"),

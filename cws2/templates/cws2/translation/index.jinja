@@ -1,0 +1,36 @@
+{% extends "cws2/base.jinja" %}
+
+{% block page_icon %}<i class="fa-regular fa-subtitles"></i>{% endblock page_icon %}
+{% block page_title %}Translations{% endblock page_title %}
+{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">Translations</li>{% endblock breadcrumb_current %}
+{% block page_actions %}
+<a href="{{ url('translation.new') }}" class="button button-green">
+    <i class="fa-regular fa-plus"></i>
+    {% trans %}New translation{% endtrans %}
+</a>
+{% endblock page_actions %}
+
+{% block page_content %}
+    <ul class="flex-list">
+        <li class="flex-list__row flex-list__row--header">
+            <span class="flex-list__column" style="flex-basis:60%">Name</span>
+            <span class="flex-list__column" style="flex-basis:25%">Creator</span>
+            <span class="flex-list__column" style="flex-basis:15%">Number of translations</span>
+        </li>
+        {% if translation_templates %}
+            {% for translation_template in translation_templates %}
+                <li class="flex-list__row">
+                    <span class="flex-list__column" style="flex-basis:60%">
+                        <a href="{{ translation_template.get_absolute_url() }}">{{ translation_template.name }}</a>
+                    </span>
+                    <span class="flex-list__column" style="flex-basis:25%">@{{ translation_template.created_by.username }}</span>
+                    <span class="flex-list__column" style="flex-basis:15%">{{ translation_template.translation_count }}</span>
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="flex-list__row">
+                <span class="flex-list__column">{% trans %}No translations yet.{% endtrans %} :(</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock page_content %}
