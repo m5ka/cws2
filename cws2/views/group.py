@@ -39,14 +39,13 @@ class EditGroupView(GroupMixin, FormView):
 
     def form_valid(self, form):
         if (
-            "access_type" in form.changed_data and
-            form.cleaned_data.get("access_type") not in GroupAccessType.ALL_PICKABLE
+            "access_type" in form.changed_data
+            and form.cleaned_data.get("access_type") not in GroupAccessType.ALL_PICKABLE
         ):
             form.add_error(
                 "access_type",
                 ValidationError(
-                    _("You cannot create a system-only group."),
-                    code="invalid",
+                    _("You cannot create a system-only group."), code="invalid"
                 ),
             )
             return self.form_invalid(form)
@@ -58,10 +57,7 @@ class EditGroupView(GroupMixin, FormView):
         return HttpResponseRedirect(form.instance.get_absolute_url())
 
     def get_form_kwargs(self):
-        return {
-            **super().get_form_kwargs(),
-            "instance": self.ownable_resource,
-        }
+        return {**super().get_form_kwargs(), "instance": self.ownable_resource}
 
 
 class IndexGroupView(View):
@@ -89,14 +85,13 @@ class NewGroupView(FormView):
 
     def form_valid(self, form):
         if (
-            "access_type" in form.changed_data and
-            form.cleaned_data.get("access_type") not in GroupAccessType.ALL_PICKABLE
+            "access_type" in form.changed_data
+            and form.cleaned_data.get("access_type") not in GroupAccessType.ALL_PICKABLE
         ):
             form.add_error(
                 "access_type",
                 ValidationError(
-                    _("You cannot create a system-only group."),
-                    code="invalid",
+                    _("You cannot create a system-only group."), code="invalid"
                 ),
             )
             return self.form_invalid(form)
