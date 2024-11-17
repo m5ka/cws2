@@ -15,7 +15,7 @@
 
 {% block page_actions %}
     {% if request.user.is_authenticated and group.check_user_permission(request.user, "write") %}
-        <a href="{{ url('group.edit', group=group.slug) }}" class="button">
+        <a href="{{ url('group.edit', group=group.slug) }}" class="button button--accent">
             <i class="bx bx-edit-alt"></i>
             {% trans %}Edit group{% endtrans %}
         </a>
