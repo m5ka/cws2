@@ -223,10 +223,13 @@
                                     </a>
                                 </li>
                                 <li class="header__dropdown-item">
-                                    <a href="{{ url('logout') }}" class="header__dropdown-link">
-                                        <i class="far fa-arrow-right-to-bracket"></i>
-                                        Log out
-                                    </a>
+                                    <form action="{{ url('logout') }}" method="post">
+                                        {% csrf_token %}
+                                        <button type="submit" class="header__dropdown-link">
+                                            <i class="far fa-arrow-right-to-bracket"></i>
+                                            Log out
+                                        </button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

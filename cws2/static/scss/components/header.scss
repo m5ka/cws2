@@ -229,6 +229,16 @@ body > .header {
             .header__dropdown-link {
               color: var(--body-text-lighter);
               text-decoration: none;
+              // The following properties are needed to normalize
+              // <button> elements used as links (e.g. for log out
+              // action which has to happen via POST request)
+              background: none;
+              border: none;
+              font-size: inherit;
+              cursor: pointer;
+              font-family: $font-stack;
+              line-height: $line-height;
+              padding: 0;
             }
           }
         }
