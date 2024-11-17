@@ -16,10 +16,15 @@
 
   --chevron-url: url('../images/icons/chevron-down-solid.svg');
 
-  --accent: #{$grey};
-  --accent-bold: #{darken($grey, 5%)};
-  --accent-contrast: #{$darker-grey};
-  --accent-contrast-subtle: #{$dark-grey};
+  --neutral: #{lighten($grey, 20%)};
+  --neutral-bold: #{lighten($grey, 10%)};
+  --neutral-contrast: #{darken($darker-grey, 10%)};
+  --neutral-contrast-subtle: #{$darker-grey};
+
+  --accent: var(--neutral);
+  --accent-bold: var(--neutral-bold);
+  --accent-contrast: var(--neutral-contrast);
+  --accent-contrast-subtle:var(--neutral-contrast-subtle);
 
   --green: #{$green};
   --green-bold: #{darken($green, 5%)};
@@ -53,6 +58,7 @@
   --purple-contrast-subtle: #{lighten($purple, 40%)};
 
   --red: #{$red};
+  --red-bold: #{darken($red, 10%)};
   --red-subtle: #{lighten($red, 10%)};
   --red-contrast: white;
   --red-contrast-subtle: #{lighten($red, 40%)};
@@ -76,10 +82,15 @@
 
   --chevron-url: url('../images/icons/chevron-down-solid-white.svg');
 
-  --accent: #{$grey};
-  --accent-bold: #{darken($grey, 5%)};
-  --accent-contrast: #{$darker-grey};
-  --accent-contrast-subtle: #{$dark-grey};
+  --neutral: #{$grey};
+  --neutral-bold: #{darken($grey, 10%)};
+  --neutral-contrast: #{darken($darker-grey, 20%)};
+  --neutral-contrast-subtle: #{darken($darker-grey, 5%)};
+
+  --accent: var(--neutral);
+  --accent-bold: var(--neutral-bold);
+  --accent-contrast: var(--neutral-contrast);
+  --accent-contrast-subtle:var(--neutral-contrast-subtle);
 
   --green: #{$green};
   --green-bold: #{darken($green, 5%)};
@@ -113,6 +124,7 @@
   --purple-contrast-subtle: #{lighten($purple, 40%)};
 
   --red: #{$red};
+  --red-bold: #{darken($red, 10%)};
   --red-subtle: #{lighten($red, 10%)};
   --red-contrast: white;
   --red-contrast-subtle: #{lighten($red, 40%)};

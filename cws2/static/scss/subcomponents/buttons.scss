@@ -1,20 +1,66 @@
 @import "../globals";
 
 .button {
+  --button-primary: var(--neutral);
+  --button-secondary: var(--neutral-bold);
+  --button-text: var(--neutral-contrast);
+
   display: flex;
   align-items: center;
   column-gap: .6rem;
   padding: .4rem 1.2rem;
-  background: var(--accent);
+  background: var(--button-primary);
   border: none;
-  border-bottom: 5px solid var(--accent-bold);
-  color: var(--accent-contrast);
+  border-bottom: 5px solid var(--button-secondary);
+  color: var(--button-text);
   text-decoration: none;
   border-radius: $radius;
   font-size: $font-medium;
   font-family: $font-stack;
   line-height: $line-height;
   cursor: pointer;
+
+  &.button--accent {
+    --button-primary: var(--accent);
+    --button-secondary: var(--accent-bold);
+    --button-text: var(--accent-contrast);
+  }
+
+  &.button--green {
+    --button-primary: var(--green);
+    --button-secondary: var(--green-bold);
+    --button-text: var(--green-contrast);
+  }
+
+  &.button--yellow {
+    --button-primary: var(--yellow);
+    --button-secondary: var(--yellow-bold);
+    --button-text: var(--yellow-contrast);
+  }
+
+  &.button--blue {
+    --button-primary: var(--blue);
+    --button-secondary: var(--blue-bold);
+    --button-text: var(--blue-contrast);
+  }
+
+  &.button--orange {
+    --button-primary: var(--orange);
+    --button-secondary: var(--orange-bold);
+    --button-text: var(--orange-contrast);
+  }
+
+  &.button--purple {
+    --button-primary: var(--purple);
+    --button-secondary: var(--purple-bold);
+    --button-text: var(--purple-contrast);
+  }
+
+  &.button--red {
+    --button-primary: var(--red);
+    --button-secondary: var(--red-bold);
+    --button-text: var(--red-contrast);
+  }
 
   &:active {
     border-bottom: 3px solid var(--accent-bold);

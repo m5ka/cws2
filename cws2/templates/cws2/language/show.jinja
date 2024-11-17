@@ -14,12 +14,12 @@
 {% endblock page_title %}
 
 {% block page_actions %}
-<a href="{{ url('word.index', user=language.created_by.username, language=language.slug) }}" class="button button-green">
+<a href="{{ url('word.index', user=language.created_by.username, language=language.slug) }}" class="button button--accent">
     <i class="bx bx-text"></i>
     {% trans %}Dictionary{% endtrans %}
 </a>
 {% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
-<a href="{{ url('language.edit', user=language.created_by.username, language=language.slug) }}" class="button button-green">
+<a href="{{ url('language.edit', user=language.created_by.username, language=language.slug) }}" class="button button--accent">
     <i class="bx bx-edit-alt"></i>
     Edit language
 </a>
