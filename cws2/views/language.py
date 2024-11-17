@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import IntegrityError
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
@@ -26,10 +26,19 @@ class EditLanguageView(LanguageMixin, FormView):
 
     ownable_permission_required = "write"
 
-    verb_icon = "fa-pencil"
-    breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
+    verb_icon = "bx-edit-alt"
     field_classes = {"description": "form__field--wide"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
+
+    @property
+    def breadcrumb(self):
+        return [
+            (
+                self.ownable_resource.created_by.get_absolute_url(),
+                f"@{self.ownable_resource.created_by.username}",
+            ),
+            (self.ownable_resource.get_absolute_url(), self.ownable_resource.name),
+        ]
 
     @property
     def verb(self):
@@ -72,7 +81,7 @@ class NewLanguageView(LoginRequiredMixin, FormView):
     form_class = LanguageForm
 
     verb = _("New language")
-    verb_icon = "fa-plus"
+    verb_icon = "bx-book-add"
     breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
     field_classes = {"description": "form__field--wide"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}

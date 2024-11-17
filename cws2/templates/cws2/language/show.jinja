@@ -7,18 +7,20 @@
 
 {% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ language.name }}</li>{% endblock breadcrumb_current %}
 
-{% block page_icon %}{% if language.language_flag %}<img src="{{ language.language_flag.url }}" class="flag">{% else %}<i class="fa-solid fa-language"></i>{% endif %}{% endblock page_icon %}
+{% block page_icon %}{% if language.language_flag %}<img src="{{ language.language_flag.url }}" class="flag">{% else %}<i class="bx bx-book"></i>{% endif %}{% endblock page_icon %}
 
-{% block page_title %}{{ language.name }}{% endblock page_title %}
+{% block page_title %}
+    {{ language.name }}{% if language.endonym %} <em>({{ language.endonym }})</em>{% endif %}
+{% endblock page_title %}
 
 {% block page_actions %}
 <a href="{{ url('word.index', user=language.created_by.username, language=language.slug) }}" class="button button-green">
-    <i class="fa-solid fa-text"></i>
+    <i class="bx bx-text"></i>
     {% trans %}Dictionary{% endtrans %}
 </a>
 {% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
 <a href="{{ url('language.edit', user=language.created_by.username, language=language.slug) }}" class="button button-green">
-    <i class="fa-solid fa-pencil"></i>
+    <i class="bx bx-edit-alt"></i>
     Edit language
 </a>
 {% endif %}

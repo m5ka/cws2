@@ -11,7 +11,7 @@
 
 {% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ verb }}</li>{% endblock breadcrumb_current %}
 
-{% block page_icon %}{% if verb_icon %}<i class="fa-solid {{ verb_icon }}"></i>{% endif %}{% endblock page_icon %}
+{% block page_icon %}{% if verb_icon %}<i class="bx {{ verb_icon }}"></i>{% endif %}{% endblock page_icon %}
 
 {% block page_title %}{{ verb }}{% endblock page_title %}
 
@@ -51,7 +51,7 @@
     <div class="form__actions">
         {% block form_actions %}
         <button type="submit" class="button">
-            {% if verb_icon %}<i class="far {{ verb_icon }}"></i>{% endif %}
+            {% if verb_icon %}<i class="bx {{ verb_icon }}"></i>{% endif %}
             {{ verb }}
         </button>
         {% endblock form_actions %}

@@ -27,7 +27,7 @@ class CreateAccountView(FormView):
     success_url = reverse_lazy("login")
 
     verb = _("Create account")
-    verb_icon = "fa-user-plus"
+    verb_icon = "bx-user-plus"
     breadcrumb_root = False
 
     field_classes = {"captcha": "form__field--no-label"}
@@ -57,7 +57,7 @@ class LoginView(FormView, BaseLoginView):
     body_colour = "orange"
 
     verb = _("Log in")
-    verb_icon = "fa-user"
+    verb_icon = "bx-user"
     breadcrumb_root = False
 
     def get(self, request, *args, **kwargs):

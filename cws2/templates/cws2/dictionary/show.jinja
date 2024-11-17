@@ -1,6 +1,6 @@
 {% extends "cws2/base.jinja" %}
 
-{% block page_icon %}<i class="fa-solid fa-text"></i>{% endblock page_icon %}
+{% block page_icon %}<i class="bx bx-text"></i>{% endblock page_icon %}
 {% block page_title %}{{ word.headword }}{% endblock page_title %}
 
 {% block breadcrumb_links %}
@@ -19,11 +19,11 @@
 {% block page_actions %}
     {% if editable %}
         <a href="#" class="button button-green">
-            <i class="fa-solid fa-plus"></i>
+            <i class="bx bx-plus"></i>
             {% trans %}Add definition{% endtrans %}
         </a>
         <a href="#" class="button button-green">
-            <i class="fa-solid fa-pencil"></i>
+            <i class="bx bx-edit-alt"></i>
             {% trans %}Edit word{% endtrans %}
         </a>
     {% endif %}

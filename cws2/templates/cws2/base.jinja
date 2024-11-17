@@ -6,40 +6,40 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ConWorkShop</title>
         <link rel="stylesheet" href="{{ static('css/base.css') }}" type="text/css">
-        <link rel="stylesheet" href="https://kit.fontawesome.com/db7cee372a.css" crossorigin="anonymous">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" crossorigin="anonymous">
     </head>
     <body{% if theme %} data-theme="{{ theme }}"{% endif %} class="--{{ body_colour }}">
         <header class="header">
             <div class="header__wrapper">
                 <div class="header__brand">
                     <a class="header__brand-link" href="/">conworkshop</a>
-                    <a class="header__hamburger" href="#" aria-label="Toggle navigation menu"><i class="fa-solid fa-bars"></i></a>
+                    <a class="header__hamburger" href="#" aria-label="Toggle navigation menu"><i class="bx bx-menu"></i></a>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__nav-list">
                         {% if request.user.is_authenticated %}
                             <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--green" data-toggles="DropdownLanguages">
                                 <a class="header__nav-link" href="#">
-                                    <i class="far fa-book"></i>
+                                    <i class="bx bx-book"></i>
                                     <span class="header__nav-link-text">Languages</span>
                                 </a>
                             </li>
                             <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--yellow" data-toggles="DropdownTools">
                                 <a class="header__nav-link" href="#">
-                                    <i class="far fa-toolbox"></i>
+                                    <i class="bx bx-box"></i>
                                     <span class="header__nav-link-text">Tools</span>
                                 </a>
                             </li>
                             <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--blue" data-toggles="DropdownCommunity">
                                 <a class="header__nav-link" href="#">
-                                    <i class="far fa-comment"></i>
+                                    <i class="bx bx-chat"></i>
                                     <span class="header__nav-link-text">Community</span>
                                 </a>
                             </li>
                             {% if request.user.is_staff %}
                                 <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--purple" data-toggles="DropdownAdmin">
                                     <a class="header__nav-link" href="#">
-                                        <i class="far fa-road-barrier"></i>
+                                        <i class="bx bx-hard-hat"></i>
                                         <span class="header__nav-link-text">Admin</span>
                                     </a>
                                 </li>
@@ -49,14 +49,14 @@
                             </li>
                             <li class="header__nav-item header__nav-item--has-dropdown header__nav-item--orange" data-toggles="DropdownAccount">
                                 <a class="header__nav-link" href="#">
-                                    <i class="far fa-user"></i>
+                                    <i class="bx bx-user"></i>
                                     <span class="header__nav-link-text">{{ request.user.username }}</span>
                                 </a>
                             </li>
                         {% else %}
                             <li class="header__nav-item header__nav-item--blue">
                                 <a class="header__nav-link" href="{{ url('about') }}">
-                                    <i class="far fa-message-question"></i>
+                                    <i class="bx bx-leaf"></i>
                                     <span class="header__nav-link-text">About</span>
                                 </a>
                             </li>
@@ -65,7 +65,7 @@
                             </li>
                             <li class="header__nav-item header__nav-item--orange">
                                 <a class="header__nav-link" href="{{ url('login') }}">
-                                    <i class="far fa-right-to-bracket"></i>
+                                    <i class="bx bx-log-in"></i>
                                     <span class="header__nav-link-text header__nav-link-text--no-collapse">Log in</span>
                                 </a>
                             </li>
@@ -80,13 +80,13 @@
                         <ul class="header__dropdown-list">
                             <li class="header__dropdown-item">
                                 <a class="header__dropdown-link" href="{{ url('language.index') }}">
-                                    <i class="far fa-book"></i>
+                                    <i class="bx bx-book"></i>
                                     My languages
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a class="header__dropdown-link" href="{{ url('language.new') }}">
-                                    <i class="far fa-plus"></i>
+                                    <i class="bx bx-plus"></i>
                                     New language
                                 </a>
                             </li>
@@ -97,13 +97,13 @@
                         <ul class="header__dropdown-list">
                             <li class="header__dropdown-item">
                                 <a href="#" class="header__dropdown-link">
-                                    <i class="far fa-pen-to-square"></i>
+                                    <i class="bx bx-file-blank"></i>
                                     Articles
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a href="{{ url('translation.index') }}" class="header__dropdown-link">
-                                    <i class="far fa-subtitles"></i>
+                                    <i class="bx bx-transfer"></i>
                                     Translations
                                 </a>
                             </li>
@@ -118,19 +118,19 @@
                         <ul class="header__dropdown-list">
                             <li class="header__dropdown-item">
                                 <a class="header__dropdown-link" href="#">
-                                    <i class="far fa-toolbox"></i>
+                                    <i class="bx bx-box"></i>
                                     Something
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a class="header__dropdown-link" href="#">
-                                    <i class="far fa-toolbox"></i>
+                                    <i class="bx bx-box"></i>
                                     Something
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a class="header__dropdown-link" href="#">
-                                    <i class="far fa-toolbox"></i>
+                                    <i class="bx bx-box"></i>
                                     Something
                                 </a>
                             </li>
@@ -145,13 +145,13 @@
                         <ul class="header__dropdown-list">
                             <li class="header__dropdown-item">
                                 <a href="#" class="header__dropdown-link">
-                                    <i class="far fa-comments"></i>
+                                    <i class="bx bx-conversation"></i>
                                     Boards
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a href="" class="header__dropdown-link">
-                                    <i class="far fa-comment"></i>
+                                    <i class="bx bx-comment"></i>
                                     Recent posts
                                 </a>
                             </li>
@@ -162,13 +162,13 @@
                         <ul class="header__dropdown-list">
                             <li class="header__dropdown-item">
                                 <a href="{{ url('group.index') }}" class="header__dropdown-link">
-                                    <i class="far fa-house-user"></i>
+                                    <i class="bx bx-group"></i>
                                     Groups
                                 </a>
                             </li>
                             <li class="header__dropdown-item">
                                 <a href="#" class="header__dropdown-link">
-                                    <i class="far fa-users"></i>
+                                    <i class="bx bxs-user-detail"></i>
                                     Users
                                 </a>
                             </li>
@@ -184,13 +184,13 @@
                             <ul class="header__dropdown-list">
                                 <li class="header__dropdown-item">
                                     <a href="{{ request.user.get_absolute_url() }}" class="header__dropdown-link">
-                                        <i class="far fa-user"></i>
+                                        <i class="bx bx-user"></i>
                                         My profile
                                     </a>
                                 </li>
                                 <li class="header__dropdown-item">
                                     <a href="{{ url('user.edit') }}" class="header__dropdown-link">
-                                        <i class="far fa-pen"></i>
+                                        <i class="bx bx-user-pin"></i>
                                         Edit profile
                                     </a>
                                 </li>
@@ -201,13 +201,13 @@
                             <ul class="header__dropdown-list">
                                 <li class="header__dropdown-item">
                                     <a href="{{ url('message.index') }}" class="header__dropdown-link">
-                                        <i class="far fa-envelope"></i>
+                                        <i class="bx bxs-inbox"></i>
                                         Inbox
                                     </a>
                                 </li>
                                 <li class="header__dropdown-item">
                                     <a href="#" class="header__dropdown-link">
-                                        <i class="far fa-plus"></i>
+                                        <i class="bx bx-message-add"></i>
                                         New message
                                     </a>
                                 </li>
@@ -218,7 +218,7 @@
                             <ul class="header__dropdown-list">
                                 <li class="header__dropdown-item">
                                     <a href="#" class="header__dropdown-link">
-                                        <i class="far fa-gear"></i>
+                                        <i class="bx bx-cog"></i>
                                         Settings
                                     </a>
                                 </li>
@@ -226,7 +226,7 @@
                                     <form action="{{ url('logout') }}" method="post">
                                         {% csrf_token %}
                                         <button type="submit" class="header__dropdown-link">
-                                            <i class="far fa-arrow-right-to-bracket"></i>
+                                            <i class="bx bx-log-out"></i>
                                             Log out
                                         </button>
                                     </form>
@@ -244,7 +244,7 @@
                             <ul class="header__dropdown-list">
                                 <li class="header__dropdown-item">
                                     <a href="{{ url('admin:index') }}" class="header__dropdown-link">
-                                        <i class="far fa-screwdriver-wrench"></i>
+                                        <i class="bx bx-wrench"></i>
                                         Django admin
                                     </a>
                                 </li>
@@ -257,7 +257,7 @@
         {% block page_container %}
         <div class="page">
             <header class="page__header">
-                <div class="page__header-icon">{% block page_icon %}<i class="far fa-location-question"></i>{% endblock page_icon %}</div>
+                <div class="page__header-icon">{% block page_icon %}{% endblock page_icon %}</div>
                 <h2 class="page__header-title">{% block page_title %}{% endblock page_title %}</h2>
                 <div class="page__header-actions">{% block page_actions %}{% endblock page_actions %}</div>
                 {% block breadcrumb_nav %}
@@ -291,18 +291,53 @@
         <footer class="footer">
             <div class="footer__wrapper">
                 <ul class="footer__list">
-                    <li class="footer__list-item"><a class="footer__list-link" href="{{ url('privacy') }}">Privacy Policy</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="#">Frequently Asked Questions</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="#">Community Rules</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="#">Statistics &amp; Graphs</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="{{ url('donate') }}">Donate to us! (pls)</a></li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="{{ url('privacy') }}">Privacy Policy</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="#">Frequently Asked Questions</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="#">Community Rules</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="#">Statistics &amp; Graphs</a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="{{ url('donate') }}">Donate to us! (pls)</a>
+                    </li>
                 </ul>
                 <ul class="footer__list">
-                    <li class="footer__list-item"><a class="footer__list-link" href="https://facebook.com/conworkshop"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="https://twitter.com/_conworkshop"><i class="fa-brands fa-x-twitter"></i>X</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ"><i class="fa-brands fa-youtube"></i>YouTube</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="https://instagram.com/conworkshop/"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
-                    <li class="footer__list-item"><a class="footer__list-link" href="https://discord.gg/7W6GEJB"><i class="fa-brands fa-discord"></i>Discord</a></li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="https://facebook.com/conworkshop">
+                            <i class="bx bxl-facebook"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="https://twitter.com/_conworkshop">
+                            <i class="bx bxl-twitter"></i>
+                            X
+                        </a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="https://www.youtube.com/channel/UCJMjntBcDJWrnwBXWot4HRQ">
+                            <i class="bx bxl-youtube"></i>
+                            YouTube
+                        </a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="https://instagram.com/conworkshop/">
+                            <i class="bx bxl-instagram"></i>
+                            Instagram
+                        </a>
+                    </li>
+                    <li class="footer__list-item">
+                        <a class="footer__list-link" href="https://discord.gg/7W6GEJB">
+                            <i class="bx bxl-discord-alt"></i>
+                            Discord
+                        </a>
+                    </li>
                 </ul>
                 <div class="footer__copyright">
                     <div class="footer__copyright-notice">&copy; 2023 ConWorkShop</div>

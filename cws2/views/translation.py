@@ -26,7 +26,7 @@ class NewTranslationTemplateView(LoginRequiredMixin, FormView):
     form_class = TranslationTemplateForm
 
     verb = _("New translation")
-    verb_icon = "fa-plus"
+    verb_icon = "bx-plus"
 
     breadcrumb = [[reverse_lazy("translation.index"), _("Translations")]]
 

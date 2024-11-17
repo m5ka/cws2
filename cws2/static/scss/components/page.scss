@@ -30,6 +30,7 @@ body > .page {
 
           .page__breadcrumb-link {
             color: var(--body-text-lightest);
+            display: inline-block;
           }
 
           &:not(:last-child)::after {
@@ -50,6 +51,11 @@ body > .page {
       font-size: 2.4rem;
       font-weight: $font-bold;
       color: var(--body-text-lightest);
+
+      em {
+        font-weight: $font-regular;
+        font-style: italic;
+      }
     }
 
     .page__header-actions {

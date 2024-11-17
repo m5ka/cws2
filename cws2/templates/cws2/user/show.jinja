@@ -2,14 +2,14 @@
 
 {% block breadcrumb_current %}<li aria-current="page">@{{ this_user.username }}</li>{% endblock breadcrumb_current %}
 
-{% block page_icon %}<i class="fa-solid fa-user"></i>{% endblock page_icon %}
+{% block page_icon %}<i class="bx bx-user"></i>{% endblock page_icon %}
 
 {% block page_title %}{{ this_user.username }}{% endblock page_title %}
 
 {% block page_actions %}
     {% if request.user == this_user %}
         <a href="{{ url('user.edit') }}" class="button button-orange">
-            <i class="fa-solid fa-pen"></i>
+            <i class="bx bx-edit-alt"></i>
             Edit profile
         </a>
     {% endif %}
@@ -20,17 +20,17 @@
     <dl class="content__item">
         <dt>Pronouns</dt>
         {% if this_user.profile.pronouns %}
-            <dd><i class="fa-solid fa-face-grin-beam"></i>{{ this_user.profile.pronouns }}</dd>
+            <dd><i class="bx bx-smile"></i>{{ this_user.profile.pronouns }}</dd>
         {% else %}
-            <dd class="--subtle"><i class="fa-solid fa-face-grin-beam"></i><em>Not set</em></dd>
+            <dd class="--subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item">
         <dt>Location</dt>
         {% if this_user.profile.location %}
-            <dd><i class="fa-solid fa-location-dot"></i>{{ this_user.profile.location }}</dd>
+            <dd><i class="bx bx-map"></i>{{ this_user.profile.location }}</dd>
         {% else %}
-            <dd class="--subtle"><i class="fa-solid fa-location-dot"></i><em>Not set</em></dd>
+            <dd class="--subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item--wide">

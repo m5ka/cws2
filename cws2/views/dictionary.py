@@ -36,7 +36,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     form_class = WordForm
 
     verb = "New word"
-    verb_icon = "fa-plus"
+    verb_icon = "bx-message-alt-add"
 
     ownable_permission_required = "write"
 

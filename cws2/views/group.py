@@ -19,7 +19,7 @@ class EditGroupView(GroupMixin, FormView):
 
     ownable_permission_required = "write"
 
-    verb_icon = "fa-house-user"
+    verb_icon = "bx-edit-alt"
 
     @property
     def verb(self):
@@ -44,7 +44,7 @@ class NewGroupView(FormView):
 
     breadcrumb = [[reverse_lazy("group.index"), _("Groups")]]
     verb = _("New group")
-    verb_icon = "fa-house-user"
+    verb_icon = "bx-user-add"
 
     field_prefixes = {"slug": "conworkshop.com/groups/"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}

@@ -1,6 +1,6 @@
 {% extends "cws2/base.jinja" %}
 
-{% block page_icon %}<i class="fa-solid fa-text"></i>{% endblock page_icon %}
+{% block page_icon %}<i class="bx bx-text"></i>{% endblock page_icon %}
 {% block page_title %}{% trans language_name=language.name %}{{ language }} dictionary{% endtrans %}{% endblock page_title %}
 
 {% block breadcrumb_links %}
@@ -16,7 +16,7 @@
 {% block page_actions %}
 {% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
 <a href="{{ url('word.new', user=language.created_by.username, language=language.slug) }}" class="button button-green">
-    <i class="fa-solid fa-plus"></i>
+    <i class="bx bx-message-alt-add"></i>
     {% trans %}New word{% endtrans %}
 </a>
 {% endif %}

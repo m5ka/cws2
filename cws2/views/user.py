@@ -20,7 +20,7 @@ class EditUserView(LoginRequiredMixin, FormView):
     body_colour = "orange"
 
     verb = _("Edit profile")
-    verb_icon = "fa-user-pen"
+    verb_icon = "bx-user-pin"
 
     field_classes = {"bio": "form__field--wide"}
 

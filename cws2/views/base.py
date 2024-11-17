@@ -34,7 +34,7 @@ class FormView(View, generic.FormView):
     template_name = "cws2/form.jinja"
 
     verb = "Submit form"
-    verb_icon = "fa-rocket"
+    verb_icon = "bx-rocket"
     breadcrumb = []
     breadcrumb_root = True
 
