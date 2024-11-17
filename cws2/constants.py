@@ -11,6 +11,8 @@ class GroupAccessType:
         (SYSTEM, _("System only")),
     )
     CHOICES_PICKABLE = ((ANYONE, _("Anyone")), (INVITE, _("Invite only")))
+    ALL = (ANYONE, INVITE, SYSTEM)
+    ALL_PICKABLE = (ANYONE, INVITE)
 
 
 class LanguageStatus:

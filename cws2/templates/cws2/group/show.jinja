@@ -13,6 +13,15 @@
 <li class="page__breadcrumb-item page__breadcrumb-item--current">{{ group.name }}</li>
 {% endblock breadcrumb_current %}
 
+{% block page_actions %}
+    {% if request.user.is_authenticated and group.check_user_permission(request.user, "write") %}
+        <a href="{{ url('group.edit', group=group.slug) }}" class="button">
+            <i class="bx bx-edit-alt"></i>
+            {% trans %}Edit group{% endtrans %}
+        </a>
+    {% endif %}
+{% endblock page_actions %}
+
 {% block page_content %}
 <div class="content content--grid">
     <dl class="content__item content__item--wide">
