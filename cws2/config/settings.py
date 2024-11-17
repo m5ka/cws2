@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "django_jinja.contrib._humanize",
     "django_sass",
     "django_recaptcha",
-    "cws2",
+    "cws2.config.apps.CWS2Config",
 ]
 
 
