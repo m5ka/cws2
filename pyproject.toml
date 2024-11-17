@@ -5,7 +5,6 @@ description = "Tool for conlangers to document their languages"
 authors = ["m5ka <m5ka@posteo.de>"]
 license = "BSD 2-Clause"
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
 django = "^5.0.3"
