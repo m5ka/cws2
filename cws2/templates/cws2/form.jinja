@@ -1,4 +1,5 @@
 {% extends "cws2/base.jinja" %}
+{% from "cws2/macros/field.jinja" import form_field %}
 
 {% block breadcrumb_links %}
 {% if breadcrumb_root %}{{ super() }}{% endif %}
@@ -34,7 +35,7 @@
     {% endif %}
     {% block form_content %}
         {% for field in form %}
-            {% include "cws2/components/field.jinja" %}
+            {{ form_field(field) }}
         {% endfor %}
     {% endblock form_content %}
     <div class="form__actions">
