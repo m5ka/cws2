@@ -50,10 +50,7 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
                 ),
                 _("Dictionary"),
             ),
-            (
-                self.word.get_absolute_url(),
-                self.word.headword,
-            ),
+            (self.word.get_absolute_url(), self.word.headword),
         ]
 
     @property
@@ -75,10 +72,7 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
         return redirect(form.instance.get_absolute_url())
 
     def get_form_kwargs(self):
-        return {
-            **super().get_form_kwargs(),
-            "instance": self.word,
-        }
+        return {**super().get_form_kwargs(), "instance": self.word}
 
     def get_ownable_resource(self):
         return get_object_or_404(
