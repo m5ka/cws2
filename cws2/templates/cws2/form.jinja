@@ -18,15 +18,7 @@
 
 {% block page_content %}
 <form class="form" action="" method="POST" enctype="{% if form.is_multipart %}multipart/form-data{% else %}application/x-www-form-urlencoded{% endif %}"{% for fd_key, fd_value in form_data.items() %} data-{{ fd_key }}="{{ fd_value }}"{% endfor %}>
-    {% if form.errors %}
-        <ul class="form__errors">
-            {% for err_errors in form.errors.values() %}
-                {% for error in err_errors %}
-                    <li class="form__error">{{ error }}</li>
-                {% endfor %}
-            {% endfor %}
-        </ul>
-    {% endif %}
+    {% include "cws2/components/form_errors.jinja" %}
     {% csrf_token %}
     {% if hidden_fields %}
         {% for name, value in hidden_fields.items() %}
