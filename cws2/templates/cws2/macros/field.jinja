@@ -1,9 +1,9 @@
-{% macro form_field(field) %}
-    <div class="form__field{% if field.errors %} form__field--error{% endif %}{% if field.field.required %} form__field--required{% endif %}{% if field_classes and field_classes[field.name] %} {{ field_classes[field.name] }}{% endif %}">
+{% macro form_field(field, field_classes, field_prefix) %}
+    <div class="form__field{% if field.errors %} form__field--error{% endif %}{% if field.field.required %} form__field--required{% endif %}{% if field_classes %} {{ field_classes }}{% endif %}">
         <label class="form__field-label" for="{{ field.id_for_label }}"{% if field.errors %} class="error"{% endif %}>{{ field.label }}</label>
-        {% if field_prefixes and field_prefixes[field.name] %}
+        {% if field_prefix %}
             <div class="form__input-with-prefix">
-                <div class="form__input-prefix">{{ field_prefixes[field.name] }}</div>
+                <div class="form__input-prefix">{{ field_prefix }}</div>
                 {{ field }}
             </div>
         {% else %}

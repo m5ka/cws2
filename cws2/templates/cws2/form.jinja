@@ -27,7 +27,7 @@
     {% endif %}
     {% block form_content %}
         {% for field in form %}
-            {{ form_field(field) }}
+            {{ form_field(field, field_classes.get(field.name, ""), field_prefixes.get(field.name, "")) }}
         {% endfor %}
     {% endblock form_content %}
     <div class="form__actions">
