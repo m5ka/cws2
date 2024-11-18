@@ -35,6 +35,28 @@
     }
   }
 
+  .form__section {
+    @include desktop {
+      grid-column: span 2;
+    }
+
+    &.form__section--separator {
+      border-top: 1px solid var(--page-border);
+      margin-block-start: .8rem;
+      padding-block-start: 1.2rem;
+    }
+
+    .form__section-header {
+      color: var(--body-text-lightest);
+      font-weight: $font-bold;
+    }
+
+    .form__section-text {
+      color: var(--body-text-extra-lightest);
+      font-size: $font-small;
+    }
+  }
+
   .form__field {
     display: flex;
     flex-flow: column nowrap;
@@ -89,6 +111,10 @@
       }
     }
 
+    select {
+      padding: .3rem .8rem;
+    }
+
     &.form__field--error {
       input, textarea, select {
         border-color: var(--red-subtle);
@@ -103,9 +129,9 @@
     }
 
     textarea {
-      height: 120px;
-      min-height: 120px;
-      max-height: 280px;
+      height: 10rem;
+      min-height: 10rem;
+      max-height: 28rem;
       resize: vertical;
     }
 

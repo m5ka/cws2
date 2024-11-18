@@ -4,7 +4,7 @@ from cws2.constants import PartOfSpeech, WordRegister
 from cws2.models.dictionary import Word
 
 
-class WordForm(forms.ModelForm):
+class NewWordForm(forms.ModelForm):
     part_of_speech = forms.ChoiceField(
         choices=PartOfSpeech.CHOICES, initial=PartOfSpeech.NOUN
     )
@@ -26,6 +26,21 @@ class WordForm(forms.ModelForm):
             "register",
             "classes",
             "dialect",
+            "source_language",
+            "etymology",
+            "notes",
+            "reference_image",
+        )
+
+
+class WordForm(forms.ModelForm):
+    class Meta:
+        model = Word
+        fields = (
+            "headword",
+            "alt_word",
+            "ipa",
+            "xsampa",
             "source_language",
             "etymology",
             "notes",

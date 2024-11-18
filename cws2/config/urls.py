@@ -20,7 +20,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from cws2.views.auth import CreateAccountView, LoginView, LogoutView
-from cws2.views.dictionary import IndexWordView, NewWordView, ShowWordView
+from cws2.views.dictionary import EditWordView, IndexWordView, NewWordView, ShowWordView
 from cws2.views.group import EditGroupView, IndexGroupView, NewGroupView, ShowGroupView
 from cws2.views.index import DashboardView
 from cws2.views.language import (
@@ -74,6 +74,11 @@ urlpatterns = [
         "@<str:user>/<slug:language>/dictionary/<str:word>",
         ShowWordView.as_view(),
         name="word.show",
+    ),
+    path(
+        "@<str:user>/<slug:language>/dictionary/<str:word>/edit",
+        EditWordView.as_view(),
+        name="word.edit",
     ),
     path("languages", IndexLanguageView.as_view(), name="language.index"),
     path("languages/new", NewLanguageView.as_view(), name="language.new"),

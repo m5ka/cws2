@@ -164,6 +164,16 @@ class Word(TransientModel, UUIDModel):
             },
         )
 
+    def get_edit_url(self):
+        return reverse(
+            "word.edit",
+            kwargs={
+                "user": self.language.created_by.username,
+                "language": self.language.slug,
+                "word": self.uuid,
+            },
+        )
+
     @cached_property
     def parts_of_speech(self):
         pos = {}

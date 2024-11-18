@@ -1,0 +1,25 @@
+{% extends "cws2/form.jinja" %}
+{% from "cws2/macros/field.jinja" import form_field %}
+
+{% block form_content %}
+    <div class="form__section">
+        <h2 class="form__section-header"><i class="bx bx-pencil"></i> {% trans %}Entry{% endtrans %}</h2>
+        <p class="form__section-text">
+            {% trans %}This is the most basic information about this dictionary entry.{% endtrans %}
+        </p>
+    </div>
+    {{ form_field(form.headword) }}
+    {{ form_field(form.alt_word) }}
+    {{ form_field(form.ipa) }}
+    {{ form_field(form.xsampa) }}
+    <div class="form__section form__section--separator">
+        <h2 class="form__section-header"><i class="bx bx-leaf"></i> {% trans %}Notes & Etymology{% endtrans %}</h2>
+        <p class="form__section-text">
+            {% trans %}You can add supplementary notes and etymological information to this entry here.{% endtrans %}
+        </p>
+    </div>
+    {{ form_field(form.etymology) }}
+    {{ form_field(form.notes) }}
+    {{ form_field(form.source_language) }}
+    {{ form_field(form.reference_image) }}
+{% endblock form_content %}

@@ -6,10 +6,86 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.utils.translation import gettext as _
 
-from cws2.forms.dictionary import WordForm
+from cws2.forms.dictionary import NewWordForm, WordForm
 from cws2.models.dictionary import Word, WordClass, WordDefinition
 from cws2.models.language import Language
 from cws2.views.base import FormView, OwnableResourceMixin, View
+
+
+class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
+    form_class = WordForm
+    template_name = "cws2/dictionary/edit.jinja"
+
+    verb_icon = "bx-edit-alt"
+
+    ownable_permission_required = "write"
+
+    @property
+    def breadcrumb(self):
+        return [
+            (
+                reverse(
+                    "user.show",
+                    kwargs={"user": self.ownable_resource.created_by.username},
+                ),
+                f"@{self.ownable_resource.created_by.username}",
+            ),
+            (
+                reverse(
+                    "language.show",
+                    kwargs={
+                        "user": self.ownable_resource.created_by.username,
+                        "language": self.ownable_resource.slug,
+                    },
+                ),
+                self.ownable_resource.name,
+            ),
+            (
+                reverse(
+                    "word.index",
+                    kwargs={
+                        "user": self.ownable_resource.created_by.username,
+                        "language": self.ownable_resource.slug,
+                    },
+                ),
+                _("Dictionary"),
+            ),
+            (
+                self.word.get_absolute_url(),
+                self.word.headword,
+            ),
+        ]
+
+    @property
+    def verb(self):
+        return _("Edit %(word)s") % {"word": self.word.headword}
+
+    @cached_property
+    def word(self):
+        return get_object_or_404(
+            Word.objects.select_related("language__created_by"),
+            language=self.ownable_resource,
+            uuid=self.kwargs.get("word"),
+        )
+
+    def form_valid(self, form):
+        form.instance.updated_by = self.request.user
+        form.save()
+        messages.success(self.request, _("Word updated successfully!"))
+        return redirect(form.instance.get_absolute_url())
+
+    def get_form_kwargs(self):
+        return {
+            **super().get_form_kwargs(),
+            "instance": self.word,
+        }
+
+    def get_ownable_resource(self):
+        return get_object_or_404(
+            Language,
+            slug=self.kwargs.get("language"),
+            created_by__username=self.kwargs.get("user"),
+        )
 
 
 class IndexWordView(OwnableResourceMixin, View):
@@ -33,7 +109,8 @@ class IndexWordView(OwnableResourceMixin, View):
 
 
 class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
-    form_class = WordForm
+    form_class = NewWordForm
+    template_name = "cws2/dictionary/new.jinja"
 
     verb = "New word"
     verb_icon = "bx-message-alt-add"
@@ -74,6 +151,7 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
 
     def form_valid(self, form):
         form.instance.language = self.ownable_resource
+        form.instance.created_by = self.request.user
         with transaction.atomic():
             form.save()
             definition = WordDefinition.objects.create(
@@ -86,8 +164,10 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
         messages.success(self.request, _("Word created successfully!"))
         return redirect(form.instance.get_absolute_url())
 
-    def get_form(self):
-        form = self.form_class(**self.get_form_kwargs())
+    def get_form(self, form_class=None):
+        if not form_class:
+            form_class = self.get_form_class()
+        form = form_class(**self.get_form_kwargs())
         classes = WordClass.objects.filter(language=self.ownable_resource).all()
         form.fields["classes"].choices = ((c.id, c.label) for c in classes)
         return form
