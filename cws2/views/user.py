@@ -1,28 +1,25 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import ModelForm
+from django.core.files import File
+from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
-from cws2.models.user import User, UserProfile
+from cws2.forms.user import UserProfileForm
+from cws2.images import process_avatar_image
+from cws2.models.user import User
 from cws2.views.base import FormView, View
 
 
-class UserForm(ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ["pronouns", "location", "bio"]
-
-
 class EditUserView(LoginRequiredMixin, FormView):
-    form_class = UserForm
+    form_class = UserProfileForm
     body_colour = "orange"
 
     verb = _("Edit profile")
     verb_icon = "bx-user-pin"
 
-    field_classes = {"bio": "form__field--wide"}
+    field_classes = {"bio": "form__field--wide", "avatar": "form__field--wide"}
 
     @property
     def breadcrumb(self):
@@ -31,14 +28,25 @@ class EditUserView(LoginRequiredMixin, FormView):
         ]
 
     def form_valid(self, form):
-        form.save()
+        with transaction.atomic():
+            form.save()
+            if "avatar" in form.changed_data:
+                if form.cleaned_data["avatar"] and isinstance(form.cleaned_data["avatar"], File):
+                    form.instance.user.avatar = process_avatar_image(form.cleaned_data["avatar"])
+                else:
+                    form.instance.user.avatar = None
+                form.instance.user.save()
         messages.success(self.request, _("Your profile has been updated!"))
         return HttpResponseRedirect(form.instance.user.get_absolute_url())
 
-    def get_form(self):
-        return self.form_class(
-            instance=self.request.user.profile, **self.get_form_kwargs()
-        )
+    def get_form_kwargs(self):
+        return {
+            **super().get_form_kwargs(),
+            "instance": self.request.user.profile,
+            "initial": {
+                "avatar": self.request.user.avatar,
+            },
+        }
 
 
 class ShowUserView(View):

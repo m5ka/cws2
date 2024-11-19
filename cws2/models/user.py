@@ -9,6 +9,11 @@ from cws2.models.base import UUIDModel
 from cws2.validators import validate_username_length, validate_username_regex
 
 
+def user_avatar_filename(instance, _):
+    """Returns the filename that user avatar images should be saved to."""
+    return f"avatars/{instance.uuid}__{instance.username}.webp"
+
+
 class UserManager(BaseUserManager):
     """Manages Users by pre-fetching their profile."""
 
@@ -47,6 +52,14 @@ class User(UUIDModel, AbstractUser):
         help_text=_(
             "This name will appear instead of your username in some places on the "
             "site, if set."
+        ),
+    )
+    avatar = models.ImageField(
+        verbose_name=_("Avatar"),
+        blank=True,
+        upload_to=user_avatar_filename,
+        help_text=_(
+            "An optional picture to show up on your profile and across the site."
         ),
     )
     is_bot = models.BooleanField(
