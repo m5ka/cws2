@@ -43,10 +43,7 @@ class EditUserView(LoginRequiredMixin, FormView):
         return HttpResponseRedirect(form.instance.get_absolute_url())
 
     def get_form_kwargs(self):
-        return {
-            **super().get_form_kwargs(),
-            "instance": self.request.user,
-        }
+        return {**super().get_form_kwargs(), "instance": self.request.user}
 
 
 class ShowUserView(View):
