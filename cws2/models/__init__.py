@@ -4,7 +4,7 @@ from cws2.models.language import Dialect, Language
 from cws2.models.message import Message
 from cws2.models.permission import GroupPermission, UserPermission
 from cws2.models.phono_system import Phone, PhonoSystem
-from cws2.models.user import User, UserProfile
+from cws2.models.user import User
 
 __all__ = [
     # dictionary
@@ -28,5 +28,4 @@ __all__ = [
     "PhonoSystem",
     # user
     "User",
-    "UserProfile",
 ]

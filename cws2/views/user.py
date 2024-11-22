@@ -29,25 +29,23 @@ class EditUserView(LoginRequiredMixin, FormView):
 
     def form_valid(self, form):
         with transaction.atomic():
-            form.save()
             if "avatar" in form.changed_data:
                 if form.cleaned_data["avatar"] and isinstance(
                     form.cleaned_data["avatar"], File
                 ):
-                    form.instance.user.avatar = process_avatar_image(
+                    form.instance.avatar = process_avatar_image(
                         form.cleaned_data["avatar"]
                     )
                 else:
-                    form.instance.user.avatar = None
-                form.instance.user.save()
+                    form.instance.avatar = None
+            form.save()
         messages.success(self.request, _("Your profile has been updated!"))
-        return HttpResponseRedirect(form.instance.user.get_absolute_url())
+        return HttpResponseRedirect(form.instance.get_absolute_url())
 
     def get_form_kwargs(self):
         return {
             **super().get_form_kwargs(),
-            "instance": self.request.user.profile,
-            "initial": {"avatar": self.request.user.avatar},
+            "instance": self.request.user,
         }
 
 

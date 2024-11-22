@@ -19,25 +19,25 @@
 <div class="content content--grid">
     <dl class="content__item">
         <dt>Pronouns</dt>
-        {% if this_user.profile.pronouns %}
-            <dd><i class="bx bx-smile"></i>{{ this_user.profile.pronouns }}</dd>
+        {% if this_user.pronouns %}
+            <dd><i class="bx bx-smile"></i>{{ this_user.pronouns }}</dd>
         {% else %}
             <dd class="--subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item">
         <dt>Location</dt>
-        {% if this_user.profile.location %}
-            <dd><i class="bx bx-map"></i>{{ this_user.profile.location }}</dd>
+        {% if this_user.location %}
+            <dd><i class="bx bx-map"></i>{{ this_user.location }}</dd>
         {% else %}
             <dd class="--subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item--wide">
         <dt>About</dt>
-        {% if this_user.profile.bio %}
+        {% if this_user.bio %}
             <dd>
-                <blockquote>{{ this_user.profile.bio|markdown }}</blockquote>
+                <blockquote>{{ this_user.bio|markdown }}</blockquote>
             </dd>
         {% else %}
             <dd class="--subtle"><em>Not set</em></dd>

@@ -14,13 +14,6 @@ def user_avatar_filename(instance, _):
     return f"avatars/{instance.uuid}__{instance.username}.webp"
 
 
-class UserManager(BaseUserManager):
-    """Manages Users by pre-fetching their profile."""
-
-    def get_queryset(self):
-        return super().get_queryset().select_related("profile")
-
-
 class User(UUIDModel, AbstractUser):
     """Represents a user of the website."""
 
@@ -62,6 +55,25 @@ class User(UUIDModel, AbstractUser):
             "An optional picture to show up on your profile and across the site."
         ),
     )
+    pronouns = models.CharField(
+        verbose_name=_("Pronouns"),
+        max_length=64,
+        blank=True,
+        help_text=_("What pronouns should people use when referring to you?"),
+    )
+    location = models.CharField(
+        verbose_name=_("Location"),
+        max_length=64,
+        blank=True,
+        help_text=_("Where in the world are you?"),
+    )
+    bio = models.TextField(
+        verbose_name=_("About me"),
+        blank=True,
+        help_text=_(
+            "Write something about yourself! This will appear on your profile page."
+        ),
+    )
     is_bot = models.BooleanField(
         verbose_name=_("Bot status"),
         default=False,
@@ -92,8 +104,6 @@ class User(UUIDModel, AbstractUser):
     first_name = None
     last_name = None
 
-    objects = UserManager()
-
     def __str__(self):
         return self.username
 
@@ -102,7 +112,6 @@ class User(UUIDModel, AbstractUser):
         super().save(*args, **kwargs)
         if not pk:
             self.add_to_default_groups()
-            self.create_profile()
 
     def get_absolute_url(self):
         return reverse("user.show", kwargs={"user": self.username})
@@ -118,37 +127,3 @@ class User(UUIDModel, AbstractUser):
         Group = apps.get_model("cws2", "Group")
         for group in Group.objects.filter(is_everyone=True).all():
             group.add_user(self)
-
-    def create_profile(self):
-        """Creates a UserProfile object for this user if not already created."""
-        UserProfile.objects.get_or_create(user=self)
-
-
-class UserProfile(models.Model):
-    """Contains customisable profile information for a user."""
-
-    user = models.OneToOneField(
-        "User", on_delete=models.CASCADE, related_name="profile", primary_key=True
-    )
-    pronouns = models.CharField(
-        verbose_name=_("Pronouns"),
-        max_length=64,
-        blank=True,
-        help_text=_("What pronouns should people use when referring to you?"),
-    )
-    location = models.CharField(
-        verbose_name=_("Location"),
-        max_length=64,
-        blank=True,
-        help_text=_("Where in the world are you?"),
-    )
-    bio = models.TextField(
-        verbose_name=_("About me"),
-        blank=True,
-        help_text=_(
-            "Write something about yourself! This will appear on your profile page."
-        ),
-    )
-
-    def __str__(self):
-        return f"@{self.user.username}"
