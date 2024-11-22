@@ -1,12 +1,10 @@
-from io import BytesIO
-
 from django.core.exceptions import ValidationError
-from django.core.files.uploadedfile import InMemoryUploadedFile
 from django.forms import ModelForm
 from django.utils.translation import gettext as _
 from PIL import Image
 
 from cws2.forms.widgets import ClearableImageInput
+from cws2.images import process_flag_image
 from cws2.models.language import Language
 
 
@@ -22,14 +20,11 @@ class LanguageForm(ModelForm):
             "language_status",
             "description",
         ]
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields["language_flag"].widget = ClearableImageInput()
+        widgets = {"language_flag": ClearableImageInput}
 
     def clean_language_flag(self):
         flag = self.cleaned_data["language_flag"]
-        if flag:
+        if "language_flag" in self.changed_data and flag:
             image = Image.open(flag)
             width, height = image.size
             if width < 100 or height < 50:
@@ -40,16 +35,5 @@ class LanguageForm(ModelForm):
                     ),
                     code="invalid",
                 )
-            name = ".".join(flag.name.split(".")[:-1]) + ".webp"
-            image.thumbnail((100, 100))
-            buffer = BytesIO()
-            image.save(buffer, "webp")
-            return InMemoryUploadedFile(
-                buffer,
-                "ImageField",
-                name,
-                "image/webp",
-                buffer.getbuffer().nbytes,
-                None,
-            )
+            return process_flag_image(image)
         return flag
