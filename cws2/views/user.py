@@ -31,8 +31,12 @@ class EditUserView(LoginRequiredMixin, FormView):
         with transaction.atomic():
             form.save()
             if "avatar" in form.changed_data:
-                if form.cleaned_data["avatar"] and isinstance(form.cleaned_data["avatar"], File):
-                    form.instance.user.avatar = process_avatar_image(form.cleaned_data["avatar"])
+                if form.cleaned_data["avatar"] and isinstance(
+                    form.cleaned_data["avatar"], File
+                ):
+                    form.instance.user.avatar = process_avatar_image(
+                        form.cleaned_data["avatar"]
+                    )
                 else:
                     form.instance.user.avatar = None
                 form.instance.user.save()
@@ -43,9 +47,7 @@ class EditUserView(LoginRequiredMixin, FormView):
         return {
             **super().get_form_kwargs(),
             "instance": self.request.user.profile,
-            "initial": {
-                "avatar": self.request.user.avatar,
-            },
+            "initial": {"avatar": self.request.user.avatar},
         }
 
 
