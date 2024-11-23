@@ -6,7 +6,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/m5ka/cws2/test.yaml?label=tests)
 ![GitHub contributors](https://img.shields.io/github/contributors/m5ka/cws2)
 ![Python version: >= 3.12](https://img.shields.io/badge/python-%3E%3D%203.12-blue?logo=python&logoColor=white)
-[![Django version 5.0](https://img.shields.io/badge/django-5.0-green?logo=django)](https://docs.djangoproject.com/en/5.0/)
+[![Django version 5.1](https://img.shields.io/badge/django-5.1-green?logo=django)](https://docs.djangoproject.com/en/5.1/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 </div>
 
