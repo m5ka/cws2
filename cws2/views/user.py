@@ -37,8 +37,8 @@ class ShowUserView(View):
     body_colour = "orange"
     template_name = "cws2/user/show.jinja"
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "this_user": get_object_or_404(User, username=self.kwargs.get("user")),
         }

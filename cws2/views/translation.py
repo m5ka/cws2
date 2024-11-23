@@ -12,12 +12,12 @@ from cws2.views.base import FormView, View
 class IndexTranslationTemplateView(LoginRequiredMixin, View):
     template_name = "cws2/translation/index.jinja"
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         translation_templates = TranslationTemplate.objects.annotate(
             translation_count=Count("translations")
         ).all()
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "translation_templates": translation_templates,
         }
 
@@ -47,9 +47,9 @@ class NewTranslationView(LoginRequiredMixin, FormView):
 class ShowTranslationTemplateView(LoginRequiredMixin, View):
     template_name = "cws2/translation/show.jinja"
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "translation_template": get_object_or_404(
                 TranslationTemplate.objects.prefetch_related("translations"),
                 uuid=self.kwargs.get("translation"),

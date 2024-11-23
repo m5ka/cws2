@@ -68,8 +68,8 @@ class IndexGroupView(View):
     def groups(self):
         return Group.objects.order_by("name").annotate(Count("users")).all()
 
-    def get_context_data(self, *args, **kwargs):
-        return {**super().get_context_data(*args, **kwargs), "groups": self.groups}
+    def get_context_data(self, **kwargs):
+        return {**super().get_context_data(**kwargs), "groups": self.groups}
 
 
 class NewGroupView(FormView):
@@ -115,8 +115,8 @@ class ShowGroupView(GroupMixin, View):
 
     ownable_permission_required = "read"
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "group": self.ownable_resource,
         }

@@ -22,9 +22,9 @@ class View(generic.TemplateView):
             return self.request.COOKIES[self.theme_cookie_key]
         return None
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "body_colour": self.body_colour,
             "theme": self.theme,
         }
@@ -43,9 +43,9 @@ class FormView(View, generic.FormView):
     hidden_fields = {}
     form_data = {}
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "verb": self.verb,
             "verb_icon": self.verb_icon,
             "breadcrumb": self.breadcrumb,

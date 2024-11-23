@@ -70,9 +70,9 @@ class IndexLanguageView(LoginRequiredMixin, View):
     def languages(self):
         return Language.objects.filter(owned_by=self.request.user)
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "languages": self.languages,
         }
 
@@ -106,8 +106,8 @@ class ShowLanguageView(LanguageMixin, View):
 
     ownable_permission_required = "read"
 
-    def get_context_data(self, *args, **kwargs):
+    def get_context_data(self, **kwargs):
         return {
-            **super().get_context_data(*args, **kwargs),
+            **super().get_context_data(**kwargs),
             "language": self.ownable_resource,
         }
