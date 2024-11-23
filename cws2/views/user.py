@@ -1,13 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.files import File
-from django.db import transaction
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
 from cws2.forms.user import UserProfileForm
-from cws2.images import process_avatar_image
 from cws2.models.user import User
 from cws2.views.base import FormView, View
 
