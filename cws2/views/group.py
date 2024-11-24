@@ -101,6 +101,7 @@ class NewGroupView(FormView):
             form.save()
         except IntegrityError:
             return self.form_invalid(form)
+        form.instance.add_user(self.request.user)
         return HttpResponseRedirect(form.instance.get_absolute_url())
 
     def get_form(self, form_class=GroupForm):
