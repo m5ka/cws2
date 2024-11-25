@@ -117,7 +117,4 @@ class ShowGroupView(GroupMixin, View):
     ownable_permission_required = "read"
 
     def get_context_data(self, **kwargs):
-        return {
-            **super().get_context_data(**kwargs),
-            "group": self.ownable_resource,
-        }
+        return {**super().get_context_data(**kwargs), "group": self.ownable_resource}
