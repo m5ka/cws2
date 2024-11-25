@@ -6,10 +6,9 @@ from PIL import Image, ImageOps
 
 def _convert_image_to_webp(image_file, thumbnail_size=(486, 486)):
     """Private helper function for image conversion."""
-    if isinstance(image_file, Image.Image):
-        image = image_file
-    else:
-        image = Image.open(image_file)
+    image = (
+        image_file if isinstance(image_file, Image.Image) else Image.open(image_file)
+    )
     ImageOps.exif_transpose(image, in_place=True)
     image.convert("RGB")
     image.thumbnail(thumbnail_size)
