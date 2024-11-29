@@ -1,0 +1,12 @@
+@import "../globals";
+
+.group-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: $font-regular;
+  user-select: none;
+}

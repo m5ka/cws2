@@ -1,0 +1,31 @@
+{% extends "cws2/base.jinja" %}
+{% from "cws2/macros/group.jinja" import group_icon %}
+
+{% block page_title %}{% trans %}Boards{% endtrans %}{% endblock page_title %}
+
+{% block page_icon %}<i class="bx bx-conversation"></i>{% endblock page_icon %}
+
+{% block breadcrumb_current %}
+    <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{% trans %}Boards{% endtrans %}</li>
+{% endblock breadcrumb_current %}
+
+{% block page_content %}
+<div class="link-groups">
+    {% for group in groups %}
+        <div class="link-groups__group" id="group:{{ group.slug }}">
+            <h2 class="link-groups__group-title">
+                {{ group_icon(group) }}
+                {{ group.name }}
+            </h2>
+            <div class="link-groups__links">
+                {% for board in group.boards.all() %}
+                    <a class="link-groups__link" href="{{ board.get_absolute_url() }}">
+                        <span class="--subtle"><i class="bx bx-message-alt"></i></span>
+                        {{ board.name }}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock page_content %}

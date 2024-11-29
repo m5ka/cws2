@@ -100,6 +100,10 @@ class Group(AutoSlugMixin, UUIDModel, OwnableModel, TransientModel):
             membership.save()
         return membership
 
+    def has_user(self, user):
+        """Returns True if the group contains the given user as a member."""
+        return GroupMembership.objects.filter(group=self, user=user).exists()
+
 
 class GroupMembership(models.Model):
     """Represents the many-to-many relationship in which a user belongs to a group.

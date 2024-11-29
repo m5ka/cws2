@@ -19,18 +19,39 @@
             <i class="bx bx-edit-alt"></i>
             {% trans %}Edit group{% endtrans %}
         </a>
+        <a href="{{ url('board.new', group=group.slug) }}" class="button button--accent">
+            <i class="bx bx-message-alt-add"></i>
+            {% trans %}New board{% endtrans %}
+        </a>
     {% endif %}
 {% endblock page_actions %}
 
 {% block page_content %}
 <div class="content content--grid">
     <dl class="content__item content__item--wide">
-        <dt>Description</dt>
+        <dt>{% trans %}Description{% endtrans %}</dt>
         {% if group.description %}
             <dd>{{ group.description }}</dd>
         {% else %}
             <dd class="--subtle"><em>Not set.</em></dd>
         {% endif %}
     </dl>
+    {% if request.user.is_authenticated and group.has_user(request.user) %}
+        <dl class="content__item content__item--wide">
+            <dt>{% trans %}Boards{% endtrans %}</dt>
+            {% set boards=group.boards.all() %}
+            {% if boards %}
+                <dd>
+                    <ul>
+                        {% for board in boards %}
+                            <li><i class="bx bx-message-alt"></i> {{ board.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </dd>
+            {% else %}
+                <dd class="--subtle"><em>{% trans %}No boards.{% endtrans %}</em></dd>
+            {% endif %}
+        </dl>
+    {% endif %}
 </div>
 {% endblock page_content %}

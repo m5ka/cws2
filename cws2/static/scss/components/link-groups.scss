@@ -1,0 +1,44 @@
+@import "../globals";
+
+.link-groups {
+  display: flex;
+  flex-flow: column nowrap;
+  row-gap: 2.4rem;
+
+  &__group {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 1.2rem;
+  }
+
+  &__group-title {
+    font-weight: $font-bold;
+  }
+
+  &__link {
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: var(--page-border);
+    display: block;
+    width: 100%;
+    padding: .5rem 1.2rem;
+    background: var(--page-background);
+    color: var(--body-text);
+    text-decoration: none;
+
+    &:first-child {
+      border-top-left-radius: $radius;
+      border-top-right-radius: $radius;
+    }
+
+    &:last-child {
+      border-width: 1px;
+      border-bottom-left-radius: $radius;
+      border-bottom-right-radius: $radius;
+    }
+
+    i {
+      color: var(--body-text-extra-lightest);
+    }
+  }
+}

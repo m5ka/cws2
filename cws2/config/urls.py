@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 from cws2.views.auth import CreateAccountView, LoginView, LogoutView
+from cws2.views.board import IndexBoardView, NewBoardView, ShowBoardView
 from cws2.views.dictionary import EditWordView, IndexWordView, NewWordView, ShowWordView
 from cws2.views.group import EditGroupView, IndexGroupView, NewGroupView, ShowGroupView
 from cws2.views.index import DashboardView
@@ -49,6 +50,12 @@ urlpatterns = [
     path("groups/new", NewGroupView.as_view(), name="group.new"),
     path("groups/<slug:group>", ShowGroupView.as_view(), name="group.show"),
     path("groups/<slug:group>/edit", EditGroupView.as_view(), name="group.edit"),
+    path("groups/<slug:group>/new", NewBoardView.as_view(), name="board.new"),
+    # boards
+    path("boards", IndexBoardView.as_view(), name="board.index"),
+    path(
+        "groups/<slug:group>/<slug:board>", ShowBoardView.as_view(), name="board.show"
+    ),
     # messages
     path("messages", IndexMessageView.as_view(), name="message.index"),
     # language & dictionary

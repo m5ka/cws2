@@ -1,0 +1,6 @@
+{% macro group_icon(group) %}
+    <div
+        class="group-icon"
+        style="background-color: {{ group.icon_colour_bg }}; color: {{ group.icon_colour_fg }}"
+    >{{ group.icon }}</div>
+{% endmacro %}
