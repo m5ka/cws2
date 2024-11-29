@@ -53,7 +53,4 @@ class ShowUserView(View):
         return get_object_or_404(User, username=self.kwargs.get("user"))
 
     def get_context_data(self, **kwargs):
-        return {
-            **super().get_context_data(**kwargs),
-            "profile": self.profile,
-        }
+        return {**super().get_context_data(**kwargs), "profile": self.profile}
