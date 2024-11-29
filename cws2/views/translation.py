@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
 
 from cws2.forms.translation import TranslationForm, TranslationTemplateForm
@@ -11,6 +12,9 @@ from cws2.views.base import FormView, View
 
 class IndexTranslationTemplateView(LoginRequiredMixin, View):
     template_name = "cws2/translation/index.jinja"
+
+    page_title = _("Translations")
+    page_icon = "bx-transfer"
 
     def get_context_data(self, **kwargs):
         translation_templates = TranslationTemplate.objects.annotate(
@@ -25,10 +29,10 @@ class IndexTranslationTemplateView(LoginRequiredMixin, View):
 class NewTranslationTemplateView(LoginRequiredMixin, FormView):
     form_class = TranslationTemplateForm
 
-    verb = _("New translation")
-    verb_icon = "bx-plus"
+    page_title = _("New translation")
+    page_icon = "bx-plus"
 
-    breadcrumb = [[reverse_lazy("translation.index"), _("Translations")]]
+    breadcrumb = ((reverse_lazy("translation.index"), _("Translations")),)
 
     field_classes = {"name": "form__field--wide", "text": "form__field--wide"}
 
@@ -47,11 +51,25 @@ class NewTranslationView(LoginRequiredMixin, FormView):
 class ShowTranslationTemplateView(LoginRequiredMixin, View):
     template_name = "cws2/translation/show.jinja"
 
+    page_icon = "bx-transfer"
+
+    @property
+    def breadcrumb(self):
+        return ((reverse("translation.index"), _("Translations")),)
+
+    @cached_property
+    def translation_template(self):
+        return get_object_or_404(
+            TranslationTemplate.objects.prefetch_related("translations"),
+            uuid=self.kwargs.get("translation"),
+        )
+
+    @property
+    def page_title(self):
+        return self.translation_template.name
+
     def get_context_data(self, **kwargs):
         return {
             **super().get_context_data(**kwargs),
-            "translation_template": get_object_or_404(
-                TranslationTemplate.objects.prefetch_related("translations"),
-                uuid=self.kwargs.get("translation"),
-            ),
+            "translation_template": self.translation_template,
         }

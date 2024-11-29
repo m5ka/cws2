@@ -13,6 +13,16 @@ class View(generic.TemplateView):
     available_themes = ["light", "dark"]
     theme_cookie_key = "theme"
 
+    breadcrumb = ()
+    breadcrumb_root = True
+
+    page_title = "Page"
+    page_icon = None
+
+    @property
+    def breadcrumb_current(self):
+        return self.page_title
+
     @property
     def theme(self):
         if (
@@ -26,6 +36,11 @@ class View(generic.TemplateView):
         return {
             **super().get_context_data(**kwargs),
             "body_colour": self.body_colour,
+            "breadcrumb": self.breadcrumb,
+            "breadcrumb_root": self.breadcrumb_root,
+            "breadcrumb_current": self.breadcrumb_current,
+            "page_title": self.page_title,
+            "page_icon": self.page_icon,
             "theme": self.theme,
         }
 
@@ -33,23 +48,28 @@ class View(generic.TemplateView):
 class FormView(View, generic.FormView):
     template_name = "cws2/form.jinja"
 
-    verb = "Submit form"
-    verb_icon = "bx-rocket"
-    breadcrumb = []
-    breadcrumb_root = True
-
     field_classes = {}
     field_prefixes = {}
     hidden_fields = {}
     form_data = {}
+
+    @property
+    def page_title(self):
+        return self.verb
+
+    @property
+    def verb(self):
+        return self.page_title
+
+    @property
+    def verb_icon(self):
+        return self.page_icon or "bx-rocket"
 
     def get_context_data(self, **kwargs):
         return {
             **super().get_context_data(**kwargs),
             "verb": self.verb,
             "verb_icon": self.verb_icon,
-            "breadcrumb": self.breadcrumb,
-            "breadcrumb_root": self.breadcrumb_root,
             "field_classes": self.field_classes,
             "field_prefixes": self.field_prefixes,
             "hidden_fields": self.hidden_fields,

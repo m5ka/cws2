@@ -1,18 +1,5 @@
 {% extends "cws2/base.jinja" %}
 
-{% block page_icon %}<i class="bx bx-text"></i>{% endblock page_icon %}
-{% block page_title %}{% trans language_name=language.name %}{{ language }} dictionary{% endtrans %}{% endblock page_title %}
-
-{% block breadcrumb_links %}
-    {{ super() }}
-    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.created_by.get_absolute_url() }}">@{{ language.created_by.username }}</a></li>
-    <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.get_absolute_url() }}">{{ language.name }}</a></li>
-{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}
-    <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{% trans %}Dictionary{% endtrans %}</li>
-{% endblock breadcrumb_current %}
-
 {% block page_actions %}
 {% if request.user.is_authenticated and language.check_user_permission(request.user, "write") %}
 <a href="{{ url('word.new', user=language.created_by.username, language=language.slug) }}" class="button button--accent">

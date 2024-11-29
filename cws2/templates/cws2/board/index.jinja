@@ -1,14 +1,6 @@
 {% extends "cws2/base.jinja" %}
 {% from "cws2/macros/group.jinja" import group_icon %}
 
-{% block page_title %}{% trans %}Boards{% endtrans %}{% endblock page_title %}
-
-{% block page_icon %}<i class="bx bx-conversation"></i>{% endblock page_icon %}
-
-{% block breadcrumb_current %}
-    <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{% trans %}Boards{% endtrans %}</li>
-{% endblock breadcrumb_current %}
-
 {% block page_content %}
 <div class="link-groups">
     {% for group in groups %}

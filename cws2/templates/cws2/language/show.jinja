@@ -1,12 +1,5 @@
 {% extends "cws2/base.jinja" %}
 
-{% block breadcrumb_links %}
-{{ super() }}
-<li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ language.created_by.get_absolute_url() }}">@{{ language.created_by.username }}</a></li>
-{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ language.name }}</li>{% endblock breadcrumb_current %}
-
 {% block page_icon %}{% if language.language_flag %}<img src="{{ language.language_flag.url }}" class="flag">{% else %}<i class="bx bx-book"></i>{% endif %}{% endblock page_icon %}
 
 {% block page_title %}

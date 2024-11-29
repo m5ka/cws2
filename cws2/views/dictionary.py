@@ -16,7 +16,7 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     form_class = WordForm
     template_name = "cws2/dictionary/edit.jinja"
 
-    verb_icon = "bx-edit-alt"
+    page_icon = "bx-edit-alt"
 
     ownable_permission_required = "write"
 
@@ -24,28 +24,16 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     def breadcrumb(self):
         return [
             (
-                reverse(
-                    "user.show",
-                    kwargs={"user": self.ownable_resource.created_by.username},
-                ),
-                f"@{self.ownable_resource.created_by.username}",
+                self.word.language.created_by.get_absolute_url(),
+                f"@{self.word.language.created_by.username}",
             ),
-            (
-                reverse(
-                    "language.show",
-                    kwargs={
-                        "user": self.ownable_resource.created_by.username,
-                        "language": self.ownable_resource.slug,
-                    },
-                ),
-                self.ownable_resource.name,
-            ),
+            (self.word.language.get_absolute_url(), self.word.language.name),
             (
                 reverse(
                     "word.index",
                     kwargs={
-                        "user": self.ownable_resource.created_by.username,
-                        "language": self.ownable_resource.slug,
+                        "user": self.word.language.created_by.username,
+                        "language": self.word.language.slug,
                     },
                 ),
                 _("Dictionary"),
@@ -54,7 +42,7 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
         ]
 
     @property
-    def verb(self):
+    def page_title(self):
         return _("Edit %(word)s") % {"word": self.word.headword}
 
     @cached_property
@@ -85,7 +73,24 @@ class EditWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
 class IndexWordView(OwnableResourceMixin, View):
     template_name = "cws2/dictionary/index.jinja"
 
+    page_icon = "bx-text"
+    breadcrumb_current = _("Dictionary")
+
     ownable_permission_required = "read"
+
+    @property
+    def breadcrumb(self):
+        return (
+            (
+                self.ownable_resource.created_by.get_absolute_url(),
+                f"@{self.ownable_resource.created_by.username}",
+            ),
+            (self.ownable_resource.get_absolute_url(), self.ownable_resource.name),
+        )
+
+    @property
+    def page_title(self):
+        return _("%(language)s dictionary") % {"language": self.ownable_resource.name}
 
     def get_context_data(self, **kwargs):
         return {
@@ -106,8 +111,8 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     form_class = NewWordForm
     template_name = "cws2/dictionary/new.jinja"
 
-    verb = "New word"
-    verb_icon = "bx-message-alt-add"
+    page_title = _("New word")
+    page_icon = "bx-message-alt-add"
 
     ownable_permission_required = "write"
 
@@ -115,22 +120,10 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
     def breadcrumb(self):
         return [
             (
-                reverse(
-                    "user.show",
-                    kwargs={"user": self.ownable_resource.created_by.username},
-                ),
+                self.ownable_resource.created_by.get_absolute_url(),
                 f"@{self.ownable_resource.created_by.username}",
             ),
-            (
-                reverse(
-                    "language.show",
-                    kwargs={
-                        "user": self.ownable_resource.created_by.username,
-                        "language": self.ownable_resource.slug,
-                    },
-                ),
-                self.ownable_resource.name,
-            ),
+            (self.ownable_resource.get_absolute_url(), self.ownable_resource.name),
             (
                 reverse(
                     "word.index",
@@ -176,6 +169,32 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
 
 class ShowWordView(View):
     template_name = "cws2/dictionary/show.jinja"
+
+    page_icon = "bx-text"
+
+    @property
+    def breadcrumb(self):
+        return (
+            (
+                self.word.language.created_by.get_absolute_url(),
+                f"@{self.word.language.created_by.username}",
+            ),
+            (self.word.language.get_absolute_url(), self.word.language.name),
+            (
+                reverse(
+                    "word.index",
+                    kwargs={
+                        "user": self.word.language.created_by.username,
+                        "language": self.word.language.slug,
+                    },
+                ),
+                _("Dictionary"),
+            ),
+        )
+
+    @property
+    def page_title(self):
+        return self.word.headword
 
     def get_context_data(self, **kwargs):
         return {

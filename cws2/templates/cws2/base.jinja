@@ -257,17 +257,24 @@
         {% block page_container %}
         <div class="page">
             <header class="page__header">
-                <div class="page__header-icon">{% block page_icon %}{% endblock page_icon %}</div>
-                <h2 class="page__header-title">{% block page_title %}{% endblock page_title %}</h2>
+                <div class="page__header-icon">
+                    {% block page_icon %}{% if page_icon %}<i class="bx {{ page_icon }}"></i>{% endif %}{% endblock page_icon %}
+                </div>
+                <h2 class="page__header-title">{% block page_title %}{{ page_title }}{% endblock page_title %}</h2>
                 <div class="page__header-actions">{% block page_actions %}{% endblock page_actions %}</div>
                 {% block breadcrumb_nav %}
                     <nav class="page__breadcrumb">
                         <ul class="page__breadcrumb-list">
                             {% block breadcrumb_links %}
-                            <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="/">Dashboard</a></li>
+                                <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="/">Dashboard</a></li>
+                                {% if breadcrumb %}
+                                    {% for bc_url, bc_label in breadcrumb %}
+                                        <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ bc_url }}">{{ bc_label }}</a></li>
+                                    {% endfor %}
+                                {% endif %}
                             {% endblock breadcrumb_links %}
                             {% block breadcrumb_current %}
-                            <li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">Page</li>
+                                {% if page_title %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ breadcrumb_current }}</li>{% endif %}
                             {% endblock breadcrumb_current %}
                         </ul>
                     </nav>

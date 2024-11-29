@@ -1,13 +1,7 @@
 {% extends "cws2/base.jinja" %}
 
-{% block breadcrumb_current %}<li aria-current="page">@{{ this_user.username }}</li>{% endblock breadcrumb_current %}
-
-{% block page_icon %}<i class="bx bx-user"></i>{% endblock page_icon %}
-
-{% block page_title %}{{ this_user.username }}{% endblock page_title %}
-
 {% block page_actions %}
-    {% if request.user == this_user %}
+    {% if request.user == profile %}
         <a href="{{ url('user.edit') }}" class="button button--accent">
             <i class="bx bx-edit-alt"></i>
             Edit profile
@@ -19,25 +13,25 @@
 <div class="content content--grid">
     <dl class="content__item">
         <dt>Pronouns</dt>
-        {% if this_user.pronouns %}
-            <dd><i class="bx bx-smile"></i>{{ this_user.pronouns }}</dd>
+        {% if profile.pronouns %}
+            <dd><i class="bx bx-smile"></i>{{ profile.pronouns }}</dd>
         {% else %}
             <dd class="--subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item">
         <dt>Location</dt>
-        {% if this_user.location %}
-            <dd><i class="bx bx-map"></i>{{ this_user.location }}</dd>
+        {% if profile.location %}
+            <dd><i class="bx bx-map"></i>{{ profile.location }}</dd>
         {% else %}
             <dd class="--subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
     <dl class="content__item--wide">
         <dt>About</dt>
-        {% if this_user.bio %}
+        {% if profile.bio %}
             <dd>
-                <blockquote>{{ this_user.bio|markdown }}</blockquote>
+                <blockquote>{{ profile.bio|markdown }}</blockquote>
             </dd>
         {% else %}
             <dd class="--subtle"><em>Not set</em></dd>
@@ -45,7 +39,7 @@
     </dl>
     <section class="content__item">
         <h3 class="content__heading">Conlangs</h3>
-        {% set languages = this_user.owned_languages.all() %}
+        {% set languages = profile.owned_languages.all() %}
         {% if languages %}
             <ul class="flex-list">
                 <li class="flex-list__row flex-list__row--header">
@@ -64,12 +58,12 @@
                 {% endfor %}
             </ul>
         {% else %}
-            <p class="--subtle"><em>{{ this_user.username }} has no conlangs.</em></p>
+            <p class="--subtle"><em>{{ profile.username }} has no conlangs.</em></p>
         {% endif %}
     </section>
     <section class="content__item">
         <h3 class="content__heading">Natlangs</h3>
-        <p class="--subtle"><em>{{ this_user.username }} has not set any known languages.</em></p>
+        <p class="--subtle"><em>{{ profile.username }} has not set any known languages.</em></p>
     </section>
 </div>
 {% endblock page_content %}

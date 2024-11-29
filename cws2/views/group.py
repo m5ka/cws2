@@ -23,7 +23,7 @@ class EditGroupView(GroupMixin, FormView):
 
     ownable_permission_required = "write"
 
-    verb_icon = "bx-edit-alt"
+    page_icon = "bx-edit-alt"
     field_prefixes = {"slug": "conworkshop.com/groups/"}
 
     @property
@@ -63,6 +63,8 @@ class EditGroupView(GroupMixin, FormView):
 class IndexGroupView(View):
     body_colour = "blue"
     template_name = "cws2/group/index.jinja"
+    page_title = _("Groups")
+    page_icon = "bx-group"
 
     @property
     def groups(self):
@@ -78,7 +80,7 @@ class NewGroupView(FormView):
 
     breadcrumb = [[reverse_lazy("group.index"), _("Groups")]]
     verb = _("New group")
-    verb_icon = "bx-user-plus"
+    page_icon = "bx-user-plus"
 
     field_prefixes = {"slug": "conworkshop.com/groups/"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
@@ -113,8 +115,14 @@ class NewGroupView(FormView):
 class ShowGroupView(GroupMixin, View):
     template_name = "cws2/group/show.jinja"
     body_colour = "blue"
+    page_icon = "bx-group"
+    breadcrumb = ((reverse_lazy("group.index"), _("Groups")),)
 
     ownable_permission_required = "read"
+
+    @property
+    def page_title(self):
+        return self.ownable_resource.name
 
     def get_context_data(self, **kwargs):
         return {**super().get_context_data(**kwargs), "group": self.ownable_resource}

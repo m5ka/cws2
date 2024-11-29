@@ -1,18 +1,5 @@
 {% extends "cws2/base.jinja" %}
 
-{% block page_title %}{{ group.name }}{% endblock page_title %}
-
-{% block page_icon %}<i class="bx bx-group"></i>{% endblock page_icon %}
-
-{% block breadcrumb_links %}
-{{ super() }}
-<li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ url('group.index') }}">Groups</a></li>
-{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}
-<li class="page__breadcrumb-item page__breadcrumb-item--current">{{ group.name }}</li>
-{% endblock breadcrumb_current %}
-
 {% block page_actions %}
     {% if request.user.is_authenticated and group.check_user_permission(request.user, "write") %}
         <a href="{{ url('group.edit', group=group.slug) }}" class="button button--accent">

@@ -17,6 +17,9 @@ class IndexBoardView(View):
     template_name = "cws2/board/index.jinja"
     body_colour = "blue"
 
+    page_title = _("Boards")
+    page_icon = "bx-conversation"
+
     def get_context_data(self, **kwargs):
         board_prefetch = Prefetch("boards", queryset=Board.objects.order_by("name"))
         is_system_case = Case(
@@ -39,8 +42,8 @@ class IndexBoardView(View):
 class NewBoardView(OwnableResourceMixin, FormView):
     form_class = BoardForm
 
-    verb = _("New Board")
-    verb_icon = "bx-message-alt-add"
+    page_title = _("New Board")
+    page_icon = "bx-message-alt-add"
     body_colour = "blue"
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 

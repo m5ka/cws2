@@ -26,22 +26,22 @@ class EditLanguageView(LanguageMixin, FormView):
 
     ownable_permission_required = "write"
 
-    verb_icon = "bx-edit-alt"
+    page_icon = "bx-edit-alt"
     field_classes = {"description": "form__field--wide"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 
     @property
     def breadcrumb(self):
-        return [
+        return (
             (
                 self.ownable_resource.created_by.get_absolute_url(),
                 f"@{self.ownable_resource.created_by.username}",
             ),
             (self.ownable_resource.get_absolute_url(), self.ownable_resource.name),
-        ]
+        )
 
     @property
-    def verb(self):
+    def page_title(self):
         return _("Edit %(language)s") % {"language": self.ownable_resource.name}
 
     @property
@@ -66,6 +66,10 @@ class EditLanguageView(LanguageMixin, FormView):
 class IndexLanguageView(LoginRequiredMixin, View):
     template_name = "cws2/language/index.jinja"
 
+    page_title = _("My languages")
+    breadcrumb_current = _("Languages")
+    page_icon = "bx-book"
+
     @cached_property
     def languages(self):
         return Language.objects.filter(owned_by=self.request.user)
@@ -77,15 +81,15 @@ class IndexLanguageView(LoginRequiredMixin, View):
 class NewLanguageView(LoginRequiredMixin, FormView):
     form_class = LanguageForm
 
-    verb = _("New language")
-    verb_icon = "bx-book-add"
-    breadcrumb = [[reverse_lazy("language.index"), _("Languages")]]
+    page_title = _("New language")
+    page_icon = "bx-book-add"
+    breadcrumb = ((reverse_lazy("language.index"), _("Languages")),)
     field_classes = {"description": "form__field--wide"}
     form_data = {"auto-slug-from": "name", "auto-slug": "slug"}
 
     @property
     def field_prefixes(self):
-        return {"slug": "conworkshop.com/@%s/" % (self.request.user.username)}
+        return {"slug": f"conworkshop.com/@{self.request.user.username}/"}
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -102,6 +106,19 @@ class ShowLanguageView(LanguageMixin, View):
     template_name = "cws2/language/show.jinja"
 
     ownable_permission_required = "read"
+
+    @property
+    def breadcrumb(self):
+        return (
+            (
+                self.ownable_resource.created_by.get_absolute_url(),
+                f"@{self.ownable_resource.created_by.username}",
+            ),
+        )
+
+    @property
+    def page_title(self):
+        return self.ownable_resource.name
 
     def get_context_data(self, **kwargs):
         return {**super().get_context_data(**kwargs), "language": self.ownable_resource}

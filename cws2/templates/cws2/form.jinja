@@ -1,21 +1,6 @@
 {% extends "cws2/base.jinja" %}
 {% from "cws2/macros/field.jinja" import form_field %}
 
-{% block breadcrumb_links %}
-{% if breadcrumb_root %}{{ super() }}{% endif %}
-{% if breadcrumb %}
-    {% for bc_url, bc_label in breadcrumb %}
-        <li class="page__breadcrumb-item"><a class="page__breadcrumb-link" href="{{ bc_url }}">{{ bc_label }}</a></li>
-    {% endfor %}
-{% endif %}
-{% endblock breadcrumb_links %}
-
-{% block breadcrumb_current %}<li class="page__breadcrumb-item page__breadcrumb-item--current" aria-current="page">{{ verb }}</li>{% endblock breadcrumb_current %}
-
-{% block page_icon %}{% if verb_icon %}<i class="bx {{ verb_icon }}"></i>{% endif %}{% endblock page_icon %}
-
-{% block page_title %}{{ verb }}{% endblock page_title %}
-
 {% block page_content %}
 <form class="form" action="" method="POST" enctype="{% if form.is_multipart %}multipart/form-data{% else %}application/x-www-form-urlencoded{% endif %}"{% for fd_key, fd_value in form_data.items() %} data-{{ fd_key }}="{{ fd_value }}"{% endfor %}>
     {% include "cws2/components/form_errors.jinja" %}
