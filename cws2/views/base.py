@@ -16,7 +16,7 @@ class View(generic.TemplateView):
     breadcrumb = ()
     breadcrumb_root = True
 
-    page_title = "Page"
+    page_title = None
     page_icon = None
 
     @property
@@ -52,10 +52,6 @@ class FormView(View, generic.FormView):
     field_prefixes = {}
     hidden_fields = {}
     form_data = {}
-
-    @property
-    def page_title(self):
-        return self.verb
 
     @property
     def verb(self):
