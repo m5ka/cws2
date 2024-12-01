@@ -13,6 +13,7 @@
 @import "components/footer";
 @import "components/flags";
 @import "components/image-upload";
+@import "components/info";
 @import "components/link-groups";
 @import "subcomponents/icons";
 @import "subcomponents/links";
@@ -45,4 +46,14 @@ body {
   font-family: $font-stack;
   font-size: $font-medium;
   color: var(--body-text);
+}
+
+.--sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

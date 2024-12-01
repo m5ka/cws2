@@ -1,0 +1,20 @@
+@import "../globals";
+
+.info {
+  .info__key {
+    margin-block-end: .4rem;
+    font-weight: $font-bold;
+    color: var(--body-text-lighter);
+  }
+
+  .info__value {
+    margin-inline-start: 1.2rem;
+  }
+
+  .info__key, .info__value {
+    i {
+      margin-inline-end: .4rem;
+      color: var(--body-text-extra-lightest);
+    }
+  }
+}

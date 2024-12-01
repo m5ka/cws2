@@ -11,30 +11,30 @@
 
 {% block page_content %}
 <div class="content content--grid">
-    <dl class="content__item">
-        <dt>Pronouns</dt>
+    <dl class="content__item info">
+        <dt class="info__key">Pronouns</dt>
         {% if profile.pronouns %}
-            <dd><i class="bx bx-smile"></i>{{ profile.pronouns }}</dd>
+            <dd class="info__value"><i class="bx bx-smile"></i>{{ profile.pronouns }}</dd>
         {% else %}
-            <dd class="--subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
+            <dd class="info__value --subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
-    <dl class="content__item">
-        <dt>Location</dt>
+    <dl class="content__item info">
+        <dt class="info__key">Location</dt>
         {% if profile.location %}
-            <dd><i class="bx bx-map"></i>{{ profile.location }}</dd>
+            <dd class="info__value"><i class="bx bx-map"></i>{{ profile.location }}</dd>
         {% else %}
-            <dd class="--subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
+            <dd class="info__value --subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
         {% endif %}
     </dl>
-    <dl class="content__item--wide">
-        <dt>About</dt>
+    <dl class="content__item--wide info">
+        <dt class="info__key">About</dt>
         {% if profile.bio %}
-            <dd>
+            <dd class="info__value">
                 <blockquote>{{ profile.bio|markdown }}</blockquote>
             </dd>
         {% else %}
-            <dd class="--subtle"><em>Not set</em></dd>
+            <dd class="info__value --subtle"><em>Not set</em></dd>
         {% endif %}
     </dl>
     <section class="content__item">

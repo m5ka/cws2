@@ -1,5 +1,30 @@
 @import "../globals";
 
+.content-heading {
+  margin-block-end: 1rem;
+
+  .content-heading__title {
+    font-weight: $font-bold;
+
+    i {
+      color: var(--body-text-lightest);
+    }
+
+    &.content-heading__title--subtle {
+      color: var(--body-text-lightest);
+      font-weight: $font-regular;
+
+      i {
+        color: var(--body-text-extra-lightest);
+      }
+    }
+  }
+}
+
+.content + .content-heading {
+  margin-block-start: 2.4rem;
+}
+
 .content {
   display: flex;
   flex-flow: column nowrap;
@@ -33,23 +58,6 @@
 
     &.content__heading--xl {
       font-size: 2.8rem;
-    }
-  }
-
-  dl {
-    dt {
-      margin-block-end: .4rem;
-      font-weight: $font-bold;
-      color: var(--body-text-lighter);
-    }
-
-    dd {
-      margin-inline-start: 1.2rem;
-    }
-
-    i {
-      margin-inline-end: .4rem;
-      color: var(--body-text-extra-lightest);
     }
   }
 

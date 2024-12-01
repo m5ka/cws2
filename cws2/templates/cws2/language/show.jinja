@@ -21,20 +21,20 @@
 
 {% block page_content %}
 <div class="content content--grid">
-    <dl class="content__item">
-        <dt>Type</dt>
-        <dd>{{ language.get_language_type_display() }}</dd>
+    <dl class="content__item info">
+        <dt class="info__key">Type</dt>
+        <dd class="info__value">{{ language.get_language_type_display() }}</dd>
     </dl>
-    <dl class="content__item">
-        <dt>Status</dt>
-        <dd>{{ language.get_language_status_display() }}</dd>
+    <dl class="content__item info">
+        <dt class="info__key">Status</dt>
+        <dd class="info__value">{{ language.get_language_status_display() }}</dd>
     </dl>
-    <dl class="content__item content__item--wide">
-        <dt>Description</dt>
+    <dl class="content__item content__item--wide info">
+        <dt class="info__key">Description</dt>
         {% if language.description %}
-            <dd><blockquote>{{ language.description }}</blockquote></dd>
+            <dd class="info__value"><blockquote>{{ language.description }}</blockquote></dd>
         {% else %}
-            <dd class="--subtle"><em>Not set.</em></dd>
+            <dd class="info__value --subtle"><em>Not set.</em></dd>
         {% endif %}
     </dl>
 </div>
