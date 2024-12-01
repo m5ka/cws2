@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.db import IntegrityError
+from django.db.models import Case, Count, IntegerField, Prefetch, When
 from django.http import HttpResponseRedirect
-from django.db.models import Case, Count, IntegerField, Prefetch, Q, When
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
