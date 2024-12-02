@@ -28,7 +28,7 @@
 {% endblock breadcrumb_nav %}
 
 {% block page_actions %}
-    <a href="{{ word.language.get_absolute_url() }}" class="button button--accent">
+    <a href="{{ url('word.index', user=word.language.created_by.username, language=word.language.slug) }}" class="button button--accent">
         <i class="bx bx-left-arrow-alt"></i>
         {% trans %}Dictionary{% endtrans %}
     </a>
