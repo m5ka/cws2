@@ -2,6 +2,11 @@
 
 .content-heading {
   margin-block-end: 1rem;
+  margin-inline: $gutter;
+
+  @include desktop {
+    margin-inline: 0;
+  }
 
   .content-heading__title {
     font-weight: $font-bold;

@@ -13,10 +13,15 @@
 
   &__group-title {
     font-weight: $font-bold;
+    margin-inline: $gutter;
+
+    @include desktop {
+      margin-inline: 0;
+    }
   }
 
   &__link {
-    border-width: 1px 1px 0 1px;
+    border-width: 1px 0 0 0;
     border-style: solid;
     border-color: var(--page-border);
     display: block;
@@ -26,15 +31,23 @@
     color: var(--body-text);
     text-decoration: none;
 
-    &:first-child {
-      border-top-left-radius: $radius;
-      border-top-right-radius: $radius;
+    &:last-child {
+      border-width: 1px 0 1px 0;
     }
 
-    &:last-child {
-      border-width: 1px;
-      border-bottom-left-radius: $radius;
-      border-bottom-right-radius: $radius;
+    @include desktop {
+      border-width: 1px 1px 0 1px;
+
+      &:first-child {
+        border-top-left-radius: $radius;
+        border-top-right-radius: $radius;
+      }
+
+      &:last-child {
+        border-width: 1px;
+        border-bottom-left-radius: $radius;
+        border-bottom-right-radius: $radius;
+      }
     }
 
     i {
