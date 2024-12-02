@@ -170,28 +170,6 @@ class NewWordView(LoginRequiredMixin, OwnableResourceMixin, FormView):
 class ShowWordView(View):
     template_name = "cws2/dictionary/show.jinja"
 
-    page_icon = "bx-text"
-
-    @property
-    def breadcrumb(self):
-        return (
-            (
-                self.word.language.created_by.get_absolute_url(),
-                f"@{self.word.language.created_by.username}",
-            ),
-            (self.word.language.get_absolute_url(), self.word.language.name),
-            (
-                reverse(
-                    "word.index",
-                    kwargs={
-                        "user": self.word.language.created_by.username,
-                        "language": self.word.language.slug,
-                    },
-                ),
-                _("Dictionary"),
-            ),
-        )
-
     @property
     def page_title(self):
         return self.word.headword

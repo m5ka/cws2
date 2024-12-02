@@ -1,16 +1,47 @@
 @import "../globals";
 
-.dictionary {
-  .dictionary__part_of_speech {
-    font-size: $font-extra-large;
+.pre-dictionary {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 1.8rem;
+  font-size: $font-medium;
+
+  .pre-dictionary__entry {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: .8rem;
+
+    .pre-dictionary__key {
+      color: var(--body-text-lightest);
+
+      &.pre-dictionary__key--icon {
+        border-bottom: 1px dotted var(--body-text-extra-lightest);
+      }
+    }
   }
 
+  .--subtle {
+    color: var(--body-text-lightest);
+  }
+}
+
+.dictionary {
   .dictionary__list {
     list-style: decimal;
     padding-inline-start: 2.4rem;
 
-    .dictionary__item_register {
+    .dictionary__item {
+      font-size: $font-large;
+
+      &::marker {
+        color: var(--body-text-extra-lightest);
+      }
+    }
+
+    .dictionary__item-register {
       color: var(--body-text-lightest);
+      text-transform: lowercase;
+      font-style: italic;
     }
   }
 }

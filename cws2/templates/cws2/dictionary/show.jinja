@@ -1,6 +1,37 @@
 {% extends "cws2/base.jinja" %}
 
+{% block breadcrumb_nav %}
+    <div class="page__breadcrumb">
+        <dl class="pre-dictionary">
+            {% if word.alt_word %}
+                <div class="pre-dictionary__entry">
+                    <dt class="pre-dictionary__key pre-dictionary__key--icon" title="{% trans %}Alternative word{% endtrans %}">
+                        <i class="bx bx-text"></i>
+                        <span class="--sr-only">{% trans %}Alternative word{% endtrans %}</span>
+                    </dt>
+                    <dd class="pre-dictionary__value">{{ word.alt_word }}</dd>
+                </div>
+            {% endif %}
+            {% if word.pronunciation %}
+                <div class="pre-dictionary__entry">
+                    <dt class="pre-dictionary__key pre-dictionary__key--icon" title="{% trans %}Pronunciation{% endtrans %}">
+                        <i class="bx bx-volume-full"></i>
+                        <span class="--sr-only">{% trans %}Pronunciation{% endtrans %}</span>
+                    </dt>
+                    <dd class="pre-dictionary__value">
+                        <span class="--subtle --no-select">/</span>{{ word.pronunciation }}<span class="--subtle --no-select">/</span>
+                    </dd>
+                </div>
+            {% endif %}
+        </dl>
+    </div>
+{% endblock breadcrumb_nav %}
+
 {% block page_actions %}
+    <a href="{{ word.language.get_absolute_url() }}" class="button button--accent">
+        <i class="bx bx-left-arrow-alt"></i>
+        {% trans %}Dictionary{% endtrans %}
+    </a>
     {% if editable %}
         <a href="{{ word.get_edit_url() }}" class="button button--accent">
             <i class="bx bx-edit-alt"></i>
@@ -10,47 +41,58 @@
 {% endblock page_actions %}
 
 {% block page_content %}
-    <div class="content content--grid">
-        {% if word.alt_word %}
-            <dl class="content__item">
-                <dt>{% trans %}Alternative word{% endtrans %}</dt>
-                <dd>{{ word.alt_word }}</dd>
-            </dl>
-        {% endif %}
-        {% if word.etymology %}
-            <dl class="content__item">
-                <dt>{% trans %}Etymology{% endtrans %}</dt>
-                <dd>{{ word.etymology }}</dd>
-            </dl>
-        {% endif %}
-        {% if word.pronunciation %}
-            <dl class="content__item">
-                <dt>{% trans %}Pronunciation{% endtrans %}</dt>
-                <dd>{{ word.pronunciation }}</dd>
-            </dl>
-        {% endif %}
-        {% for definitions in word.parts_of_speech.values() %}
-            <dl class="content__item content__item--wide dictionary">
-                <dt class="dictionary__part_of_speech">{{ definitions[0].get_part_of_speech_display() }}</dt>
-                <dd>
-                    <ol class="dictionary__list">
-                        {% for definition in definitions %}
-                            <li class="dictionary__item">
-                                {% if definition.register %}
-                                    <span class="dictionary__item_register">({{ definition.get_register_display() }})</span>
-                                {% endif %}
-                                <span class="dictionary__item_definition">{{ definition.definition }}</span>
-                            </li>
-                        {% endfor %}
-                    </ol>
-                </dd>
-            </dl>
-        {% endfor %}
-        {% if word.notes %}
-            <dl class="content__item content__item--wide">
-                <dt>{% trans %}Notes{% endtrans %}</dt>
-                <dd>{{ word.notes }}</dd>
-            </dl>
-        {% endif %}
-    </div>
+    {% for definitions in word.parts_of_speech.values() %}
+        <div class="content-heading">
+            <h2 class="content-heading__title content-heading__title--large">
+                <i class="bx bx-message-square-dots"></i>
+                {{ definitions[0].get_part_of_speech_display() }}
+            </h2>
+        </div>
+        <div class="content dictionary">
+            <ol class="dictionary__list">
+                {% for definition in definitions %}
+                    <li class="dictionary__item">
+                        {% if definition.register %}
+                            <span class="dictionary__item-register">({{ definition.get_register_display() }})</span>
+                        {% endif %}
+                        <span class="dictionary__item_definition">{{ definition.definition }}</span>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+    {% endfor %}
+
+    {% if word.etymology or word.source_language %}
+        <div class="content-heading">
+            <h2 class="content-heading__title content-heading__title--subtle">
+                <i class="bx bx-leaf"></i>
+                {% trans %}Etymology{% endtrans %}
+            </h2>
+        </div>
+        <div class="content content--grid">
+            {% if word.etymology %}
+                <p class="content__item content__item--wide">{{ word.etymology }}</p>
+            {% endif %}
+            {% if word.source_language %}
+                <div class="content__item content__item--wide">
+                    <dl class="info info--inline info--subtle info--small">
+                        <dt class="info__key">{% trans %}Source language{% endtrans %}</dt>
+                        <dd class="info__value">{{ word.source_language }}</dd>
+                    </dl>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if word.notes %}
+        <div class="content-heading">
+            <h2 class="content-heading__title content-heading__title--subtle">
+                <i class="bx bx-note"></i>
+                {% trans %}Notes{% endtrans %}
+            </h2>
+        </div>
+        <div class="content">
+            {{ word.notes }}
+        </div>
+    {% endif %}
 {% endblock page_content %}

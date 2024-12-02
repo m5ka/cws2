@@ -1,5 +1,12 @@
 @import "../globals";
 
+.info-group {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 1.6rem;
+  align-items: center;
+}
+
 .info {
   .info__key {
     margin-block-end: .4rem;
@@ -16,5 +23,30 @@
       margin-inline-end: .4rem;
       color: var(--body-text-extra-lightest);
     }
+  }
+
+  &.info--inline {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: .8rem;
+
+    .info__key {
+      margin-block-end: 0;
+    }
+
+    .info__value {
+      margin-inline-start: 0;
+    }
+  }
+
+  &.info--subtle {
+    .info__key {
+      font-weight: $font-regular;
+      color: var(--body-text-extra-lightest);
+    }
+  }
+
+  &.info--small {
+    font-size: $font-small;
   }
 }

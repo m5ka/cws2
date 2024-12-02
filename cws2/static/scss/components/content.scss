@@ -18,6 +18,10 @@
         color: var(--body-text-extra-lightest);
       }
     }
+
+    &.content-heading__title--large {
+      font-size: $font-large;
+    }
   }
 }
 
