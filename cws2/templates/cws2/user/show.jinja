@@ -10,60 +10,68 @@
 {% endblock page_actions %}
 
 {% block page_content %}
-<div class="content content--grid">
-    <dl class="content__item info">
-        <dt class="info__key">Pronouns</dt>
-        {% if profile.pronouns %}
-            <dd class="info__value"><i class="bx bx-smile"></i>{{ profile.pronouns }}</dd>
-        {% else %}
-            <dd class="info__value --subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
-        {% endif %}
-    </dl>
-    <dl class="content__item info">
-        <dt class="info__key">Location</dt>
-        {% if profile.location %}
-            <dd class="info__value"><i class="bx bx-map"></i>{{ profile.location }}</dd>
-        {% else %}
-            <dd class="info__value --subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
-        {% endif %}
-    </dl>
-    <dl class="content__item--wide info">
-        <dt class="info__key">About</dt>
-        {% if profile.bio %}
-            <dd class="info__value">
-                <blockquote>{{ profile.bio|markdown }}</blockquote>
-            </dd>
-        {% else %}
-            <dd class="info__value --subtle"><em>Not set</em></dd>
-        {% endif %}
-    </dl>
-    <section class="content__item">
-        <h3 class="content__heading">Conlangs</h3>
-        {% set languages = profile.owned_languages.all() %}
-        {% if languages %}
-            <ul class="flex-list">
-                <li class="flex-list__row flex-list__row--header">
-                    <span class="flex-list__column" style="flex-basis:50%">Name</span>
-                    <span class="flex-list__column" style="flex-basis:50%">Endonym</span>
-                </li>
-                {% for language in languages %}
+    <div class="content-heading">
+        <h2 class="content-heading__title">
+            <i class="bx bx-user-pin"></i>
+            {% trans %}Bio{% endtrans %}
+        </h2>
+    </div>
+    <div class="content content--grid">
+        <dl class="content__item info">
+            <dt class="info__key">Pronouns</dt>
+            {% if profile.pronouns %}
+                <dd class="info__value"><i class="bx bx-smile"></i>{{ profile.pronouns }}</dd>
+            {% else %}
+                <dd class="info__value --subtle"><i class="bx bx-smile"></i><em>Not set</em></dd>
+            {% endif %}
+        </dl>
+        <dl class="content__item info">
+            <dt class="info__key">Location</dt>
+            {% if profile.location %}
+                <dd class="info__value"><i class="bx bx-map"></i>{{ profile.location }}</dd>
+            {% else %}
+                <dd class="info__value --subtle"><i class="bx bx-map"></i><em>Not set</em></dd>
+            {% endif %}
+        </dl>
+        <dl class="content__item--wide info">
+            <dt class="info__key">About</dt>
+            {% if profile.bio %}
+                <dd class="info__value">
+                    <blockquote>{{ profile.bio|markdown }}</blockquote>
+                </dd>
+            {% else %}
+                <dd class="info__value --subtle"><em>Not set</em></dd>
+            {% endif %}
+        </dl>
+    </div>
+
+    {% set languages = profile.owned_languages.all() %}
+    {% if languages %}
+        <div class="content-heading">
+            <h2 class="content-heading__title">
+                <i class="bx bx-book"></i>
+                {% trans %}Conlangs{% endtrans %}
+            </h2>
+        </div>
+        <ul class="flex-list">
+            <li class="flex-list__row flex-list__row--header">
+                <span class="flex-list__column" style="flex-basis:38%">{% trans %}Name{% endtrans %}</span>
+                <span class="flex-list__column" style="flex-basis:38%">{% trans %}Endonym{% endtrans %}</span>
+                <span class="flex-list__column" style="flex-basis:24%">{% trans %}Status{% endtrans %}</span>
+            </li>
+            {% for language in languages %}
                 <li class="flex-list__row">
-                    <span class="flex-list__column" style="flex-basis:50%"><a href="{{ language.get_absolute_url() }}">{{ language.name }}</a></span>
-                    {% if language.endonym %}
-                        <span class="flex-list__column" style="flex-basis:50%">{{ language.endonym }}</span>
-                    {% else %}
-                        <span class="flex-list__column" style="flex-basis:50%" class="colour-grey">None set</span>
-                    {% endif %}
+                    <span class="flex-list__column" style="flex-basis:38%">
+                        <a href="{{ language.get_absolute_url() }}">{{ language.name }}</a>
+                    </span>
+                    <span class="flex-list__column" style="flex-basis:38%">
+                        {% if language.endonym %}{{ language.endonym }}{% endif %}
+                    </span>
+                    <span class="flex-list__column" style="flex-basis:24%">
+                        {% if language.language_status %}{{ language.get_language_status_display() }}{% endif %}
+                    </span>
                 </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p class="--subtle"><em>{{ profile.username }} has no conlangs.</em></p>
-        {% endif %}
-    </section>
-    <section class="content__item">
-        <h3 class="content__heading">Natlangs</h3>
-        <p class="--subtle"><em>{{ profile.username }} has not set any known languages.</em></p>
-    </section>
-</div>
+            {% endfor %}
+        </ul>
+    {% endif %}
 {% endblock page_content %}
