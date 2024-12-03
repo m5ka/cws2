@@ -5,7 +5,7 @@
         <dl class="pre-dictionary">
             {% if word.alt_word %}
                 <div class="pre-dictionary__entry">
-                    <dt class="pre-dictionary__key pre-dictionary__key--icon" title="{% trans %}Alternative word{% endtrans %}">
+                    <dt class="pre-dictionary__key" title="{% trans %}Alternative word{% endtrans %}">
                         <i class="bx bx-text"></i>
                         <span class="--sr-only">{% trans %}Alternative word{% endtrans %}</span>
                     </dt>
@@ -14,7 +14,7 @@
             {% endif %}
             {% if word.pronunciation %}
                 <div class="pre-dictionary__entry">
-                    <dt class="pre-dictionary__key pre-dictionary__key--icon" title="{% trans %}Pronunciation{% endtrans %}">
+                    <dt class="pre-dictionary__key" title="{% trans %}Pronunciation{% endtrans %}">
                         <i class="bx bx-volume-full"></i>
                         <span class="--sr-only">{% trans %}Pronunciation{% endtrans %}</span>
                     </dt>
@@ -23,6 +23,23 @@
                     </dd>
                 </div>
             {% endif %}
+            <div class="pre-dictionary__entry">
+                <dt class="pre-dictionary__key" title="{% trans %}Language{% endtrans %}">
+                    {% if word.language.language_flag %}
+                        <img
+                            src="{{ word.language.language_flag.url }}"
+                            alt="{% with language_name=language.name %}{% trans %}{{ language_name }}'s flag{% endtrans %}{% endwith %}"
+                            class="flag flag--sm"
+                        >
+                    {% else %}
+                        <i class="bx bx-message"></i>
+                    {% endif %}
+                    <span class="--sr-only">{% trans %}Language{% endtrans %}</span>
+                </dt>
+                <dd class="pre-dictionary__value">
+                    <a href="{{ word.language.get_absolute_url() }}">{{ word.language.name }}</a>
+                </dd>
+            </div>
         </dl>
     </div>
 {% endblock breadcrumb_nav %}

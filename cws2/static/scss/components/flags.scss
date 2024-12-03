@@ -5,4 +5,9 @@
   vertical-align: middle;
   max-width: 32px;
   max-height: 28px;
+
+  &.flag--sm {
+    max-width: 26px;
+    max-height: 24px;
+  }
 }

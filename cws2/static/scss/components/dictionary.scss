@@ -2,21 +2,22 @@
 
 .pre-dictionary {
   display: flex;
-  flex-flow: row wrap;
-  column-gap: 1.8rem;
+  flex-flow: column nowrap;
+  row-gap: .4rem;
   font-size: $font-medium;
+
+  @include desktop {
+    flex-flow: row wrap;
+    column-gap: 1.8rem;
+  }
 
   .pre-dictionary__entry {
     display: grid;
     grid-template-columns: auto 1fr;
-    column-gap: .8rem;
+    column-gap: .6rem;
 
     .pre-dictionary__key {
       color: var(--body-text-lightest);
-
-      &.pre-dictionary__key--icon {
-        border-bottom: 1px dotted var(--body-text-extra-lightest);
-      }
     }
   }
 
